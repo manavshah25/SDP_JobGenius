@@ -5,11 +5,11 @@ exports.register=async function(req,res)
     console.log("hello jay")
     const {
         name,
-        username,
+        companyname,
         email,
         password,
       } = req.body;
-      console.log(username)
+      // console.log(username)
       try {
         const userexit = await employeeSchema.findOne({
           email: email
@@ -23,10 +23,10 @@ exports.register=async function(req,res)
           });
         } else {
           console.log("create user");
-          console.log(username)
+          // console.log(username)
           const object = new employeeSchema({
             name,
-            username,
+            companyname,
             email,
             password,
           });
@@ -63,9 +63,8 @@ exports.auth=async function(req,res)
           }else{
             console.log(employeelogin.password);
             console.log(password);
-            // const ismatch =await compare(password, employeelogin.password);
+            const ismatch =await bcrypt.compare(password, employeelogin.password);
             // console.log(ismatch);
-            const ismatch = await bcrypt.compare(password, employeelogin.password);
             if (!ismatch) {
               return res.status(400).json({
                 error: "invaild credientails"

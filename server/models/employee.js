@@ -3,7 +3,7 @@ const bcrpty = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const employeeSchema=new mongoose.Schema({
     name:{type:String,require: [true, "Please enter name"]},
-    username:{type:String,require:[true,"Please enter username"]},
+    companyname:{type:String,require:[true,"Please enter companyname"]},
     email:{type:String,require: [true, "Please enter email"]},
     password:{type:String,require: [true, "Please enter password"]},
   

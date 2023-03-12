@@ -1,4 +1,4 @@
-import{Route,Routes,Navigate,BrowserRouter} from 'react-router-dom';
+import{Route,Routes,BrowserRouter} from 'react-router-dom';
 import './App.css';
 import Homeone from "./Component/Homeone";
 import Hometwo from "./Component/Hometwo";
@@ -7,6 +7,11 @@ import Signup from "./Component/Signup";
 import Jobpost from "./Component/Jobpost"
 import Joblist from "./Component/Joblist"
 import Employeeprofile from "./Component/Employeeprofile"
+import Personaldetail from './Component/Resume/Personaldetail';
+import Education from './Component/Resume/Education';
+import Experience from './Component/Resume/Experience';
+import Skill from './Component/Resume/Skill';
+import Resume from './Component/Resume/Resume';
 function App() {
   return (
     <div>
@@ -19,9 +24,11 @@ function App() {
         <Route  path="/postjob" element={<Jobpost/>}/>
         <Route path='/joblist' element={<Joblist/>}/>
         <Route path='/employeeprofile' element={<Employeeprofile/>}/>
-        {/* <Route  path="/detail" element={<Listinfo/>} />
-        <Route  path="/Creditfrom" element={<Form/>} />
-        <Route path="/" exact element={<Navigate replace to="/login"/>}/> */}
+        <Route path='/personaldetail' element={<Personaldetail/>}/>
+        <Route path="/education" element={<Education/>}/>
+        <Route path="/experience" element={<Experience/>}/>
+        <Route path="/skill" element={<Skill/>}/>
+        <Route path="/resume" element={<Resume/>}/>
       
     </Routes>
     </BrowserRouter>

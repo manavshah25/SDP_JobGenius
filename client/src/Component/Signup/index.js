@@ -16,7 +16,7 @@ function Index() {
     workstatus:"",});
   const [empData,setempData]=useState({
     name:"",
-    username:"",
+    companyname:"",
     email:"",
     password: "",
     confpassword: "",
@@ -81,7 +81,7 @@ function Index() {
     console.log("employee")
    
     try {
-      const { name,username,email,password,confpassword} = empData;
+      const { name,companyname,email,password,confpassword} = empData;
       const res = await fetch("http://localhost:8000/employeesignup", {
         method: "POST",
         headers: {
@@ -89,7 +89,7 @@ function Index() {
         },
         body: JSON.stringify({
           name,
-          username,
+          companyname,
           email,
           password,
         confpassword,
@@ -99,7 +99,7 @@ function Index() {
       console.log(res)
       var mes=await res.json()
       console.log(mes.message);
-      localStorage.setItem("loginemployee", JSON.stringify(mes.loginuser));
+      localStorage.setItem("loginemployee", companyname);
       navigate("/login")
     }
     catch(err)
@@ -138,14 +138,6 @@ function Index() {
             <div class="account-content">
               <form  onSubmit={handleSubmitseeker} class="tr-form">
                 <div class="form-group">
-                {/* <input
-                    type="text"
-                    name="name"
-                    onChange={handleChange}
-                    value={Data.name}
-                    required
-                  className=''
-                  /> */}
                   <input 
                   type="text" 
                   class="form-control"
@@ -218,7 +210,7 @@ function Index() {
                   <input type="text" name="name" required value={empData.name} class="form-control" onChange={employeeChange} placeholder="Your Full Name"/>
                 </div>
                 <div class="form-group">
-                  <input type="text" name='username' required value={empData.username} class="form-control"onChange={employeeChange} placeholder="Username"/>
+                  <input type="text" name='companyname' required value={empData.companyname} class="form-control"onChange={employeeChange} placeholder="Company Name"/>
                 </div>
                 <div class="form-group">
                   <input type="email" name='email' required value={empData.email} class="form-control" onChange={employeeChange} placeholder="your Email"/>
