@@ -53,32 +53,29 @@ exports.auth=async function(req,res)
             email: email
           });
         
-          if (!userlogin) {
-            return res.status(400).json({
-              error: "invailad crenteidatisl"
-            });
-          }else{
-            // console.log(userlogin.password);
-            // console.log(password);
-            const ismatch =await bcrypt.compare(password, userlogin.password);
-            // console.log(ismatch);
+          if (userlogin) {
+            const ismatch = await bcrypt.compare(password, userlogin.password);
             if (!ismatch) {
-              return res.status(400).json({
+              res.status(400).json({
                 error: "invaild credientails"
               });
             } else {
-              console.log("genrate employee");
-              // token = await employeelogin.generateAuthToken();
+              console.log("genrate");
+              token = await userlogin.generateAuthToken();
               const obj = {
                 message: "user sucesfully",
-                // token: token,
+                token: token,
                 loginuser: userlogin,
               };
       
-              return res.status(201).json(obj);
+              res.status(201).json(obj);
       
             }
-          } 
+          } else {
+            res.status(400).send({
+              error: "invailad crenteidatisl"
+            });
+          }
         
       } catch (err) {
         console.log(err);

@@ -14,6 +14,7 @@ const Index = () => {
   const [empData, setempData] = useState({
     empemail: "", emppassword: "",
   })
+ 
   const navigate = useNavigate();
 
   let handleChange = async (event) => {
