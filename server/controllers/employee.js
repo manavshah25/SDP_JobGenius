@@ -65,7 +65,8 @@ exports.auth=async function(req,res)
             console.log(password);
             // const ismatch =await compare(password, employeelogin.password);
             // console.log(ismatch);
-            if (password!=employeelogin.password) {
+            const ismatch = await bcrypt.compare(password, employeelogin.password);
+            if (!ismatch) {
               return res.status(400).json({
                 error: "invaild credientails"
               });

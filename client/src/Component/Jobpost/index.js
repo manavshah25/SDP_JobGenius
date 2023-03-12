@@ -1,29 +1,99 @@
-import React from "react";
+import React ,{useState} from "react";
+import { NavLink, useNavigate } from 'react-router-dom'
 import Navbarone from "./../Navbarone";
 import FormControlLabel from '@mui/material/FormControlLabel';
-import Checkbox, { CheckboxProps } from '@mui/material/Checkbox';
-import { styled } from '@mui/material/styles';
-import { blue } from "@mui/material/colors";
-function index() {
+import Checkbox from '@mui/material/Checkbox';
+import Box from '@mui/material/Box';
+import InputLabel from '@mui/material/InputLabel';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
+import TextField from '@mui/material/TextField';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import Radio from '@mui/material/Radio';
+import RadioGroup from '@mui/material/RadioGroup';
+import InputAdornment from '@mui/material/InputAdornment';
+import Input from '@mui/material/Input';
+import FormLabel from '@mui/material/FormLabel';
+import FormGroup from '@mui/material/FormGroup';
 
-  const BpIcon = styled('span')(({ theme }) => ({
-    borderRadius: 3,
-    width: 16,
-    height: 16,
-    borderColor: blue,
-   
-  }));
-//  function BpCheckbox(props: CheckboxProps) {
-//     return (
-//       <Checkbox
-//         color="blue"
-//         //checkedIcon={<BpCheckedIcon />}
-//         icon={<BpIcon />}
-//         inputProps={{ 'aria-label': 'Checkbox demo' }}
-//         {...props}
-//       />
-//     );
-//   }
+function Index() {
+  const [Data, setData] = useState({
+    title: "",
+    category:"",
+    jobtype:"",
+    salary:"",
+    exprience:"",
+    JavaDev :"",
+     PythonDev :"",
+     FullStackDev :"",
+     UIUXDesginer:"",
+     AndroidDev :"",
+     jobsummary:"",
+     jobrequirement:"",
+  });
+  const Navigate=useNavigate();
+  let handlechange = async (event) => {
+    const name = event.target.name;
+    const val = event.target.value;
+    setData(values => ({ ...values, [name]: val }))
+    console.log(Data.title)
+    console.log(Data.category)
+    console.log(Data.jobtype)
+    console.log(Data.salary)
+    console.log(Data.exprience)
+    console.log(Data.JavaDev)
+    console.log(Data.PythonDev)
+    console.log(Data.jobsummary)
+    console.log(Data.jobrequirement)
+
+  }
+  const handlesubmit=async(e)=>{
+    e.preventDefault();
+    try{
+      const {title,category,jobtype,salary,exprience,JavaDev,PythonDev,FullStackDev,UIUXDesginer,AndroidDev,jobsummary,jobrequirement}=Data;
+        const resi =await fetch("http://localhost:8000/jobpost",{
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            title,
+            category,
+            jobtype,
+            salary,
+            exprience,
+            JavaDev,
+            PythonDev,
+            FullStackDev,
+            UIUXDesginer,
+            AndroidDev,
+            jobsummary,
+            jobrequirement,
+          }),
+    })
+  
+  const y= await resi.json();
+    console.log(y);
+    if (!y.error) {
+      alert("Thanks for posting"+ y.message)
+      Navigate("/")
+    }
+    else {
+      alert("You don't have accont");
+    }
+  } 
+  catch(error)
+  {
+    console.log(error);
+  }
+}
+  
+  const handlechangecheck = (event) => {
+    setData(values=>({...values ,[event.target.name]: event.target.checked}));
+  };
+
+
   return (
     <div className="job-post-page">
       <Navbarone />
@@ -42,6 +112,7 @@ function index() {
           </div>
         </div>
       </div>
+      <form onSubmit={handlesubmit} >
       <div class="tr-post-job page-content">
         <div class="container">
           <div class="row">
@@ -54,99 +125,73 @@ function index() {
                       <label>Title for your job</label>
                     </div>
                     <div class="col-sm-9">
-                      <div class="code-edit">
-                        <span>ex, Human Resource Manager</span>
-                      </div>
+                    <Box style={{marginLeft:"-5%"}} sx={{ '& > :not(style)': { m: 1 } }}>
+                        <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
+                          <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} />
+                          <TextField required fullWidth vale={Data.title}
+                          onChange={handlechange} name="title" id="input-with-sx" style={{marginTop:"-3%"}} label="Title" variant="standard" />
+                        </Box>
+                      </Box>
                     </div>
                   </div>
-                  <div class="row">
+                  <div style={{marginTop:"2%"}}class="row">
                     <div class="col-sm-3">
                       <label>Job Category</label>
                     </div>
                     <div class="col-sm-9">
-                      <div class="dropdown tr-change-dropdown" >
-                        <a data-toggle="dropdown" href="#" aria-expanded="true">
-                          <span class="change-text">Select a category</span>
-                          <i class="fa fa-angle-down"></i>
-                        </a>
-                        <ul class="dropdown-menu tr-change">
-                          <li>
-                            <a href="#">Select a category</a>
-                          </li>
-                          <li>
-                            <a href="#">Software Engineer</a>
-                          </li>
-                          <li>
-                            <a href="#">Project Manager</a>
-                          </li>
-                          <li>
-                            <a href="#">Graphics Designer</a>
-                          </li>
-                        </ul>
-                      </div>
+                    <FormControl required fullWidth style={{marginTop:"-0.5%"}} variant="standard" sx={{ m: 1}}>
+        <InputLabel  id="demo-simple-select-standard-label">Job Category</InputLabel>
+        <Select
+          labelId="demo-simple-select-standard-label"
+          id="demo-simple-select-standard"
+          value={Data.category}
+          onChange={handlechange}
+          name="category"
+          label="Job Category"
+        >
+          <MenuItem value={"Frontend"}>Frontend</MenuItem>
+          <MenuItem value={"Backtend"}>Backend</MenuItem>
+          <MenuItem value={"Api"}>Api</MenuItem>
+        </Select>
+      </FormControl>
                     </div>
                   </div>
-                  <div class="row job-category">
+                  <div  style={{marginTop:"2%"}}class="row job-category">
                     <div class="col-sm-3">
-                      <label>Job Category</label>
+                      <label>Job Type</label>
                     </div>
                     <div class="col-sm-9">
-                      <div class="job-type">
-                        <input
-                          type="radio"
-                          name="radio1"
-                          value="full-time"
-                          id="full-time"
-                        />
-                        <label for="full-time">Full Time</label>
-                        <input
-                          type="radio"
-                          name="radio1"
-                          value="part-time"
-                          id="part-time"
-                        />
-                        <label for="part-time">Part Time</label>
-                        <input
-                          type="radio"
-                          name="radio1"
-                          value="freelance"
-                          id="freelance"
-                        />
-                        <label for="freelance">Freelance</label>
-                        <input
-                          type="radio"
-                          name="radio1"
-                          value="contract"
-                          id="contract"
-                        />
-                        <label for="contract">Contract</label>
-                      </div>
+                    <FormControl required>
+                    <FormLabel id="demo-controlled-radio-buttons-group"></FormLabel>
+                    <RadioGroup
+                    
+                        row
+                      aria-labelledby="demo-row -controlled-radio-buttons-group"
+                      name="jobtype"
+                      value={Data.jobtype}
+                      onChange={handlechange}
+                    
+                    >
+                  <FormControlLabel value="Full Time" control={<Radio />} label="Full Time" />
+                  <FormControlLabel value="Part Time" control={<Radio />} label="Part Time" />
+                  <FormControlLabel value="Freelance" control={<Radio />} label="Freelance" />
+                  <FormControlLabel value="Contract" control={<Radio />} label="Contract" />
+                </RadioGroup>
+              </FormControl>
                     </div>
                   </div>
-                  <div class="row">
+                  <div style={{marginTop:"-1%"}} class="row">
                     <div class="col-sm-3">
                       <label>Salary Information</label>
                     </div>
                     <div class="col-sm-9">
-                      <div class="row">
-                        <div class="col-sm-6">
-                          <div class="code-edit">
-                            <span>$5000</span>
-                          </div>
-                        </div>
-                        <div class="col-sm-6">
-                          <div class="aegotiable">
-                            <span>Or</span>
-                            <input
-                              type="radio"
-                              name="radio2"
-                              value="aegotiable"
-                              id="aegotiable"
-                            />
-                            <label for="aegotiable">Negotiable</label>
-                          </div>
-                        </div>
-                      </div>
+                    <FormControl  required fullWidth sx={{ m: 1 }} variant="standard">
+          <InputLabel htmlFor="standard-adornment-amount">Amount</InputLabel>
+          <Input
+            id="standard-adornment-amount"
+          type="number"  min="0" name="salary" value={Data.salary} onChange={handlechange} startAdornment={<InputAdornment position="start">$</InputAdornment>}
+          />
+        </FormControl>
                     </div>
                   </div>
                   <div class="row exprience-level">
@@ -154,36 +199,23 @@ function index() {
                       <label>Exprience Level</label>
                     </div>
                     <div class="col-sm-9">
-                      <div class="exprience">
-                        <input
-                          type="radio"
-                          name="radio3"
-                          value="entry-level"
-                          id="entry-level"
-                        />
-                        <label for="entry-level">Entry Level</label>
-                        <input
-                          type="radio"
-                          name="radio3"
-                          value="mid-level"
-                          id="mid-level"
-                        />
-                        <label for="mid-level">Mid Level</label>
-                        <input
-                          type="radio"
-                          name="radio3"
-                          value="mid-senior"
-                          id="mid-senior"
-                        />
-                        <label for="mid-senior">Mid-Senior Level</label>
-                        <input
-                          type="radio"
-                          name="radio3"
-                          value="top-level"
-                          id="top-level"
-                        />
-                        <label for="top-level">Top Level</label>
-                      </div>
+                    <FormControl>
+                    <FormLabel id="demo-controlled-radio-buttons-group"></FormLabel>
+                    <RadioGroup
+                        row
+                      aria-labelledby="demo-row -controlled-radio-buttons-group"
+                      name="exprience"
+                      value={Data.exprience}
+                      onChange={handlechange}
+                    
+                    >
+                  <FormControlLabel value="Entry Level" control={<Radio />} label="Entry Level" />
+                  <FormControlLabel value="Mid Level" control={<Radio />} label="Mid Level" />
+                  <FormControlLabel value="Mid-Senior Level" control={<Radio />} label="Mid-Senior Level" />
+                  <FormControlLabel value="Top Level" control={<Radio />} label="Top Level" />
+                </RadioGroup>
+              </FormControl>
+                   
                     </div>
                   </div>
                   <div class="row">
@@ -191,34 +223,49 @@ function index() {
                       <label>Job Function</label>
                     </div>
                     <div class="col-sm-9">
-                    <FormControlLabel
-                      value="end"
-                      control={<Checkbox />}
-                      label="Java Dev"
-                      labelPlacement="end"
-                    />
-                     <FormControlLabel
-                      value="end"
-                      control={<Checkbox />}
-                      label="Python Dev"
-                      labelPlacement="end"
-                    /> <FormControlLabel
-                      value="end"
-                      control={<Checkbox />}
-                      label="Full Stack Dev"
-                      labelPlacement="end"
-                    /> <FormControlLabel
-                      value="end"
-                      control={<Checkbox />}
-                      label="UI-UX Desginer"
-                      labelPlacement="end"
-                    />
-                     <FormControlLabel
-                      value="end"
-                      control={<Checkbox />}
-                      label="Android Dev"
-                      labelPlacement="end"
-                    />
+                    <FormControl component="fieldset">
+      <FormGroup aria-label="position" row>
+       
+        <FormControlLabel
+          value={Data.JavaDev}
+          control={<Checkbox />}
+          onChange={handlechangecheck}
+          label="Java Dev"
+          name="JavaDev"
+          labelPlacement="end"
+        />    <FormControlLabel
+          value={Data.PythonDev}
+          control={<Checkbox />}
+          onChange={handlechangecheck}
+          label="Python Dev"
+          name="PythonDev"
+          labelPlacement="end"
+        />    <FormControlLabel
+          value={Data.FullStackDev}
+          control={<Checkbox />}
+          onChange={handlechangecheck}
+          label="Full Stack Dev"
+          name="FullStackDev"
+          labelPlacement="end"
+        />
+        <FormControlLabel
+          value={Data.UIUXDesginer}
+          control={<Checkbox />}
+          onChange={handlechangecheck}
+          label="UI-UX Desginer"
+          name="UIUXDesginer"
+          labelPlacement="end"
+        />
+          <FormControlLabel
+          value={Data.AndroidDev}
+          control={<Checkbox />}
+          onChange={handlechangecheck}
+          label="Android Dev"
+          name="AndroidDev"
+          labelPlacement="end"
+        />
+      </FormGroup>
+    </FormControl>
                     </div>
                   </div>
                 </div>
@@ -230,20 +277,7 @@ function index() {
                     <label>Job Summary</label>
                   </div>
                   <div class="col-sm-9">
-                    <div class="code-edit">
-                      <span>Write few lines about your Job</span>
-                    </div>
-                    <span class="characters-left">5000 Characters left</span>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-3">
-                    <label>Key Responsibilities:</label>
-                  </div>
-                  <div class="col-sm-9">
-                    <div class="code-edit">
-                      <span>Write few lines about your Job</span>
-                    </div>
+                  <textarea required value={Data.jobsummary}  style={{backgroundColor:"#faf7fa"}} onChange={handlechange} name="jobsummary" rows={9} cols={80} />
                     <span class="characters-left">5000 Characters left</span>
                   </div>
                 </div>
@@ -252,31 +286,30 @@ function index() {
                     <label>Minimum Requirements:</label>
                   </div>
                   <div class="col-sm-9">
-                    <div class="code-edit">
-                      <span>Write few lines about your Job</span>
-                    </div>
+                  <textarea  required value={Data.jobrequirement} name="jobrequirement" style={{backgroundColor:"#faf7fa"}} onChange={handlechange} rows={9} cols={80} />
                     <span class="characters-left">5000 Characters left</span>
                   </div>
                 </div>
+               
               </div>
-              
+             
               <div class="section agreement">
-                <label for="send">
-                  <input type="checkbox" name="send" id="send" />
-                  You agree to our <a href="#">Terms of Use</a> and
+              <label>
+              <Checkbox required />
+                   You agree to our <a href="#">Terms of Use</a> and
                   <a href="#">Privacy Policy</a> and acknowledge that you are
                   the rightful owner of this item and using Trade to find a
                   genuine buyer.
-                </label>
-                <div class="buttons">
-                  <a href="#" class="btn btn-primary">
-                    Post Your Job
-                  </a>
-                  <a href="#" class="btn button-cancle">
-                    Cancle
-                  </a>
+                
+                <div class="buttons" style={{marginTop:"2%"}}>
+                  <button type="submit" class="btn btn-primary"> 
+                    Post Your Job</button>
+                  <NavLink to="/" class="btn button-cancle">
+                    can</NavLink>
                 </div>
+                </label>
               </div>
+             
             </div>
             <div class="col-md-3">
               <div class="section quick-rules">
@@ -366,6 +399,7 @@ function index() {
           </div>
         </div>
       </div>
+      </form>
       <div class="footer">
         <div class="footer-top section-padding">
           <div class="container">
@@ -499,4 +533,4 @@ function index() {
   );
 }
 
-export default index;
+export default Index;
