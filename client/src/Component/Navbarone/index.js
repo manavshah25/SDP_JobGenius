@@ -60,7 +60,7 @@ const employeebool= localStorage.getItem("employeebool")
             <li><NavLink to="/login">SIGN IN&nbsp;</NavLink></li>
             <li><NavLink to="/signup">SIGNUP</NavLink></li>
           </ul>
-          {localStorage.getItem("employeebool")?
+          {employeebool?
           
            <NavLink  className="btn btn-primary" to="/postjob">Post A Job</NavLink>:
            <NavLink  className="btn btn-primary" to="/login">Post A Job</NavLink>
@@ -71,7 +71,7 @@ const employeebool= localStorage.getItem("employeebool")
         <ul className="tr-list">
           
           <Link onClick={handlelogout}>LOGOUT</Link>&nbsp;&nbsp;&nbsp;&nbsp;
-          {localStorage.getItem("employeebool")?
+          {employeebool?
           <NavLink  className="btn btn-primary" to="/postjob">Post A Job</NavLink>:
           <NavLink  className="btn btn-primary" to="/login">Post A Job</NavLink>
           
