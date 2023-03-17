@@ -5,8 +5,6 @@ import { useState } from 'react';
 import Navbarone from './../Navbarone'
 
 const Index = () => {
-  localStorage.setItem("user","");
-  localStorage.setItem("employee","");
   const [Data, setData] = useState({
     email: "",
     password: "",
@@ -45,10 +43,13 @@ const Index = () => {
         }),
       })
       const y = await res.json();
+      const u=JSON.stringify(y.loginemployee);
       console.log(y);
       if (!y.error) {
         alert("Thanks for login")
-        localStorage.setItem("employee",email)
+        localStorage.setItem("employee",u)
+        localStorage.setItem("employeebool",true)
+        localStorage.setItem("userbool",false)
         navigate("/")
       }
       else {
@@ -77,10 +78,14 @@ const Index = () => {
         }),
       })
       const y = await res.json();
+      const u=JSON.stringify(y.loginuser);
       console.log(y);
       if (!y.error) {
         alert("Thanks for login")
-        localStorage.setItem("user",email)
+        localStorage.setItem("user",u)        
+        localStorage.setItem("userbool",true)        
+        localStorage.setItem("employeebool",false)        
+
         navigate("/")
       }
       else {

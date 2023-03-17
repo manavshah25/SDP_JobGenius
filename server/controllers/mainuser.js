@@ -2,6 +2,7 @@ const registermodel=require('../models/register');
 const bcrypt = require("bcryptjs");
 exports.register=async function(req,res)
 {
+
     console.log("hello manav")
     const {
         name,

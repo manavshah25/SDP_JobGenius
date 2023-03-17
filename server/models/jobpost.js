@@ -1,6 +1,7 @@
 const mongoose=require("mongoose");
 const Jobpost =new mongoose.Schema({
  title:{type:String,require: [true, "Please enter title"]},
+ companyname:{type:String,require: [true, "Please enter company name"]},
  category:{type:String,require: [true, "Please enter jobcategory"]},
  jobtype:{type:String,require: [true, "Please enter job type"]},
  salary:{type:Number,require: [true, "Please enter salary"]},

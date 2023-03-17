@@ -1,254 +1,434 @@
-import React from 'react'
-import Navbarone from "./../Navbarone"
-import axios from "axios"
-import { useEffect,useState } from 'react'
-import { NavLink } from 'react-router-dom'
+import React from "react";
+import Navbarone from "./../Navbarone";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const Index = () => {
   const [post, setPost] = useState({
     g: [],
   });
+  const userbool=localStorage.getItem("userbool");
+  const navigate = useNavigate();
   useEffect(() => {
     axios.get("http://localhost:8000/data").then(
       (res) => {
-        setPost({ g: res.data });
+        setTimeout(() => {
+          setPost({ g: res.data });
+        });
       },
       (error) => {
         console.log("error in fetching");
       }
     );
-  },[post]);
-
-console.log(post);
+  }, []);
+  function jobdetailsfunction(id) {
+    localStorage.setItem("id",id);
+    navigate("/jobdetails")
+  }
+  console.log(post);
   return (
     <div>
-    <Navbarone />
-  <div className="tr-banner section-before bg-image">
-    <div className="container">
-      <div className="banner-content text-center">
-        <h1>The Easiest Way to Get Your New Job</h1>
-        <h2>We offer 12000 jobs vacation right now</h2>
-        <div className="banner-form">
-          <form action="#">
-            <input type="text" className="form-control" placeholder="Job Keyword"/>
-            <div className="dropdown tr-change-dropdown">
-              <a data-toggle="dropdown" href="#" aria-expanded="false"><span className="change-text">Location</span><i
-                  className="fa fa-angle-down"></i></a>
-              <ul className="dropdown-menu tr-change">
-                <li><a href="#">Location</a></li>
-                <li><a href="#">Location 1</a></li>
-                <li><a href="#">Location 2</a></li>
-                <li><a href="#">Location 3</a></li>
-              </ul>
+      <Navbarone />
+      <div className="tr-banner section-before bg-image">
+        <div className="container">
+          <div className="banner-content text-center">
+            <h1>The Easiest Way to Get Your New Job</h1>
+            <h2>We offer 12000 jobs vacation right now</h2>
+            <div className="banner-form">
+              <form action="#">
+                <input
+                  type="text"
+                  className="form-control"
+                  placeholder="Job Keyword"
+                />
+                <div className="dropdown tr-change-dropdown">
+                  <a data-toggle="dropdown" href="#" aria-expanded="false">
+                    <span className="change-text">Location</span>
+                    <i className="fa fa-angle-down"></i>
+                  </a>
+                  <ul className="dropdown-menu tr-change">
+                    <li>
+                      <a href="#">Location</a>
+                    </li>
+                    <li>
+                      <a href="#">Location 1</a>
+                    </li>
+                    <li>
+                      <a href="#">Location 2</a>
+                    </li>
+                    <li>
+                      <a href="#">Location 3</a>
+                    </li>
+                  </ul>
+                </div>
+                <button
+                  type="submit"
+                  className="btn btn-primary"
+                  value="Search"
+                >
+                  Search
+                </button>
+              </form>
             </div>
-            <button type="submit" className="btn btn-primary" value="Search">Search</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div className="tr-category section-padding">
-    <div className="container">
-      <div className="section-title">
-        <h1>Browse Jobs By Category</h1>
-      </div>
-      <ul className="category-list tr-list">
-        <li>
-          <a href="#">
-            <span className="icon">
-              <img src="images/icons/category1.png" alt="Icon" className="img-fluid"/>
-            </span>
-            <span className="category-title">Accounting/Finance</span>
-            <span className="category-quantity">(1298)</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span className="icon">
-              <img src="images/icons/category2.png" alt="Icon" className="img-fluid"/>
-            </span>
-            <span className="category-title">Education/Training</span>
-            <span className="category-quantity">(76212)</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span className="icon">
-              <img src="images/icons/category3.png" alt="Icon" className="img-fluid"/>
-            </span>
-            <span className="category-title">Engineer/Architects</span>
-            <span className="category-quantity">(212)</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span className="icon">
-              <img src="images/icons/category4.png" alt="Icon" className="img-fluid"/>
-            </span>
-            <span className="category-title">Garments/Textile</span>
-            <span className="category-quantity">(972)</span>
-          </a>
-        </li>
-      </ul>
-      <ul className="category-list tr-list">
-        <li>
-          <a href="#">
-            <span className="icon">
-              <img src="images/icons/category5.png" alt="Icon" className="img-fluid"/>
-            </span>
-            <span className="category-title">HR/Org. Development</span>
-            <span className="category-quantity">(1298)</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span className="icon">
-              <img src="images/icons/category6.png" alt="Icon" className="img-fluid"/>
-            </span>
-            <span className="category-title">Design/Creative</span>
-            <span className="category-quantity">(76212)</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span className="icon">
-              <img src="images/icons/category7.png" alt="Icon" className="img-fluid"/>
-            </span>
-            <span className="category-title">Research/Consultancy</span>
-            <span className="category-quantity">(1298)</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span className="icon">
-              <img src="images/icons/category8.png" alt="Icon" className="img-fluid"/>
-            </span>
-            <span className="category-title">Medical/Pharma</span>
-            <span className="category-quantity">(76212)</span>
-          </a>
-        </li>
-      </ul>
-      <ul className="category-list category-list-bottom tr-list">
-        <li>
-          <a href="#">
-            <span className="icon">
-              <img src="images/icons/category9.png" alt="Icon" className="img-fluid"/>
-            </span>
-            <span className="category-title">Music & Arts</span>
-            <span className="category-quantity">(212)</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span className="icon">
-              <img src="images/icons/category10.png" alt="Icon" className="img-fluid"/>
-            </span>
-            <span className="category-title">Marketing/Sales</span>
-            <span className="category-quantity">(972)</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span className="icon">
-              <img src="images/icons/category11.png" alt="Icon" className="img-fluid"/>
-            </span>
-            <span className="category-title">Production/Operation</span>
-            <span className="category-quantity">(212)</span>
-          </a>
-        </li>
-        <li>
-          <a href="#">
-            <span className="icon">
-              <img src="images/icons/category12.png" alt="Icon" className="img-fluid"/>
-            </span>
-            <span className="category-title">Miscellaneous</span>
-            <span className="category-quantity">(972)</span>
-          </a>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div className="tr-cta">
-    <div className="container">
-      <div className="cta-content section">
-        <div className="cta-info">
-          <div className="pull-left">
-            <h1>Add your resume and let your next job find you.</h1>
           </div>
-          {localStorage.getItem("user")==""?
-          <NavLink to="/login" className="btn btn-primary pull-right">Add Your Resume</NavLink>
-          :
-          <NavLink to="/personaldetail" className="btn btn-primary pull-right">Add Your Resume</NavLink>
-          }
         </div>
       </div>
-    </div>
-  </div>
-  <div className="tr-job-posted section-padding">
-    <div className="container">
-      <div className="section-title">
-        <h1>Jobs you may be interested in</h1>
+      <div className="tr-category section-padding">
+        <div className="container">
+          <div className="section-title">
+            <h1>Browse Jobs By Category</h1>
+          </div>
+          <ul className="category-list tr-list">
+            <li>
+              <a href="#">
+                <span className="icon">
+                  <img
+                    src="images/icons/category1.png"
+                    alt="Icon"
+                    className="img-fluid"
+                  />
+                </span>
+                <span className="category-title">Accounting/Finance</span>
+                <span className="category-quantity">(1298)</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span className="icon">
+                  <img
+                    src="images/icons/category2.png"
+                    alt="Icon"
+                    className="img-fluid"
+                  />
+                </span>
+                <span className="category-title">Education/Training</span>
+                <span className="category-quantity">(76212)</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span className="icon">
+                  <img
+                    src="images/icons/category3.png"
+                    alt="Icon"
+                    className="img-fluid"
+                  />
+                </span>
+                <span className="category-title">Engineer/Architects</span>
+                <span className="category-quantity">(212)</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span className="icon">
+                  <img
+                    src="images/icons/category4.png"
+                    alt="Icon"
+                    className="img-fluid"
+                  />
+                </span>
+                <span className="category-title">Garments/Textile</span>
+                <span className="category-quantity">(972)</span>
+              </a>
+            </li>
+          </ul>
+          <ul className="category-list tr-list">
+            <li>
+              <a href="#">
+                <span className="icon">
+                  <img
+                    src="images/icons/category5.png"
+                    alt="Icon"
+                    className="img-fluid"
+                  />
+                </span>
+                <span className="category-title">HR/Org. Development</span>
+                <span className="category-quantity">(1298)</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span className="icon">
+                  <img
+                    src="images/icons/category6.png"
+                    alt="Icon"
+                    className="img-fluid"
+                  />
+                </span>
+                <span className="category-title">Design/Creative</span>
+                <span className="category-quantity">(76212)</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span className="icon">
+                  <img
+                    src="images/icons/category7.png"
+                    alt="Icon"
+                    className="img-fluid"
+                  />
+                </span>
+                <span className="category-title">Research/Consultancy</span>
+                <span className="category-quantity">(1298)</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span className="icon">
+                  <img
+                    src="images/icons/category8.png"
+                    alt="Icon"
+                    className="img-fluid"
+                  />
+                </span>
+                <span className="category-title">Medical/Pharma</span>
+                <span className="category-quantity">(76212)</span>
+              </a>
+            </li>
+          </ul>
+          <ul className="category-list category-list-bottom tr-list">
+            <li>
+              <a href="#">
+                <span className="icon">
+                  <img
+                    src="images/icons/category9.png"
+                    alt="Icon"
+                    className="img-fluid"
+                  />
+                </span>
+                <span className="category-title">Music & Arts</span>
+                <span className="category-quantity">(212)</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span className="icon">
+                  <img
+                    src="images/icons/category10.png"
+                    alt="Icon"
+                    className="img-fluid"
+                  />
+                </span>
+                <span className="category-title">Marketing/Sales</span>
+                <span className="category-quantity">(972)</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span className="icon">
+                  <img
+                    src="images/icons/category11.png"
+                    alt="Icon"
+                    className="img-fluid"
+                  />
+                </span>
+                <span className="category-title">Production/Operation</span>
+                <span className="category-quantity">(212)</span>
+              </a>
+            </li>
+            <li>
+              <a href="#">
+                <span className="icon">
+                  <img
+                    src="images/icons/category12.png"
+                    alt="Icon"
+                    className="img-fluid"
+                  />
+                </span>
+                <span className="category-title">Miscellaneous</span>
+                <span className="category-quantity">(972)</span>
+              </a>
+            </li>
+          </ul>
+        </div>
       </div>
-      <div className="job-tab text-center">
-        <ul className="nav nav-tabs justify-content-center" role="tablist">
-          <li role="presentation" className="active">
-            <a className="active" href="#hot-jobs" aria-controls="hot-jobs" role="tab" data-toggle="tab">Hot Jobs</a>
-          </li>
-          <li role="presentation"><a href="#recent-jobs" aria-controls="recent-jobs" role="tab" data-toggle="tab">Recent
+      <div className="tr-cta">
+        <div className="container">
+          <div className="cta-content section">
+            <div className="cta-info">
+              <div className="pull-left">
+                <h1>Add your resume and let your next job find you.</h1>
+              </div>
+              { userbool ? (
+                <NavLink to="/login" className="btn btn-primary pull-right">
+                  Add Your Resume
+                </NavLink>
+              ) : (
+                <NavLink
+                  to="/personaldetail"
+                  className="btn btn-primary pull-right"
+                >
+                  Add Your Resume
+                </NavLink>
+              )}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="tr-job-posted section-padding">
+        <div className="container">
+          <div className="section-title">
+            <h1>Jobs you may be interested in</h1>
+          </div>
+          <div className="job-tab text-center">
+            <ul className="nav nav-tabs justify-content-center" role="tablist">
+              <li role="presentation" className="active">
+                <a
+                  className="active"
+                  href="#hot-jobs"
+                  aria-controls="hot-jobs"
+                  role="tab"
+                  data-toggle="tab"
+                >
+                  Hot Jobs
+                </a>
+              </li>
+              {/* <li role="presentation"><a href="#recent-jobs" aria-controls="recent-jobs" role="tab" data-toggle="tab">Recent
               Jobs</a></li>
           <li role="presentation"><a href="#popular-jobs" aria-controls="popular-jobs" role="tab"
-              data-toggle="tab">Popular Jobs</a></li>
-        </ul>
-        <div className="tab-content text-left">
-          <div role="tabpanel" className="tab-pane fade show active" id="hot-jobs">
-            <div className="row">
-            {post.g.map((add,i)=>(
-              <div key={i}className="col-md-6 col-lg-3">
-                <div className="job-item">
-                  <div className="item-overlay">
-                    <div className="job-info">
-                      <a href="#" className="btn btn-primary">{add.jobtype}</a>
-                      <span className="tr-title">
-                        <a href="job-details.html">{add.title}</a>
-                        <span><a href="#">Dig File</a></span>
-                      </span>
-                      <ul className="tr-list job-meta">
-                        <li><i className="fa fa-map-signs" aria-hidden="true"></i>{add.category} Developer</li>
-                        <li><i className="fa fa-briefcase" aria-hidden="true"></i>{add.exprience}</li>
-                        <li><i className="fa fa-money" aria-hidden="true"></i>${add.salary}</li>
-                      </ul>
-                      <ul className="job-social tr-list">
-                        <li><a href="#"><i className="fa fa-heart-o" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i className="fa fa-expand" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i className="fa fa-bookmark-o" aria-hidden="true"></i></a></li>
-                        <li><a href="job-details.html"><i className="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                        </li>
-                      </ul>
+              data-toggle="tab">Popular Jobs</a></li> */}
+            </ul>
+            <div className="tab-content text-left">
+              <div
+                role="tabpanel"
+                className="tab-pane fade show active"
+                id="hot-jobs"
+              >
+                <div className="row">
+                  {post.g.map((add, i) => (
+                    <div key={i} className="col-md-6 col-lg-3">
+                      <div className="job-item">
+                        <div className="item-overlay">
+                          <div className="job-info">
+                            <a href="#" className="btn btn-primary">
+                              {add.jobtype}
+                            </a>
+                            <span className="tr-title">
+                              <a href="job-details.html">{add.title}</a>
+                              <span>
+                                <a href="#">{add.companyname}</a>
+                              </span>
+                            </span>
+                            <ul className="tr-list job-meta">
+                              <li>
+                                <i
+                                  className="fa fa-map-signs"
+                                  aria-hidden="true"
+                                ></i>
+                                {add.category} Developer
+                              </li>
+                              <li>
+                                <i
+                                  className="fa fa-briefcase"
+                                  aria-hidden="true"
+                                ></i>
+                                {add.exprience}
+                              </li>
+                              <li>
+                                <i
+                                  className="fa fa-money"
+                                  aria-hidden="true"
+                                ></i>
+                                ${add.salary}
+                              </li>
+                            </ul>
+                            <ul className="job-social tr-list">
+                              <li>
+                                <a href="#">
+                                  <i
+                                    className="fa fa-heart-o"
+                                    aria-hidden="true"
+                                  ></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#">
+                                  <i
+                                    className="fa fa-expand"
+                                    aria-hidden="true"
+                                  ></i>
+                                </a>
+                              </li>
+                              <li>
+                                <a href="#">
+                                  <i
+                                    className="fa fa-bookmark-o"
+                                    aria-hidden="true"
+                                  ></i>
+                                </a>
+                              </li>
+                              <li>
+                                <button onClick={()=>jobdetailsfunction(add._id)}>
+                                  <a><i
+                                    className="fa fa-long-arrow-right"
+                                    aria-hidden="true"
+                                  ></i>
+                                </a></button>
+                              </li>
+                            </ul>
+                          </div>
+                        </div>
+                        <div className="job-info">
+                          <div className="company-logo">
+                            <img
+                              src="images/job/1.png"
+                              alt="images"
+                              className="img-fluid"
+                            />
+                          </div>
+                          <span className="tr-title">
+                            <a href="#">{add.title}</a>
+                            <span>
+                              <a href="#">{add.companyname}</a>
+                            </span>
+                          </span>
+                          <ul className="tr-list job-meta">
+                            <li>
+                              <span>
+                                <i
+                                  className="fa fa-map-signs"
+                                  aria-hidden="true"
+                                ></i>
+                              </span>
+                              {add.category} Developer
+                            </li>
+                            <li>
+                              <span>
+                                <i
+                                  className="fa fa-briefcase"
+                                  aria-hidden="true"
+                                ></i>
+                              </span>
+                              {add.exprience}
+                            </li>
+                            <li>
+                              <span>
+                                <i
+                                  className="fa fa-money"
+                                  aria-hidden="true"
+                                ></i>
+                              </span>
+                              ${add.salary}
+                            </li>
+                          </ul>
+                          <div className="time">
+                            <a href="#">
+                              <span class="part-time">{add.jobtype}</span>
+                            </a>
+                            <span
+                              style={{ marginTop: "4%" }}
+                              className="pull-right"
+                            >
+                              Posted on {add.postedDate.slice(0, 16)}
+                            </span>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div className="job-info">
-                    <div className="company-logo">
-                      <img src="images/job/1.png" alt="images" className="img-fluid"/>
-                    </div>
-                    <span className="tr-title">
-                      <a href="#">{add.title}</a>
-                      <span><a href="#">Dig File</a></span>
-                    </span>
-                    <ul className="tr-list job-meta">
-                      <li><span><i className="fa fa-map-signs" aria-hidden="true"></i></span>{add.category} Developer</li>
-                      <li><span><i className="fa fa-briefcase" aria-hidden="true"></i></span>{add.exprience}</li>
-                      <li><span><i className="fa fa-money" aria-hidden="true"></i></span>${add.salary}</li>
-                    </ul>
-                    <div className="time">
-                      <a href="#"><span
-                         class="part-time">{add.jobtype}</span></a>
-                      <span  style={{marginTop:"4%"}}className="pull-right">Posted on {add.postedDate.slice(0, 16)}</span>
-                    </div>
-                  </div>
+                  ))}
                 </div>
-              </div>
-            ))}
-          </div>
-          <div role="tabpanel" className="tab-pane fade in" id="recent-jobs">
+                {/* <div role="tabpanel" className="tab-pane fade in" id="recent-jobs">
           <div className="row">
             {post.g.map((add,i)=>(
 			 
@@ -259,7 +439,7 @@ console.log(post);
                       <a href="#" className="btn btn-primary">{add.jobtype}</a>
                       <span className="tr-title">
                         <a href="job-details.html">{add.title}</a>
-                        <span><a href="#">Dig File</a></span>
+                        <span><a href="#">{add.companyname}</a></span>
                       </span>
                       <ul className="tr-list job-meta">
                         <li><i className="fa fa-map-signs" aria-hidden="true"></i>{add.category} Developer</li>
@@ -281,7 +461,7 @@ console.log(post);
                     </div>
                     <span className="tr-title">
                       <a href="#">{add.title}</a>
-                      <span><a href="#">Dig File</a></span>
+                      <span><a href="#">{add.companyname}</a></span>
                     </span>
                     <ul className="tr-list job-meta">
                       <li><span><i className="fa fa-map-signs" aria-hidden="true"></i></span>{add.category} Developer</li>
@@ -349,321 +529,496 @@ console.log(post);
               </div>
             ))}
           </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div className="tr-steps bg-image section-padding section-before">
-    <div className="container">
-      <div className="row">
-        <div className="col-sm-4">
-          <div className="step">
-            <div className="step-image">
-              <img src="images/icons/step1.png" alt="images" className="img-fluid"/>
-            </div>
-            <h1>01 Steps</h1>
-            <h2>Register an account</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-              industry.</p>
-          </div>
-        </div>
-        <div className="col-sm-4">
-          <div className="step">
-            <div className="step-image">
-              <img src="images/icons/step2.png" alt="images" className="img-fluid"/>
-            </div>
-            <h1>02 Steps</h1>
-            <h2>search your desired job</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-              industry.</p>
-          </div>
-        </div>
-        <div className="col-sm-4">
-          <div className="step">
-            <div className="step-image">
-              <img src="images/icons/step3.png" alt="images" className="img-fluid"/>
-            </div>
-            <h1>03 Steps</h1>
-            <h2>Send your resume to employers</h2>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-              industry.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div className="tr-recent-news section-padding">
-    <div className="container">
-      <div className="section-title">
-        <h1>Recent News Articles</h1>
-      </div>
-      <div className="blog-content">
-        <div className="tr-post media">
-          <div className="entry-header pull-left">
-            <div className="entry-thumbnail">
-              <a href="#"><img src="images/blog/1.jpg" alt="images" className="img-fluid"/></a>
-            </div>
-          </div>
-          <div className="entry-content media-body">
-            <h2 className="entry-title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a></h2>
-            <ul className="entry-meta tr-list">
-              <li><i className="fa fa-user"></i>By <a href="#">owen williams </a></li>
-              <li><i className="fa fa-clock-o"></i> <a href="#">Aug 1, 2017</a></li>
-              <li><i className="fa fa-comment-o"></i> <a href="#">189 Comments</a></li>
-            </ul>
-          </div>
-          <div className="blog-post">
-          </div>
-        </div>
-        <div className="tr-post media">
-          <div className="entry-header pull-left">
-            <div className="entry-thumbnail">
-              <a href="#"><img src="images/blog/2.jpg" alt="images" className="img-fluid"/></a>
-            </div>
-          </div>
-          <div className="entry-content media-body">
-            <h2 className="entry-title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a></h2>
-            <ul className="entry-meta tr-list">
-              <li><i className="fa fa-user"></i>By <a href="#">owen williams </a></li>
-              <li><i className="fa fa-clock-o"></i> <a href="#">Aug 1, 2017</a></li>
-              <li><i className="fa fa-comment-o"></i> <a href="#">189 Comments</a></li>
-            </ul>
-          </div>
-          <div className="blog-post">
-          </div>
-        </div>
-        <div className="tr-post media">
-          <div className="entry-header pull-left">
-            <div className="entry-thumbnail">
-              <a href="#"><img src="images/blog/3.jpg" alt="images" className="img-fluid"/></a>
-            </div>
-          </div>
-          <div className="entry-content media-body">
-            <h2 className="entry-title"><a href="#">Lorem ipsum dolor sit amet, consectetur adipisicing elit</a></h2>
-            <ul className="entry-meta tr-list">
-              <li><i className="fa fa-user"></i>By <a href="#">owen williams </a></li>
-              <li><i className="fa fa-clock-o"></i> <a href="#">Aug 1, 2017</a></li>
-              <li><i className="fa fa-comment-o"></i> <a href="#">189 Comments</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div className="tr-testimonial">
-    <div className="container">
-      <div className="testimonial-content">
-        <div className="testimonial-slider">
-          <div className="testimonial">
-            <div className="media">
-              <div className="media-left">
-                <img src="images/others/testimonial.png" alt="images" className="img-fluid"/>
+          </div> */}
               </div>
-              <div className="media-body">
-                <p>‘’ Lorem ipsum dolor sit amet, consectetur adipisicing, sed do eiusmod tempor incididunt ut labore.
-                  ‘’</p>
-                <div className="testimonial-title">
-                  <h2>Stive Frankman</h2>
-                  <p>CEO, Frakman Inc</p>
+            </div>
+          </div>
+        </div>
+        <div className="tr-steps bg-image section-padding section-before">
+          <div className="container">
+            <div className="row">
+              <div className="col-sm-4">
+                <div className="step">
+                  <div className="step-image">
+                    <img
+                      src="images/icons/step1.png"
+                      alt="images"
+                      className="img-fluid"
+                    />
+                  </div>
+                  <h1>01 Steps</h1>
+                  <h2>Register an account</h2>
+                  <p>
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry.
+                  </p>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="testimonial">
-            <div className="media">
-              <div className="media-left">
-                <img src="images/others/testimonial.png" alt="images" className="img-fluid"/>
-              </div>
-              <div className="media-body">
-                <p>‘’ Lorem ipsum dolor sit amet, consectetur adipisicing, sed do eiusmod tempor incididunt ut labore.
-                  ‘’</p>
-                <div className="testimonial-title">
-                  <h2>Stive Frankman</h2>
-                  <p>CEO, Frakman Inc</p>
+              <div className="col-sm-4">
+                <div className="step">
+                  <div className="step-image">
+                    <img
+                      src="images/icons/step2.png"
+                      alt="images"
+                      className="img-fluid"
+                    />
+                  </div>
+                  <h1>02 Steps</h1>
+                  <h2>search your desired job</h2>
+                  <p>
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry.
+                  </p>
                 </div>
               </div>
-            </div>
-          </div>
-          <div className="testimonial">
-            <div className="media">
-              <div className="media-left">
-                <img src="images/others/testimonial.png" alt="images" className="img-fluid"/>
-              </div>
-              <div className="media-body">
-                <p>‘’ Lorem ipsum dolor sit amet, consectetur adipisicing, sed do eiusmod tempor incididunt ut labore.
-                  ‘’</p>
-                <div className="testimonial-title">
-                  <h2>Stive Frankman</h2>
-                  <p>CEO, Frakman Inc</p>
+              <div className="col-sm-4">
+                <div className="step">
+                  <div className="step-image">
+                    <img
+                      src="images/icons/step3.png"
+                      alt="images"
+                      className="img-fluid"
+                    />
+                  </div>
+                  <h1>03 Steps</h1>
+                  <h2>Send your resume to employers</h2>
+                  <p>
+                    Lorem Ipsum is simply dummy text of the printing and
+                    typesetting industry. Lorem Ipsum has been the industry.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-  <div className="tr-fun-fact section-padding">
-    <div className="container">
-      <div className="fun-fact-content">
-        <div className="row text-center">
-          <div className="col-sm-4">
-            <div className="fun-fact">
-              <img src="images/icons/fun-fact1.png" alt="images" className="img-fluid"/>
-              <h1 className="counter">3,412</h1>
-              <span>Live Jobs</span>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+        <div className="tr-recent-news section-padding">
+          <div className="container">
+            <div className="section-title">
+              <h1>Recent News Articles</h1>
+            </div>
+            <div className="blog-content">
+              <div className="tr-post media">
+                <div className="entry-header pull-left">
+                  <div className="entry-thumbnail">
+                    <a href="#">
+                      <img
+                        src="images/blog/1.jpg"
+                        alt="images"
+                        className="img-fluid"
+                      />
+                    </a>
+                  </div>
+                </div>
+                <div className="entry-content media-body">
+                  <h2 className="entry-title">
+                    <a href="#">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    </a>
+                  </h2>
+                  <ul className="entry-meta tr-list">
+                    <li>
+                      <i className="fa fa-user"></i>By{" "}
+                      <a href="#">owen williams </a>
+                    </li>
+                    <li>
+                      <i className="fa fa-clock-o"></i>{" "}
+                      <a href="#">Aug 1, 2017</a>
+                    </li>
+                    <li>
+                      <i className="fa fa-comment-o"></i>{" "}
+                      <a href="#">189 Comments</a>
+                    </li>
+                  </ul>
+                </div>
+                <div className="blog-post"></div>
+              </div>
+              <div className="tr-post media">
+                <div className="entry-header pull-left">
+                  <div className="entry-thumbnail">
+                    <a href="#">
+                      <img
+                        src="images/blog/2.jpg"
+                        alt="images"
+                        className="img-fluid"
+                      />
+                    </a>
+                  </div>
+                </div>
+                <div className="entry-content media-body">
+                  <h2 className="entry-title">
+                    <a href="#">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    </a>
+                  </h2>
+                  <ul className="entry-meta tr-list">
+                    <li>
+                      <i className="fa fa-user"></i>By{" "}
+                      <a href="#">owen williams </a>
+                    </li>
+                    <li>
+                      <i className="fa fa-clock-o"></i>{" "}
+                      <a href="#">Aug 1, 2017</a>
+                    </li>
+                    <li>
+                      <i className="fa fa-comment-o"></i>{" "}
+                      <a href="#">189 Comments</a>
+                    </li>
+                  </ul>
+                </div>
+                <div className="blog-post"></div>
+              </div>
+              <div className="tr-post media">
+                <div className="entry-header pull-left">
+                  <div className="entry-thumbnail">
+                    <a href="#">
+                      <img
+                        src="images/blog/3.jpg"
+                        alt="images"
+                        className="img-fluid"
+                      />
+                    </a>
+                  </div>
+                </div>
+                <div className="entry-content media-body">
+                  <h2 className="entry-title">
+                    <a href="#">
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    </a>
+                  </h2>
+                  <ul className="entry-meta tr-list">
+                    <li>
+                      <i className="fa fa-user"></i>By{" "}
+                      <a href="#">owen williams </a>
+                    </li>
+                    <li>
+                      <i className="fa fa-clock-o"></i>{" "}
+                      <a href="#">Aug 1, 2017</a>
+                    </li>
+                    <li>
+                      <i className="fa fa-comment-o"></i>{" "}
+                      <a href="#">189 Comments</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="col-sm-4">
-            <div className="fun-fact">
-              <img src="images/icons/fun-fact2.png" alt="images" className="img-fluid"/>
-              <h1 className="counter">12,043</h1>
-              <span>Total Company</span>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+        </div>
+        <div className="tr-testimonial">
+          <div className="container">
+            <div className="testimonial-content">
+              <div className="testimonial-slider">
+                <div className="testimonial">
+                  <div className="media">
+                    <div className="media-left">
+                      <img
+                        src="images/others/testimonial.png"
+                        alt="images"
+                        className="img-fluid"
+                      />
+                    </div>
+                    <div className="media-body">
+                      <p>
+                        ‘’ Lorem ipsum dolor sit amet, consectetur adipisicing,
+                        sed do eiusmod tempor incididunt ut labore. ‘’
+                      </p>
+                      <div className="testimonial-title">
+                        <h2>Stive Frankman</h2>
+                        <p>CEO, Frakman Inc</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="testimonial">
+                  <div className="media">
+                    <div className="media-left">
+                      <img
+                        src="images/others/testimonial.png"
+                        alt="images"
+                        className="img-fluid"
+                      />
+                    </div>
+                    <div className="media-body">
+                      <p>
+                        ‘’ Lorem ipsum dolor sit amet, consectetur adipisicing,
+                        sed do eiusmod tempor incididunt ut labore. ‘’
+                      </p>
+                      <div className="testimonial-title">
+                        <h2>Stive Frankman</h2>
+                        <p>CEO, Frakman Inc</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="testimonial">
+                  <div className="media">
+                    <div className="media-left">
+                      <img
+                        src="images/others/testimonial.png"
+                        alt="images"
+                        className="img-fluid"
+                      />
+                    </div>
+                    <div className="media-body">
+                      <p>
+                        ‘’ Lorem ipsum dolor sit amet, consectetur adipisicing,
+                        sed do eiusmod tempor incididunt ut labore. ‘’
+                      </p>
+                      <div className="testimonial-title">
+                        <h2>Stive Frankman</h2>
+                        <p>CEO, Frakman Inc</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <div className="col-sm-4">
-            <div className="fun-fact">
-              <img src="images/icons/fun-fact3.png" alt="images" className="img-fluid"/>
-              <h1 className="counter">5,798,298</h1>
-              <span>Total Candidate</span>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit</p>
+        </div>
+        <div className="tr-fun-fact section-padding">
+          <div className="container">
+            <div className="fun-fact-content">
+              <div className="row text-center">
+                <div className="col-sm-4">
+                  <div className="fun-fact">
+                    <img
+                      src="images/icons/fun-fact1.png"
+                      alt="images"
+                      className="img-fluid"
+                    />
+                    <h1 className="counter">3,412</h1>
+                    <span>Live Jobs</span>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    </p>
+                  </div>
+                </div>
+                <div className="col-sm-4">
+                  <div className="fun-fact">
+                    <img
+                      src="images/icons/fun-fact2.png"
+                      alt="images"
+                      className="img-fluid"
+                    />
+                    <h1 className="counter">12,043</h1>
+                    <span>Total Company</span>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    </p>
+                  </div>
+                </div>
+                <div className="col-sm-4">
+                  <div className="fun-fact">
+                    <img
+                      src="images/icons/fun-fact3.png"
+                      alt="images"
+                      className="img-fluid"
+                    />
+                    <h1 className="counter">5,798,298</h1>
+                    <span>Total Candidate</span>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="tr-download-app bg-image section-padding section-before">
+          <div className="container text-center">
+            <h1>Download on App Store</h1>
+            <div className="app-content">
+              <div className="row">
+                <div className="col-sm-4">
+                  <div className="download-app">
+                    <a href="#">
+                      <div className="download-image">
+                        <img
+                          src="images/icons/app1.png"
+                          alt="Image"
+                          className="img-fluid"
+                        />
+                      </div>
+                      <div className="download-info">
+                        <span>available on</span>
+                        <strong>Google Play</strong>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div className="col-sm-4">
+                  <div className="download-app">
+                    <a href="#">
+                      <div className="download-image">
+                        <img
+                          src="images/icons/app2.png"
+                          alt="Image"
+                          className="img-fluid"
+                        />
+                      </div>
+                      <div className="download-info">
+                        <span>available on</span>
+                        <strong>App Store</strong>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+                <div className="col-sm-4">
+                  <div className="download-app">
+                    <a href="#">
+                      <div className="download-image">
+                        <img
+                          src="images/icons/app3.png"
+                          alt="Image"
+                          className="img-fluid"
+                        />
+                      </div>
+                      <div className="download-info">
+                        <span>available on</span>
+                        <strong>Windows Store</strong>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="footer">
+          <div className="footer-top section-padding">
+            <div className="container">
+              <div className="row">
+                <div className="col-sm-3">
+                  <div className="footer-widget">
+                    <h3>About Us</h3>
+                    <ul className="tr-list">
+                      <li>
+                        <a href="#">About Seeker</a>
+                      </li>
+                      <li>
+                        <a href="#">Terms & Conditions</a>
+                      </li>
+                      <li>
+                        <a href="#">International Partners</a>
+                      </li>
+                      <li>
+                        <a href="#">Privacy Policy</a>
+                      </li>
+                      <li>
+                        <a href="#">Feedback</a>
+                      </li>
+                      <li>
+                        <a href="#">Contact Us</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="col-sm-3">
+                  <div className="footer-widget">
+                    <h3>Job Seekers</h3>
+                    <ul className="tr-list">
+                      <li>
+                        <a href="#">Create Account</a>
+                      </li>
+                      <li>
+                        <a href="#">Career Counseling</a>
+                      </li>
+                      <li>
+                        <a href="#">My Bdjobs</a>
+                      </li>
+                      <li>
+                        <a href="#">FAQ</a>
+                      </li>
+                      <li>
+                        <a href="#">Video Guides</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="col-sm-3">
+                  <div className="footer-widget">
+                    <h3>Employers</h3>
+                    <ul className="tr-list">
+                      <li>
+                        <a href="#">Create Account</a>
+                      </li>
+                      <li>
+                        <a href="#">Products/Service</a>
+                      </li>
+                      <li>
+                        <a href="#">Post a Job</a>
+                      </li>
+                      <li>
+                        <a href="#">FAQ</a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div className="col-sm-3">
+                  <div className="footer-widget">
+                    <h3>Newsletter</h3>
+                    <p>
+                      Earum cumque doloribus, incidunt! Tempora voluptatibus
+                    </p>
+                    <form className="contact-form" method="post" action="#">
+                      <div className="form-group">
+                        <input
+                          type="email"
+                          className="form-control"
+                          required="required"
+                          placeholder="Your email Id"
+                        />
+                      </div>
+                      <div className="form-group">
+                        <button type="submit" className="btn btn-primary">
+                          Sign Up
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="footer-bottom">
+            <div className="container">
+              <div className="copyright">
+                <p>
+                  Copyright © 2017 <a href="#">Seeker.com.</a> All rights
+                  reserved.
+                </p>
+              </div>
+              <div className="footer-social pull-right">
+                <ul className="tr-list">
+                  <li>
+                    <a href="#" title="Facebook">
+                      <i className="fa fa-facebook"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" title="Twitter">
+                      <i className="fa fa-twitter"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" title="Google Plus">
+                      <i className="fa fa-google-plus"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" title="Youtube">
+                      <i className="fa fa-youtube"></i>
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  <div className="tr-download-app bg-image section-padding section-before">
-    <div className="container text-center">
-      <h1>Download on App Store</h1>
-      <div className="app-content">
-        <div className="row">
-          <div className="col-sm-4">
-            <div className="download-app">
-              <a href="#">
-                <div className="download-image">
-                  <img src="images/icons/app1.png" alt="Image" className="img-fluid"/>
-                </div>
-                <div className="download-info">
-                  <span>available on</span>
-                  <strong>Google Play</strong>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div className="col-sm-4">
-            <div className="download-app">
-              <a href="#">
-                <div className="download-image">
-                  <img src="images/icons/app2.png" alt="Image" className="img-fluid"/>
-                </div>
-                <div className="download-info">
-                  <span>available on</span>
-                  <strong>App Store</strong>
-                </div>
-              </a>
-            </div>
-          </div>
-          <div className="col-sm-4">
-            <div className="download-app">
-              <a href="#">
-                <div className="download-image">
-                  <img src="images/icons/app3.png" alt="Image" className="img-fluid"/>
-                </div>
-                <div className="download-info">
-                  <span>available on</span>
-                  <strong>Windows Store</strong>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div className="footer">
-    <div className="footer-top section-padding">
-      <div className="container">
-        <div className="row">
-          <div className="col-sm-3">
-            <div className="footer-widget">
-              <h3>About Us</h3>
-              <ul className="tr-list">
-                <li><a href="#">About Seeker</a></li>
-                <li><a href="#">Terms & Conditions</a></li>
-                <li><a href="#">International Partners</a></li>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Feedback</a></li>
-                <li><a href="#">Contact Us</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="col-sm-3">
-            <div className="footer-widget">
-              <h3>Job Seekers</h3>
-              <ul className="tr-list">
-                <li><a href="#">Create Account</a></li>
-                <li><a href="#">Career Counseling</a></li>
-                <li><a href="#">My Bdjobs</a></li>
-                <li><a href="#">FAQ</a></li>
-                <li><a href="#">Video Guides</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="col-sm-3">
-            <div className="footer-widget">
-              <h3>Employers</h3>
-              <ul className="tr-list">
-                <li><a href="#">Create Account</a></li>
-                <li><a href="#">Products/Service</a></li>
-                <li><a href="#">Post a Job</a></li>
-                <li><a href="#">FAQ</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="col-sm-3">
-            <div className="footer-widget">
-              <h3>Newsletter</h3>
-              <p>Earum cumque doloribus, incidunt! Tempora voluptatibus</p>
-              <form className="contact-form" method="post" action="#">
-                <div className="form-group">
-                  <input type="email" className="form-control" required="required" placeholder="Your email Id"/>
-                </div>
-                <div className="form-group">
-                  <button type="submit" className="btn btn-primary">Sign Up</button>
-                </div>
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div className="footer-bottom">
-      <div className="container">
-        <div className="copyright">
-          <p>Copyright © 2017 <a href="#">Seeker.com.</a> All rights reserved.</p>
-        </div>
-        <div className="footer-social pull-right">
-          <ul className="tr-list">
-            <li><a href="#" title="Facebook"><i className="fa fa-facebook"></i></a></li>
-            <li><a href="#" title="Twitter"><i className="fa fa-twitter"></i></a></li>
-            <li><a href="#" title="Google Plus"><i className="fa fa-google-plus"></i></a></li>
-            <li><a href="#" title="Youtube"><i className="fa fa-youtube"></i></a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+  );
+};
 
-  </div>
-  </div>
-
-  )
-}
-
-export default Index
-
-
+export default Index;

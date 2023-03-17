@@ -18,20 +18,25 @@ import FormLabel from '@mui/material/FormLabel';
 import FormGroup from '@mui/material/FormGroup';
 
 function Index() {
+  //   var  loginuserinfo=localStorage.getItem("employee");
+  //   loginuserinfo=JSON.parse(loginuserinfo)
+  //  loginuserinfo=loginuserinfo.companyname
+  //   console.log(loginuserinfo)
   const [Data, setData] = useState({
     title: "",
     category:"",
     jobtype:"",
     salary:"",
     exprience:"",
-    JavaDev :"",
-     PythonDev :"",
-     FullStackDev :"",
-     UIUXDesginer:"",
-     AndroidDev :"",
+    JavaDev :"false",
+     PythonDev :"false",
+     FullStackDev :"false",
+     UIUXDesginer:"false",
+     AndroidDev :"false",
      jobsummary:"",
      jobrequirement:"",
   });
+
   const Navigate=useNavigate();
   let handlechange = async (event) => {
     const name = event.target.name;
@@ -48,6 +53,7 @@ function Index() {
     console.log(Data.jobrequirement)
 
   }
+
   const handlesubmit=async(e)=>{
     e.preventDefault();
     try{
@@ -70,6 +76,7 @@ function Index() {
             AndroidDev,
             jobsummary,
             jobrequirement,
+          //  loginuserinfo,
           }),
     })
   

@@ -92,14 +92,13 @@ function Index() {
           companyname,
           email,
           password,
-        confpassword,
+          confpassword,
          
         }),
       });
       console.log(res)
       var mes=await res.json()
       console.log(mes.message);
-      localStorage.setItem("loginemployee", companyname);
       navigate("/login")
     }
     catch(err)

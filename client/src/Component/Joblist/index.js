@@ -9,13 +9,16 @@ function Index() {
   useEffect(() => {
     axios.get("http://localhost:8000/data").then(
       (res) => {
-        setPost({ g: res.data });
+        setTimeout(() => {
+          setPost({ g: res.data });
+        });
+       
       },
       (error) => {
         console.log("error in fetching");
       }
     );
-  },[post]);
+  },[]);
   return (
     <div>
       <Navbarone />
@@ -211,7 +214,7 @@ function Index() {
                         <li><a href="#"><i className="fa fa-heart-o" aria-hidden="true"></i></a></li>
                         <li><a href="#"><i className="fa fa-expand" aria-hidden="true"></i></a></li>
                         <li><a href="#"><i className="fa fa-bookmark-o" aria-hidden="true"></i></a></li>
-                        <li><a href="job-details.html"><i className="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                        <li><a><i className="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </li>
                       </ul>
                     </div>

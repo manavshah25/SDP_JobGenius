@@ -14,12 +14,12 @@ exports.register=async function(req,res)
         const userexit = await employeeSchema.findOne({
           email: email
         });
-        const usernameexit  = await employeeSchema.findOne({
-          name: name
+        const companynameexist  = await employeeSchema.findOne({
+            companyname: companyname
         });
-        if (userexit && usernameexit) {
+        if (userexit && companynameexist) {
           return res.status(422).json({
-            error: "email & name is exits"
+            error: "email & companyname is exits"
           });
         } else {
           console.log("create user");
@@ -75,7 +75,7 @@ exports.auth=async function(req,res)
               const obj = {
                 message: "user sucesfully",
                 // token: token,
-                loginuser: employeelogin,
+                loginemployee: employeelogin,
               };
       
               return res.status(201).json(obj);

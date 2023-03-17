@@ -1,13 +1,48 @@
+import React from 'react'
+import Navbarone from '../Navbarone'
+import { useEffect, useState } from 'react';
+import axios from 'axios';
+function Index() {
+    const [bool, setbool] = useState(false);
+      const [current,setcurrent] = useState({
+        h: [],
+      });
+      const id=localStorage.getItem("id")
+        console.log(id);
+const fetch = () =>{
+       axios.post("http://localhost:8000/details",{id})
+       .then(function (response) {
+          console.log(response.data);
+          setcurrent({h:response.data})
+        })}
+  useEffect(() => {
+    setTimeout(() => {
+      fetch();
+    });
+   
+   
+  }, []);
+if(current.h)
+  setbool(true)
+   console.log(current.h);
  
- 
- <div class="tr-breadcrumb bg-image section-before">
+    
+              
+
+  return (
+    <>
+    <Navbarone />
+     <div class="tr-breadcrumb bg-image section-before">
     <div class="container">
       <div class="breadcrumb-info text-center">
         <div class="breadcrumb-logo">
-          <img src="images/others/company-logo.png" alt="Logo" class="img-fluid">
+          <img src="images/others/company-logo.png" alt="Logo" class="img-fluid"/>
         </div>
+      
+            <div>
         <div class="page-title">
-          <h1>Graphics Designer @ Google inc</h1>
+
+     { bool &&  <h1>{current.h[0].category} @ {current.h[0].category}</h1> }
         </div>
         <ul class="tr-list job-meta list-inline">
           <li><i class="fa fa-map-signs" aria-hidden="true"></i>San Francisco, CA, US</li>
@@ -24,9 +59,12 @@
                   aria-hidden="true"></i></a><a href="#"><i class="fa fa-google-plus"
                   aria-hidden="true"></i></a></span></span>
         </div>
+        </div>
+      
       </div>
     </div>
   </div>
+
   <div class="job-details section-padding">
     <div class="container">
       <div class="row">
@@ -37,7 +75,7 @@
               dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
               ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
               fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-              mollit anim id est laborum. </p> <br>
+              mollit anim id est laborum. </p> <br/>
             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam
               rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt
               explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
@@ -155,7 +193,7 @@
               </div>
               <div class="job-info">
                 <div class="company-logo">
-                  <img src="images/job/1.png" alt="images" class="img-fluid">
+                  <img src="images/job/1.png" alt="images" class="img-fluid"/>
                 </div>
                 <span class="tr-title">
                   <a href="#">Project Manager</a>
@@ -197,7 +235,7 @@
               </div>
               <div class="job-info">
                 <div class="company-logo">
-                  <img src="images/job/2.png" alt="images" class="img-fluid">
+                  <img src="images/job/2.png" alt="images" class="img-fluid"/>
                 </div>
                 <span class="tr-title">
                   <a href="#">Design Associate</a>
@@ -239,7 +277,7 @@
               </div>
               <div class="job-info">
                 <div class="company-logo">
-                  <img src="images/job/3.png" alt="images" class="img-fluid">
+                  <img src="images/job/3.png" alt="images" class="img-fluid"/>
                 </div>
                 <span class="tr-title">
                   <a href="#">Graphic Designer</a>
@@ -281,7 +319,7 @@
               </div>
               <div class="job-info">
                 <div class="company-logo">
-                  <img src="images/job/4.png" alt="images" class="img-fluid">
+                  <img src="images/job/4.png" alt="images" class="img-fluid"/>
                 </div>
                 <span class="tr-title">
                   <a href="#">Design Consultant</a>
@@ -312,7 +350,7 @@
             <div class="download-app">
               <a href="#">
                 <div class="download-image">
-                  <img src="images/icons/app1.png" alt="Image" class="img-fluid">
+                  <img src="images/icons/app1.png" alt="Image" class="img-fluid"/>
                 </div>
                 <div class="download-info">
                   <span>available on</span>
@@ -325,7 +363,7 @@
             <div class="download-app">
               <a href="#">
                 <div class="download-image">
-                  <img src="images/icons/app2.png" alt="Image" class="img-fluid">
+                  <img src="images/icons/app2.png" alt="Image" class="img-fluid"/>
                 </div>
                 <div class="download-info">
                   <span>available on</span>
@@ -338,7 +376,7 @@
             <div class="download-app">
               <a href="#">
                 <div class="download-image">
-                  <img src="images/icons/app3.png" alt="Image" class="img-fluid">
+                  <img src="images/icons/app3.png" alt="Image" class="img-fluid"/>
                 </div>
                 <div class="download-info">
                   <span>available on</span>
@@ -397,7 +435,7 @@
               <p>Earum cumque doloribus, incidunt! Tempora voluptatibus</p>
               <form class="contact-form" method="post" action="#">
                 <div class="form-group">
-                  <input type="email" class="form-control" required="required" placeholder="Your email Id">
+                  <input type="email" class="form-control" required="required" placeholder="Your email Id"/>
                 </div>
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary">Sign Up</button>
@@ -424,3 +462,8 @@
       </div>
     </div>
   </div>
+    </>
+  )
+}
+
+export default Index
