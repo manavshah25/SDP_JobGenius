@@ -19,17 +19,19 @@ function App() {
  console.log("hello app.js ")
  console.log(emop)
  var user=localStorage.getItem("userbool")
+
   return (
     <div>
      <BrowserRouter>
       <Routes>
         <Route  path="/" element={<Homeone/>} />
-        <Route  path="/themetwo" element={<Hometwo/>}/>
+      
         <Route  path="/login" element={<Login/>}/>
         <Route  path="/signup" element={<Signup/>}/>
-       <Route  path="/postjob" element={<Jobpost/>}/> 
        <Route  path="/jobdetails" element={<Jobdetails/>}/> 
-        {/* <Route path="/postjob" exact element={<Navigate replace to="/login"/>}/> */}
+       { emop && <Route  path="/postjob" element={<Jobpost/>}/> }
+      <Route path="/postjob" exact element={<Navigate replace to="/login"/>}/>
+
         <Route path='/joblist' element={<Joblist/>}/> 
         {/* <Route path="/joblist" exact element={<Navigate replace to="/login"/>}/> */}
         <Route path='/employeeprofile' element={<Employeeprofile/>}/>
