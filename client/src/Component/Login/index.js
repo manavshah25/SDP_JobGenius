@@ -1,8 +1,11 @@
 import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { useState } from 'react';
-
+import { ToastContainer } from 'react-toastify';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Navbarone from './../Navbarone'
+// toast.configure()
 
 const Index = () => {
   const [Data, setData] = useState({
@@ -46,14 +49,15 @@ const Index = () => {
       const u=JSON.stringify(y.loginemployee);
       console.log(y);
       if (!y.error) {
-        alert("Thanks for login")
+        alert("Login Successfully")
         localStorage.setItem("employee",u)
-        localStorage.setItem("employeebool",true)
-        localStorage.setItem("userbool",false)
+        localStorage.setItem("employeebool",JSON.stringify(true))
+        localStorage.setItem("userbool",JSON.stringify(false))
+
         navigate("/")
       }
       else {
-        alert("You don't have accont");
+        toast("You don't have account");
       }
     }
     catch (error) {
@@ -81,15 +85,15 @@ const Index = () => {
       const u=JSON.stringify(y.loginuser);
       console.log(y);
       if (!y.error) {
-        alert("Thanks for login")
+        alert("Login successfully")
         localStorage.setItem("user",u)        
-        localStorage.setItem("userbool",true)        
-        localStorage.setItem("employeebool",false)        
+        localStorage.setItem("userbool",JSON.stringify(true))        
+        localStorage.setItem("employeebool",JSON.stringify(false))        
 
         navigate("/")
       }
       else {
-        alert("You don't have accont");
+        toast("You don't have account");
       }
     }
     catch (error) {
@@ -266,6 +270,7 @@ const Index = () => {
           </div>
         </div>
       </div>
+      <ToastContainer />
     </div>
   )
 }

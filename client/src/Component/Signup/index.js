@@ -4,7 +4,9 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import InputLabel from '@mui/material/InputLabel';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
-import Notification from '../Notification';
+import { ToastContainer } from 'react-toastify';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import FormControl from '@mui/material/FormControl';
 import './sigin.css'
 function Index() {
@@ -46,7 +48,8 @@ function Index() {
       console.log(res)
       var mes=await res.json()
       console.log(mes.message);
-      navigate("/login")
+      toast("You have register successfully")
+      // navigate("/login")
     }
     catch(err)
     {
@@ -99,7 +102,8 @@ function Index() {
       console.log(res)
       var mes=await res.json()
       console.log(mes.message);
-      navigate("/login")
+      // navigate("/login")
+      toast("You have register successfully")
     }
     catch(err)
     {
@@ -304,6 +308,7 @@ function Index() {
       </div>
     </div>
   </div>
+<ToastContainer/>
 </div>
   )
 }

@@ -8,7 +8,8 @@ const Index = () => {
   const [post, setPost] = useState({
     g: [],
   });
-  const userbool=localStorage.getItem("userbool");
+  const userbool=JSON.parse(localStorage.getItem("userbool"));
+  const employeebool=JSON.parse(localStorage.getItem("employeebool"));
   const navigate = useNavigate();
   useEffect(() => {
     axios.get("http://localhost:8000/data").then(
@@ -250,18 +251,20 @@ const Index = () => {
               <div className="pull-left">
                 <h1>Add your resume and let your next job find you.</h1>
               </div>
-              { userbool ? (
+              {/* {console.log(userbool)}
+              {console.log(!employeebool)} */}
+              { userbool &&!employeebool  ? 
                 <NavLink to="/personaldetail" className="btn btn-primary pull-right">
                   Add Your Resume
                 </NavLink>
-              ) : (
+               : 
                 <NavLink
                   to="/login"
                   className="btn btn-primary pull-right"
                 >
                   Add Your Resume
                 </NavLink>
-              )}
+              }
             </div>
           </div>
         </div>

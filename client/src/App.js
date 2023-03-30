@@ -1,7 +1,6 @@
 
 import './App.css';
 import Homeone from "./Component/Homeone";
-import Hometwo from "./Component/Hometwo";
 import Login from "./Component/Login";
 import Signup from "./Component/Signup";
 import{Route,Routes,Navigate,BrowserRouter} from 'react-router-dom';
@@ -14,11 +13,8 @@ import Experience from './Component/Resume/Experience';
 import Skill from './Component/Resume/Skill';
 import Resume from './Component/Resume/Resume';
 import Jobdetails from './Component/Jobdetails'
+
 function App() {
- var emop=localStorage.getItem("employeebool")
- console.log("hello app.js ")
- console.log(emop)
- var user=localStorage.getItem("userbool")
 
   return (
     <div>
@@ -29,7 +25,7 @@ function App() {
         <Route  path="/login" element={<Login/>}/>
         <Route  path="/signup" element={<Signup/>}/>
        <Route  path="/jobdetails" element={<Jobdetails/>}/> 
-       { emop && <Route  path="/postjob" element={<Jobpost/>}/> }
+       <Route  path="/postjob" element={<Jobpost/>}/> 
       <Route path="/postjob" exact element={<Navigate replace to="/login"/>}/>
 
         <Route path='/joblist' element={<Joblist/>}/> 

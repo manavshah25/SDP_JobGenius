@@ -5,8 +5,8 @@ import { Link } from 'react-router-dom';
 const Index = () => {
 
   const navigate = useNavigate();
-  const userbool = localStorage.getItem("userbool")
-  const employeebool = localStorage.getItem("employeebool")
+  const userbool = JSON.parse(localStorage.getItem("userbool"))
+  const employeebool = JSON.parse(localStorage.getItem("employeebool"))
   // var link;
   // if (employeebool) {
   //   link = "/postjob"
@@ -21,8 +21,11 @@ const Index = () => {
     navigate("/postjob");
   }
   const handlelogout = async () => {
+    // localStorage.setItem("employeebool", "false");
+    // localStorage.setItem("userbool", "false");
+    // localStorage.removeItem("employee");
     localStorage.clear();
-    console.log("sucess");
+      console.log("sucess");
     navigate("/");
   }
   return (
@@ -61,61 +64,9 @@ const Index = () => {
                   </ul>
                 </li>
               </ul>
-<<<<<<< HEAD
-            </li>
-            
-            <li><NavLink to="/joblist">Job List</NavLink></li>
-            <li><NavLink to="/jobdetails">Job Details</NavLink></li>
-            <li className="tr-dropdown"><a href="#">Pages</a>
-              <ul className="tr-dropdown-menu tr-list fadeInUp" role="menu">
-                <li><NavLink to="/employeeprofile">Employee Profile</NavLink></li>
-                <li><a href="employee-profile.html">Employer Profile</a></li>
-                <li><a href="view-compnay.html">View Compnay</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><NavLink to="/signup">SIGNUP</NavLink></li>
-                <li><NavLink to="/Login">SIGNIN</NavLink></li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-        {(!(userbool) || !(employeebool))?
-        
-        <div className="navbar-right">
-          
-          <ul className="sign-in tr-list">
-            <li><i className="fa fa-user"></i></li>
-            <li><NavLink to="/login">SIGN IN&nbsp;</NavLink></li>
-            <li><NavLink to="/signup">SIGNUP</NavLink></li>
-          </ul>
-          { employeebool ?
-          
-           <NavLink  className="btn btn-primary" to="/postjob">Post A Job</NavLink>:
-           <NavLink  className="btn btn-primary" to="/login">Post A Job</NavLink>
-           
-          }
-        </div>:
-        <div  className="navbar-right">
-        <ul className="tr-list">
-          
-          <Link onClick={handlelogout}>LOGOUT</Link>&nbsp;&nbsp;&nbsp;&nbsp;
-          { employeebool ?
-          <NavLink  className="btn btn-primary" to="/postjob">Post A Job</NavLink>:
-          <NavLink  className="btn btn-primary" to="/login">Post A Job</NavLink>
-          
-         }
-        </ul>
-      
-      </div>
-        }
-        
-        
-      </div>
-    </nav>
-  </header>
-=======
             </div>
-            {(!(userbool) || !(employeebool)) ?
-
+            {!((employeebool)) ? 
+              (!(userbool))?
               <div className="navbar-right">
 
                 <ul className="sign-in tr-list">
@@ -124,24 +75,28 @@ const Index = () => {
                   <li><NavLink to="/signup">SIGNUP</NavLink></li>
                 </ul>
 
-              </div> :
+              </div>:<div className="navbar-right">
+              <ul className="tr-list">
+             
+                <Button onClick={handlelogout}>LOGOUT</Button>&nbsp;&nbsp;&nbsp;&nbsp;
+                
+              </ul>
+
+            </div> :
+
               <div className="navbar-right">
                 <ul className="tr-list">
 
                   <Button onClick={handlelogout}>LOGOUT</Button>&nbsp;&nbsp;&nbsp;&nbsp;
-                  {employeebool ?
-                    <Button className="btn btn-primary" onClick={jobpost}>Post A Job</Button> :
-                    <Button className="btn btn-primary" onClick={login}>Post A Job</Button>
-
-                  }
+                  
+                  
                 </ul>
 
               </div>}
             {/* console.log(employeebool) */}
-
+              
             <div>
-
-              <NavLink className="btn btn-primary" to="/postjob">Post A Job</NavLink>
+              {employeebool?<NavLink className="btn btn-primary" to="/postjob">Post A Job</NavLink>:<NavLink className="btn btn-primary" to="/login">Post A Job</NavLink>}
             </div>
 
 
@@ -149,7 +104,6 @@ const Index = () => {
           </div>
         </nav>
       </header>
->>>>>>> 727f26f74a10887073ff96825d0a72f9cac8f5dc
     </div>
   )
 }
