@@ -9,184 +9,235 @@ function Resume() {
     const [post, setpost] = useState({
         g: []
     })
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     useEffect(() => {
         axios.post("http://localhost:8000/resume", { email }).then((response) => {
             setpost({ g: response.data })
         })
     }, [])
     console.log(post)
-    const back=()=>{
+    const back = () => {
         navigate('/')
     }
     return (
         <>
-    
-<div class="col">
-                <div class="container">
-                    <div class="header">
-                        <div class="full-name">
-                            <span class="first-name">John</span>
-                            <span class="last-name">Doe</span>
-                        </div>
-                        <div class="contact-info">
-                            <span class="email">Email: </span>
-                            <span class="email-val">john.doe@gmail.com</span>
-                            <span class="separator"></span>
-                            <span class="phone">Phone: </span>
-                            <span class="phone-val">111-222-3333</span>
-                        </div>
 
-                        <div class="about">
-                            <span class="position">Front-End Developer </span>
-                            <span class="desc">
-                                I am a front-end developer with more than 3 years of experience writing html, css, and js. I'm motivated, result-focused and seeking a successful team-oriented company with opportunity to grow.
-                            </span>
+            <div class="col">
+
+                {post.g.map((add, index) => { 
+                    <div>
+                <div class="tr-breadcrumb bg-image section-before">
+                    <div class="container">
+                        <div class="breadcrumb-info text-center">
+                            <div class="user-image">
+                                <img src="images/others/author.png" alt="Image" class="img-fluid" />
+                            </div>
+                            <div class="user-title">
+                                <h1>Jhon Doe</h1>
+                            </div>
+                            <ul class="job-meta tr-list list-inline">
+                                <li><i class="fa fa-map-marker" aria-hidden="true"></i>San Francisco, CA, US</li>
+                                <li><i class="fa fa-phone" aria-hidden="true"></i>+0123 456 789</li>
+                                <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="#"><span class="__cf_email__"
+                                    data-cfemail="f8929097969c979db89f95999194d69b9795">[email&#160;protected]</span></a></li>
+                                <li><i class="fa fa-briefcase" aria-hidden="true"></i>UI & UX Designer</li>
+                            </ul>
+                            <ul class="breadcrumb-social social-icon-bg  tr-list">
+                                <li><a href="#"><i class="fa fa-facebook"></i><span>Facebook</span></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i> <span>Twitter</span> </a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i> <span>Google Plus</span> </a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i><span>Linkedin</span> </a></li>
+                                <li><a href="#"><i class="fa fa-dribbble"></i> <span>Dribbble</span></a></li>
+                                <li><a href="#"><i class="fa fa-behance"></i> <span>Behance</span></a></li>
+                                <li><a href="#"><i class="fa fa-globe"></i> <span>Website</span> </a></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="details">
-                        <div class="section">
-                            <div class="section__title">Experience</div>
-                            <div class="section__list">
-                                <div class="section__list-item">
-                                    <div class="left">
-                                        <div class="name">KlowdBox</div>
-                                        <div class="addr">San Fr, CA</div>
-                                        <div class="duration">Jan 2011 - Feb 2015</div>
-                                    </div>
-                                    <div class="right">
-                                        <div class="name">Fr developer</div>
-                                        <div class="desc">did This and that</div>
-                                    </div>
-                                </div>
-                                <div class="section__list-item">
-                                    <div class="left">
-                                        <div class="name">Akount</div>
-                                        <div class="addr">San Monica, CA</div>
-                                        <div class="duration">Jan 2011 - Feb 2015</div>
-                                    </div>
-                                    <div class="right">
-                                        <div class="name">Fr developer</div>
-                                        <div class="desc">did This and that</div>
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <div class="section">
-                            <div class="section__title">Education</div>
-                            <div class="section__list">
-                                <div class="section__list-item">
-                                    <div class="left">
-                                        <div class="name">Sample Institute of technology</div>
-                                        <div class="addr">San Fr, CA</div>
-                                        <div class="duration">Jan 2011 - Feb 2015</div>
-                                    </div>
-                                    <div class="right">
-                                        <div class="name">Fr developer</div>
-                                        <div class="desc">did This and that</div>
-                                    </div>
-                                </div>
-                                <div class="section__list-item">
-                                    <div class="left">
-                                        <div class="name">Akount</div>
-                                        <div class="addr">San Monica, CA</div>
-                                        <div class="duration">Jan 2011 - Feb 2015</div>
-                                    </div>
-                                    <div class="right">
-                                        <div class="name">Fr developer</div>
-                                        <div class="desc">did This and that</div>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="section">
-                            <div class="section__title">Projects</div>
-                            <div class="section__list">
-                                <div class="section__list-item">
-                                    <div class="name">DSP</div>
-                                    <div class="text">I am a front-end developer with more than 3 years of experience writing html, css, and js. I'm motivated, result-focused and seeking a successful team-oriented company with opportunity to grow.</div>
-                                </div>
-
-                                <div class="section__list-item">
-                                    <div class="name">DSP</div>
-                                    <div class="text">I am a front-end developer with more than 3 years of experience writing html, css, and js. I'm motivated, result-focused and seeking a successful team-oriented company with opportunity to grow. <a href="/login">link</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="section">
-                            <div class="section__title">Skills</div>
-                            <div class="skills">
-                                <div class="skills__item">
-                                    <div class="left"><div class="name">
-                                        Javascript
-                                    </div></div>
-                                    <div class="right">
-                                        <input id="ck1" type="checkbox" checked />
-
-                                        <label for="ck1"></label>
-                                        <input id="ck2" type="checkbox" checked />
-
-                                        <label for="ck2"></label>
-                                        <input id="ck3" type="checkbox" />
-
-                                        <label for="ck3"></label>
-                                        <input id="ck4" type="checkbox" />
-                                        <label for="ck4"></label>
-                                        <input id="ck5" type="checkbox" />
-                                        <label for="ck5"></label>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="skills__item">
-                                <div class="left"><div class="name">
-                                    CSS</div></div>
-                                <div class="right">
-                                    <input id="ck1" type="checkbox" checked />
-
-                                    <label for="ck1"></label>
-                                    <input id="ck2" type="checkbox" checked />
-
-                                    <label for="ck2"></label>
-                                    <input id="ck3" type="checkbox" />
-
-                                    <label for="ck3"></label>
-                                    <input id="ck4" type="checkbox" />
-                                    <label for="ck4"></label>
-                                    <input id="ck5" type="checkbox" />
-                                    <label for="ck5"></label>
-
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="section">
-                            <div class="section__title">
-                                Interests
-                            </div>
-                            <div class="section__list">
-                                <div class="section__list-item">
-                                    Football, programming.
-                                </div>
-                            </div>
-                        </div>
-                       
-                    </div>
-
                 </div>
+                <div class="all-view section-padding">
+                    <div class="container">
+                        <div class="section">
+                            <ul class="tr-list resume-info">
+
+                                <li class="work-history media">
+                                    <div class="icon">
+                                        <i class="fa fa-briefcase" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <span class="tr-title">Experience</span>
+                                        <ul class="tr-list">
+                                            <li>
+                                                <span>Senior Graphic Designer @ Buildomo</span>
+                                                <span class="present">2017 - Present</span>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                                                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                                                    nisi ut aliquip ex ea commodo consequat.</p>
+                                            </li>
+                                            <li>
+                                                <span>Former Graphic Designer @ Ideame</span>
+                                                <span class="present">2015 - 2016</span>
+                                                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                            </li>
+                                            <li>
+                                                <span>Head of Design @ Titan Compnay</span>
+                                                <span class="present">2007 - 2015</span>
+                                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                                    pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+                                            </li>
+                                            <li>
+                                                <span>Graphic Designer @ Precision</span>
+                                                <span class="present">2005 - 2007</span>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                                                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                                                    nisi ut aliquip ex ea commodo consequat.</p>
+                                            </li>
+                                            <li>
+                                                <span>Graphic Designer (Intern) @ Costa Rica Fruit Compnay</span>
+                                                <span class="present">2003 - 2005</span>
+                                                <p>Incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                                                    ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="education-background media">
+                                    <div class="icon">
+                                        <i class="fa fa-briefcase" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <span class="tr-title">Education Background</span>
+                                        <ul class="tr-list">
+                                            <li>
+                                                <span>Senior Graphic Designer @ Buildomo</span>
+                                                <ul class="tr-list">
+                                                    <li>Year: 1999 - 2001</li>
+                                                    <li>Major: Major in Accounting</li>
+                                                    <li>Course Duration: 2 Years</li>
+                                                    <li>Result: 4.00</li>
+                                                </ul>
+                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                                                    labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                                                    nisi ut aliquip ex ea commodo consequat.</p>
+                                            </li>
+                                            <li>
+                                                <span>Bachalor of Arts @ Universty of Bristol</span>
+                                                <ul class="tr-list">
+                                                    <li>Year: 1999 - 2001</li>
+                                                    <li>Major: Major in Accounting</li>
+                                                    <li>Course Duration: 2 Years</li>
+                                                    <li>Result: 4.00</li>
+                                                </ul>
+                                                <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+                                                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                            </li>
+                                            <li>
+                                                <span>Diploma in Graphics Design @ Cincinnati Christian University</span>
+                                                <ul class="tr-list">
+                                                    <li>Year: 1999 - 2001</li>
+                                                    <li>Major: Major in Accounting</li>
+                                                    <li>Course Duration: 2 Years</li>
+                                                    <li>Result: 4.00</li>
+                                                </ul>
+                                                <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                                                    pariatur. Excepteur sint occaecat cupidatat non proident.</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                                <li class="language-proficiency media">
+                                    <div class="icon">
+                                        <i class="fa fa-language" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <span class="tr-title">Skills:</span>
+                                        <ul class="tr-list">
+                                            <li>
+                                                <span>English</span>
+                                                <ul class="tr-list rating">
+                                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                    <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <span>German</span>
+                                                <ul class="tr-list rating">
+                                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                    <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                                    <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <span>Spanish</span>
+                                                <ul class="tr-list rating">
+                                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                </ul>
+                                            </li>
+                                            <li>
+                                                <span>Latin</span>
+                                                <ul class="tr-list rating">
+                                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                    <li><i class="fa fa-star" aria-hidden="true"></i></li>
+                                                    <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                                    <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                                    <li><i class="fa fa-star-o" aria-hidden="true"></i></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                                <li class="personal-deatils media">
+                                    <div class="icon">
+                                        <i class="fa fa-user-secret" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="media-body">
+                                        <span class="tr-title">Personal Details</span>
+                                        <ul class="tr-list">
+                                            <li><span class="left">Name</span><span class="middle">:</span> <span class="right">Jhon Doe</span>
+                                            </li>
+                                            <li><span class="left">LastName</span><span class="middle">:</span> <span class="right">Robert
+                                                Doe</span></li>
+                                            <li><span class="left">City</span><span class="middle">:</span> <span class="right">Ismatic
+                                                Roderos Doe</span></li>
+                                            <li><span class="left">Country</span><span class="middle">:</span> <span
+                                                class="right">26/01/1982</span></li>
+                                            <li><span class="left">PinCode</span><span class="middle">:</span> <span class="right">United State
+                                                of America</span></li>
+                                            <li><span class="left">Mobile Number</span><span class="middle">:</span> <span
+                                                class="right">Canadian</span></li>
+                                        </ul>
+                                    </div>
+                                </li>
+
+                            </ul>
+                            <div class="buttons pull-right">
+                                <a href="#" class="btn button-send"><i class="fa fa-envelope-o" aria-hidden="true"></i>Send Email</a>
+                                <a href="#" class="btn btn-primary"><i class="fa fa-cloud-download" aria-hidden="true"></i>Download Resume as
+                                    doc</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                })}
                 <div>
-                <ul  className="job-social tr-list">
-                <li><a><i className="fa fa-long-arrow-left" onClick={back} aria-hidden="true"></i></a>
-                 </li>
-             </ul>
-             </div>
-             </div>
-    
+                    <ul className="job-social tr-list">
+                        <li><a><i className="fa fa-long-arrow-left" onClick={back} aria-hidden="true"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
         </>
     );
 }

@@ -251,12 +251,12 @@ const Index = () => {
                 <h1>Add your resume and let your next job find you.</h1>
               </div>
               { userbool ? (
-                <NavLink to="/login" className="btn btn-primary pull-right">
+                <NavLink to="/personaldetail" className="btn btn-primary pull-right">
                   Add Your Resume
                 </NavLink>
               ) : (
                 <NavLink
-                  to="/personaldetail"
+                  to="/login"
                   className="btn btn-primary pull-right"
                 >
                   Add Your Resume
