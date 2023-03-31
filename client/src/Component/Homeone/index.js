@@ -4,10 +4,17 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 const Index = () => {
   const [post, setPost] = useState({
     g: [],
   });
+  const invalidResume=()=>{
+    toast("Invalid Credentials!! Login as a User to create resume")
+  }
   const userbool=JSON.parse(localStorage.getItem("userbool"));
   const employeebool=JSON.parse(localStorage.getItem("employeebool"));
   const navigate = useNavigate();
@@ -258,13 +265,14 @@ const Index = () => {
                   Add Your Resume
                 </NavLink>
                : 
-                <NavLink
-                  to="/login"
+                <button
+                  onClick={invalidResume}
                   className="btn btn-primary pull-right"
                 >
                   Add Your Resume
-                </NavLink>
+                </button>
               }
+              <ToastContainer/>
             </div>
           </div>
         </div>

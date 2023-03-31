@@ -2,6 +2,10 @@ import React from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Index = () => {
 
   const navigate = useNavigate();
@@ -96,9 +100,9 @@ const Index = () => {
             {/* console.log(employeebool) */}
               
             <div>
-              {employeebool?<NavLink className="btn btn-primary" to="/postjob">Post A Job</NavLink>:<NavLink className="btn btn-primary" to="/login">Post A Job</NavLink>}
+              {employeebool?<NavLink className="btn btn-primary" to="/postjob">Post A Job</NavLink>:<button className="btn btn-primary" onClick={()=>{toast("Invalid credentials!! Login as Employeer")}}>Post A Job</button>}
             </div>
-
+              <ToastContainer/>
 
 
           </div>
