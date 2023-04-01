@@ -69,10 +69,10 @@ exports.auth=async function(req,res)
               });
             } else {
               console.log("genrate employee");
-              // token = await employeelogin.generateAuthToken();
+               token = await userlogin.generateAuthToken();
               const obj = {
                 message: "user sucesfully",
-                // token: token,
+                    token: token,
                 loginuser: userlogin,
               };
       

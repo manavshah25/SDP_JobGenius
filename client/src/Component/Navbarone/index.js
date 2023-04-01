@@ -100,7 +100,7 @@ const Index = () => {
             {/* console.log(employeebool) */}
               
             <div>
-              {employeebool?<NavLink className="btn btn-primary" to="/postjob">Post A Job</NavLink>:<button className="btn btn-primary" onClick={()=>{toast("Invalid credentials!! Login as Employeer")}}>Post A Job</button>}
+              {employeebool?<NavLink className="btn btn-primary" to="/postjob">Post A Job</NavLink>:<button className="btn btn-primary" onClick={()=>{toast("Login as Employeer")}}>Post A Job</button>}
             </div>
               <ToastContainer/>
 

@@ -28,7 +28,7 @@ function App() {
        <Route  path="/postjob" element={<Jobpost/>}/> 
       <Route path="/postjob" exact element={<Navigate replace to="/login"/>}/>
 
-        <Route path='/joblist' element={<Joblist/>}/> 
+        <Route path='/joblist' exact  element={<Joblist/>}/> 
         {/* <Route path="/joblist" exact element={<Navigate replace to="/login"/>}/> */}
         <Route path='/employeeprofile' element={<Employeeprofile/>}/>
         <Route path='/personaldetail' element={<Personaldetail/>}/>

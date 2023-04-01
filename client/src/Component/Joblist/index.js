@@ -2,23 +2,34 @@ import React from "react";
 import Navbarone from "./../Navbarone";
 import { useEffect,useState } from "react";
 import axios from "axios"
+import { useNavigate } from "react-router-dom";
 function Index() {
   const [post, setPost] = useState({
     g: [],
   });
+  const nav=useNavigate();
+function handleclick(id){
+ // e.preventDefault();
+   console.log(id);
+ localStorage.setItem("id",id);
+  nav("/jobdetails")
+
+}
+ 
   useEffect(() => {
     axios.get("http://localhost:8000/data").then(
       (res) => {
         setTimeout(() => {
           setPost({ g: res.data });
         });
-       
+       console.log("sucess")
       },
       (error) => {
         console.log("error in fetching");
       }
     );
   },[]);
+
   return (
     <div>
       <Navbarone />
@@ -214,7 +225,7 @@ function Index() {
                         <li><a href="#"><i className="fa fa-heart-o" aria-hidden="true"></i></a></li>
                         <li><a href="#"><i className="fa fa-expand" aria-hidden="true"></i></a></li>
                         <li><a href="#"><i className="fa fa-bookmark-o" aria-hidden="true"></i></a></li>
-                        <li><a><i className="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                        <li><a onClick={()=>handleclick(add._id)}><i className="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </li>
                       </ul>
                     </div>

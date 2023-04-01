@@ -18,10 +18,10 @@ import FormLabel from '@mui/material/FormLabel';
 import FormGroup from '@mui/material/FormGroup';
 
 function Index() {
-  //   var  loginuserinfo=localStorage.getItem("employee");
-  //   loginuserinfo=JSON.parse(loginuserinfo)
-  //  loginuserinfo=loginuserinfo.companyname
-  //   console.log(loginuserinfo)
+    var  loginuserinfo=localStorage.getItem("employee");
+    loginuserinfo=JSON.parse(loginuserinfo)
+   loginuserinfo=loginuserinfo.companyname
+    console.log(loginuserinfo)
   const [Data, setData] = useState({
     title: "",
     category:"",
@@ -64,6 +64,7 @@ function Index() {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
+            
             title,
             category,
             jobtype,
@@ -76,7 +77,7 @@ function Index() {
             AndroidDev,
             jobsummary,
             jobrequirement,
-          //  loginuserinfo,
+           loginuserinfo,
           }),
     })
   

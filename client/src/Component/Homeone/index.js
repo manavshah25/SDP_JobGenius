@@ -13,7 +13,7 @@ const Index = () => {
     g: [],
   });
   const invalidResume=()=>{
-    toast("Invalid Credentials!! Login as a User to create resume")
+    toast("Login as a User to create resume")
   }
   const userbool=JSON.parse(localStorage.getItem("userbool"));
   const employeebool=JSON.parse(localStorage.getItem("employeebool"));

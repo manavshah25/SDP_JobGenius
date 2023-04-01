@@ -2,36 +2,42 @@ import React from 'react'
 import Navbarone from '../Navbarone'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
+// import ErrorBoundary from '../ErrorBoundary';
 function Index() {
-    const [bool, setbool] = useState(false);
-      const [current,setcurrent] = useState({
-        h: [],
-      });
+ //const [red,setred]=useReducer(x=>x+1,0)
+      const [current,setcurrent] = useState();
       const id=localStorage.getItem("id")
         console.log(id);
-const fetch = () =>{
-       axios.post("http://localhost:8000/details",{id})
-       .then(function (response) {
-          console.log(response.data);
-          setcurrent({h:response.data})
-        })}
+        const user=JSON.parse(localStorage.getItem("user"))
+        console.log(user);
+const nav=useNavigate()
   useEffect(() => {
-    setTimeout(() => {
-      fetch();
-    });
-   
-   
+    axios.post("http://localhost:8000/details",{id}).then(
+      (res) => {
+        setTimeout(() => {
+          setcurrent(res.data);
+         
+        });
+       console.log("sucess")
+      },
+      (error) => {
+        console.log("error in fetching");
+      }
+    );
   }, []);
-if(current.h)
-  setbool(true)
-   console.log(current.h);
- 
-    
-              
+  console.log(current)
 
+const handleclick=async(id) => {
+  const res=await axios.post("http://localhost:8000/jobupdate",{id,user})
+  console.log(res.data)
+}
   return (
-    <>
+    
+  <>
     <Navbarone />
+    {current && (<div>
      <div class="tr-breadcrumb bg-image section-before">
     <div class="container">
       <div class="breadcrumb-info text-center">
@@ -42,17 +48,17 @@ if(current.h)
             <div>
         <div class="page-title">
 
-     { bool &&  <h1>{current.h[0].category} @ {current.h[0].category}</h1> }
+      
         </div>
         <ul class="tr-list job-meta list-inline">
-          <li><i class="fa fa-map-signs" aria-hidden="true"></i>San Francisco, CA, US</li>
-          <li><i class="fa fa-map-marker" aria-hidden="true"></i>Full Time</li>
-          <li><i class="fa fa-money" aria-hidden="true"></i>$25,000 - $35,000</li>
-          <li><i class="fa fa-tags" aria-hidden="true"></i>HR/Org. Development</li>
-          <li><i class="fa fa-hourglass-start" aria-hidden="true"></i>Application Deadline : Jun 27, 2017</li>
+          <li><i class="fa fa-map-signs" aria-hidden="true"></i>San Francisco, CA, US </li>
+          <li><i class="fa fa-map-marker" aria-hidden="true"></i>{current[0].category}</li>
+          <li><i class="fa fa-money" aria-hidden="true"></i>${current[0].salary}</li>
+          <li><i class="fa fa-tags" aria-hidden="true"></i>{current[0].title}</li>
+          <li><i class="fa fa-hourglass-start" aria-hidden="true"></i>Application Deadline : {current[0].postedDate.slice(0,15)}-{current[0].deadlineDate.slice(0,15)}</li>
         </ul>
         <div class="buttons">
-          <a href="#" class="btn btn-primary"><i class="fa fa-briefcase" aria-hidden="true"></i>Apply For This Job</a>
+          <a onClick={()=>handleclick(current[0]._id)} class="btn btn-primary"><i class="fa fa-briefcase" aria-hidden="true"></i>Apply For This Job</a>
           <a href="#" class="btn button-bookmark"><i class="fa fa-bookmark" aria-hidden="true"></i>Bookmark</a>
           <span class="btn button-share"><i class="fa fa-share-alt" aria-hidden="true"></i>Share <span><a href="#"><i
                   class="fa fa-facebook" aria-hidden="true"></i></a><a href="#"><i class="fa fa-twitter"
@@ -65,12 +71,13 @@ if(current.h)
     </div>
   </div>
 
+
   <div class="job-details section-padding">
     <div class="container">
       <div class="row">
         <div class="col-md-8 col-lg-9">
           <div class="job-summary section">
-            <span class="tr-title">Job Summary</span>
+            <span class="tr-title">{current[0].title}</span>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
               dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
               ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
@@ -341,6 +348,8 @@ if(current.h)
       </div>
     </div>
   </div>
+  </div>
+)}
   <div class="tr-download-app bg-image section-padding section-before">
     <div class="container text-center">
       <h1>Download on App Store</h1>
@@ -462,7 +471,8 @@ if(current.h)
       </div>
     </div>
   </div>
-    </>
+</>
+  
   )
 }
 

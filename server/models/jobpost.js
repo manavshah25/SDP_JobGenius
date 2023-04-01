@@ -28,7 +28,26 @@ const Jobpost =new mongoose.Schema({
  jobsummary:{type:String,require: [true, "Please enter jobsummary"]},
  jobrequirement:{type:String,require: [true, "Please enter jobrequirement"]},
  postedDate:{type:String,require:[true,"please enter the date"]},
+ deadlineDate:{type:String,require:[true,"please enter the date"]},
+ Applieduser:[
+    {
+       userId:{
+        type:String,
+       }   
+    }
+ ]
+
 })
+
+Jobpost.methods.companyjob=async function (userid) {
+  try{
+    this.Applieduser=this.Applieduser.contact({
+        userId:userid
+    })
+   await this.save()
+  }catch(e){console.log(e)}
+    next();
+  };
 const jobpost =mongoose.model("Job",Jobpost);
 
 module.exports= jobpost; 
