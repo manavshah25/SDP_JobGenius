@@ -12,7 +12,8 @@ import Education from './Component/Resume/Education';
 import Experience from './Component/Resume/Experience';
 import Skill from './Component/Resume/Skill';
 import Resume from './Component/Resume/Resume';
-import Jobdetails from './Component/Jobdetails'
+import Jobdetails from './Component/Jobdetails';
+// import Admin from './Component/Admin'
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
         <Route  path="/signup" element={<Signup/>}/>
        <Route  path="/jobdetails" element={<Jobdetails/>}/> 
        <Route  path="/postjob" element={<Jobpost/>}/> 
+       {/* <Route  path="/adminpanel" element={<Admin />}/>  */}
       <Route path="/postjob" exact element={<Navigate replace to="/login"/>}/>
 
         <Route path='/joblist' exact  element={<Joblist/>}/> 

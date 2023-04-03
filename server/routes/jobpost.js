@@ -5,4 +5,5 @@ router.post("/jobpost",jobpost_controller.jobpost);
 router.get("/data",jobpost_controller.jobdisplay);
 router.post("/details",jobpost_controller.details);
 router.post("/jobupdate",jobpost_controller.jobupdate);
+router.post("/data",jobpost_controller.admin);
 module.exports=router;

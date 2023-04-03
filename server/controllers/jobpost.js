@@ -1,5 +1,6 @@
 const jobmodel=require('../models/jobpost');
-const usermodel=require('../models/register');
+const User=require('../models/register');
+
 const bcrypt = require("bcryptjs");
 exports.jobpost=async function(req,res)
 {
@@ -79,13 +80,32 @@ exports.jobupdate=async function(req, res)
    console.log("hello world")
    console.log(id);
    console.log(user);
-    
-   let userdone= await user.appyjob(id);
-   let   compdone = await jobmodel.find({_id:id});
-let companydone =await compdone.companyjob(user._id)
+
+   try{
+var userd=await User.find({_id:user._id})
+
+ console.log(userd);
+ userd=userd[0]
+const userdone= await userd.applyJob(id);
+var compdone = await jobmodel.find({_id:id});
+compdone=compdone[0];
+console.log("l")
+ console.log(compdone)
+var  companydone =await compdone.companyjob(user._id)
   
 if(userdone && companydone)
 res.status(200).send("sucefully added job in user and company");
+   }
+   catch(e) {console.log(e)}
+//res.status(400).send("error updating company and user")
+}
+exports.admin=async function(req,res){
+var  emop=req.body.emop;
+emop=JSON.parse(emop);
+console.log("j")
+console.log(emop)
 
-res.status(400).send("error updating company and user")
+  const objectdata =await jobmodel.find({companyname:emop.companyname})
+  res.status(201).json(objectdata);
+
 }

@@ -19,15 +19,17 @@ const registerSchema=new mongoose.Schema({
       {
         jobId:{
           type: String,
+          required: true,
           
         },
         status:{
           type: String,
+          required:true
         
-        }
+        },
 
-      }
-    ]
+      },
+    ],
 })
 
 registerSchema.pre("save", async function (next) {
@@ -51,15 +53,17 @@ registerSchema.methods.generateAuthToken = async function () {
       console.log(err);
     }
   };
-  registerSchema.methods.appyjob=async function (id){
+registerSchema.methods.applyJob=async function(id){
     try{
+   console.log(this);
       this.AppliedJobs= this.AppliedJobs.concat({
         jobId:id,
         status:"pending",
       })
       await this.save();
+      return id;
     }catch(e){console.log(e)}
-  }
+  };
 
 const User=mongoose.model("mainuser",registerSchema);
 

@@ -33,20 +33,21 @@ const Jobpost =new mongoose.Schema({
     {
        userId:{
         type:String,
+        required:true,
        }   
-    }
- ]
+    },
+ ],
 
 })
 
 Jobpost.methods.companyjob=async function (userid) {
   try{
-    this.Applieduser=this.Applieduser.contact({
-        userId:userid
+    this.Applieduser= this.Applieduser.concat({
+        userId:userid,
     })
    await this.save()
   }catch(e){console.log(e)}
-    next();
+    
   };
 const jobpost =mongoose.model("Job",Jobpost);
 
