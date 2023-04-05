@@ -102,10 +102,80 @@ res.status(200).send("sucefully added job in user and company");
 exports.admin=async function(req,res){
 var  emop=req.body.emop;
 emop=JSON.parse(emop);
-console.log("j")
 console.log(emop)
 
   const objectdata =await jobmodel.find({companyname:emop.companyname})
   res.status(201).json(objectdata);
 
 }
+exports.adminuser=async function(req,res){
+  var  jobid=req.body.jobid;
+  console.log("j")
+  console.log(jobid)
+  
+    const objectdata =await jobmodel.find({_id:jobid})
+   const userlist= objectdata[0].Applieduser
+  var  retobj=[]
+ for ( j in userlist )
+ {
+  console.log(j)
+    var query=await User.find({_id:userlist[j].userId});
+   // console.log(query)
+   console.log(userlist[j].userId)
+   console.log(query[0].AppliedJobs)
+      var  index =query[0].AppliedJobs.findIndex(item => item.jobId === jobid);
+    //  const [key,value]= Object.entries(query[0].AppliedJobs).find(([key, value]) => value === jobid);
+  var temp={status:query[0].AppliedJobs[index].status};
+  console.log(temp);
+   query={...query,...temp}
+   console.log(query);
+    retobj= retobj.concat(query);
+ }
+console.log(retobj)
+ res.status(201).json(retobj);
+  
+  }
+exports.deleteuser=async function(req,res){
+const userId=req.body.userId;
+const jobid=req.body.jobid;
+}
+exports.updateaccept=async function(req,res){
+const userId=req.body.userId;
+const jobid=req.body.jobid;
+const accepted=req.body.accepted
+
+console.log(accepted)
+var objdata=await User.find({_id:userId})
+console.log("upadtes")
+objdata=objdata[0]
+var  index =objdata.AppliedJobs.findIndex(item => item.jobId === jobid);
+
+objdata.AppliedJobs[index].status = accepted;
+
+await objdata.save();
+
+res.status(201).json(objdata);
+
+
+}
+exports.updatereject=async function(req,res){
+  const userId=req.body.userId;
+  const jobid=req.body.jobid;
+  const rejected=req.body.rejected;
+  
+  
+  var objdata=await User.find({_id:userId})
+  console.log(objdata)
+  console.log("upadtes")
+  objdata=objdata[0]
+  var  index =objdata.AppliedJobs.findIndex(item => item.jobId === jobid);
+  
+  objdata.AppliedJobs[index].status = rejected;
+  
+  await objdata.save();
+  
+  res.status(201).json(objdata);
+  
+  
+  }
+  

@@ -13,8 +13,9 @@ import Experience from './Component/Resume/Experience';
 import Skill from './Component/Resume/Skill';
 import Resume from './Component/Resume/Resume';
 import Jobdetails from './Component/Jobdetails';
-// import Admin from './Component/Admin'
-
+import Companyuser from './Component/Companyuser';
+import Admin from './Component/Admin'
+import PageNotFound from './Component/PageNotFound';
 function App() {
 
   return (
@@ -27,18 +28,20 @@ function App() {
         <Route  path="/signup" element={<Signup/>}/>
        <Route  path="/jobdetails" element={<Jobdetails/>}/> 
        <Route  path="/postjob" element={<Jobpost/>}/> 
-       {/* <Route  path="/adminpanel" element={<Admin />}/>  */}
+       <Route  path="/adminpanel" element={<Admin />}/> 
+       <Route  path="/verfiycompany" element={<Companyuser />}/> 
       <Route path="/postjob" exact element={<Navigate replace to="/login"/>}/>
 
         <Route path='/joblist' exact  element={<Joblist/>}/> 
         {/* <Route path="/joblist" exact element={<Navigate replace to="/login"/>}/> */}
         <Route path='/employeeprofile' element={<Employeeprofile/>}/>
         <Route path='/personaldetail' element={<Personaldetail/>}/>
+      
         <Route path="/education" element={<Education/>}/>
         <Route path="/experience" element={<Experience/>}/>
         <Route path="/skill" element={<Skill/>}/>
         <Route path="/resume" element={<Resume/>}/>
-      
+        <Route path="*" element={<PageNotFound/>} />
     </Routes>
     </BrowserRouter>
     </div>

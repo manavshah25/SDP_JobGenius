@@ -15,9 +15,10 @@ const Index = () => {
   const invalidResume=()=>{
     toast("Login as a User to create resume")
   }
+
   const userbool=JSON.parse(localStorage.getItem("userbool"));
   const employeebool=JSON.parse(localStorage.getItem("employeebool"));
-  const navigate = useNavigate();
+  const nav = useNavigate();
   useEffect(() => {
     axios.get("http://localhost:8000/data").then(
       (res) => {
@@ -30,10 +31,13 @@ const Index = () => {
       }
     );
   }, []);
-  function jobdetailsfunction(id) {
+  function handleclick(id){
+    // e.preventDefault();
+      console.log(id);
     localStorage.setItem("id",id);
-    navigate("/jobdetails")
-  }
+     nav("/jobdetails")
+   
+   }
   console.log(post);
   return (
     <div>
@@ -369,14 +373,7 @@ const Index = () => {
                                   ></i>
                                 </a>
                               </li>
-                              <li>
-                                <button onClick={()=>jobdetailsfunction(add._id)}>
-                                  <a><i
-                                    className="fa fa-long-arrow-right"
-                                    aria-hidden="true"
-                                  ></i>
-                                </a></button>
-                              </li>
+                              <li><a onClick={()=>handleclick(add._id)}><i className="fa fa-long-arrow-right" aria-hidden="true"></i></a></li>
                             </ul>
                           </div>
                         </div>
