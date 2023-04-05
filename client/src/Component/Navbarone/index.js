@@ -11,6 +11,8 @@ const Index = () => {
   const navigate = useNavigate();
   const userbool = JSON.parse(localStorage.getItem("userbool"))
   const employeebool = JSON.parse(localStorage.getItem("employeebool"))
+  const company=localStorage.getItem("loginemployee")
+  
   // var link;
   // if (employeebool) {
   //   link = "/postjob"
@@ -53,13 +55,12 @@ const Index = () => {
               <ul className="nav navbar-nav">
                 
 
+                <li>{employeebool?<NavLink to="/adminpanel">Admin Panel</NavLink>:<></>}</li>
                 <li><NavLink to="/joblist">Job List</NavLink></li>
-            
                 <li className="tr-dropdown"><a href="#">Pages</a>
                   <ul className="tr-dropdown-menu tr-list fadeInUp" role="menu">
                     <li><NavLink onClick={handleProfile}>Employee Profile</NavLink></li>
                     <li><a href="employee-profile.html">Employer Profile</a></li>
-                    <li><a href="view-compnay.html">View Compnay</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><NavLink to="/signup">SIGNUP</NavLink></li>
                     <li><NavLink to="/Login">SIGNIN</NavLink></li>

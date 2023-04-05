@@ -371,7 +371,7 @@ const Index = () => {
                               </li>
                               <li>
                                 
-                                <button onClick={()=>{(localStorage.getItem("userbool"))?jobdetailsfunction(add._id):toast("Login as Seeker")}}>
+                                <button onClick={()=>{(userbool)?jobdetailsfunction(add._id):toast("Login as Seeker")}}>
                                   <a><i
                                     className="fa fa-long-arrow-right"
                                     aria-hidden="true"

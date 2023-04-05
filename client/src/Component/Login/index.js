@@ -49,10 +49,11 @@ const Index = () => {
       const u=JSON.stringify(y.loginemployee);
       console.log(y);
       if (!y.error) {
-        alert("Login Successfully")
+        // alert("Login Successfully")
         localStorage.setItem("employee",u)
         localStorage.setItem("employeebool",JSON.stringify(true))
         localStorage.setItem("userbool",JSON.stringify(false))
+        
 
         navigate("/")
       }
@@ -85,7 +86,7 @@ const Index = () => {
       const u=JSON.stringify(y.loginuser);
       console.log(y);
       if (!y.error) {
-        alert("Login successfully")
+        // alert("Login successfully")
         localStorage.setItem("user",u)        
         localStorage.setItem("userbool",JSON.stringify(true))        
         localStorage.setItem("employeebool",JSON.stringify(false))        

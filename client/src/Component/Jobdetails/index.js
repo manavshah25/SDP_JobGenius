@@ -3,6 +3,7 @@ import Navbarone from '../Navbarone'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 // import ErrorBoundary from '../ErrorBoundary';
 function Index() {
@@ -58,7 +59,7 @@ const handleclick=async(id) => {
           <li><i class="fa fa-hourglass-start" aria-hidden="true"></i>Application Deadline : {current[0].postedDate.slice(0,15)}-{current[0].deadlineDate.slice(0,15)}</li>
         </ul>
         <div class="buttons">
-          <a onClick={()=>handleclick(current[0]._id)} class="btn btn-primary"><i class="fa fa-briefcase" aria-hidden="true"></i>Apply For This Job</a>
+          <a onClick={()=>{handleclick(current[0]._id); toast("You have Applied for this Job")}} class="btn btn-primary"><i class="fa fa-briefcase" aria-hidden="true"></i>Apply For This Job</a>
           <a href="#" class="btn button-bookmark"><i class="fa fa-bookmark" aria-hidden="true"></i>Bookmark</a>
           <span class="btn button-share"><i class="fa fa-share-alt" aria-hidden="true"></i>Share <span><a href="#"><i
                   class="fa fa-facebook" aria-hidden="true"></i></a><a href="#"><i class="fa fa-twitter"

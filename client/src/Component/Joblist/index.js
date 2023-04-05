@@ -3,11 +3,20 @@ import Navbarone from "./../Navbarone";
 import { useEffect,useState } from "react";
 import axios from "axios"
 import { useNavigate } from "react-router-dom";
+import { ToastContainer } from 'react-toastify';
+import { NavLink } from "react-router-dom";
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 function Index() {
   const [post, setPost] = useState({
     g: [],
   });
   const nav=useNavigate();
+  const userbool=JSON.parse(localStorage.getItem("userbool"));
+  const employeebool=JSON.parse(localStorage.getItem("employeebool"));
+  const invalidResume=()=>{
+    toast("Login as a User to create resume")
+  }
 function handleclick(id){
  // e.preventDefault();
    console.log(id);
@@ -225,7 +234,7 @@ function handleclick(id){
                         <li><a href="#"><i className="fa fa-heart-o" aria-hidden="true"></i></a></li>
                         <li><a href="#"><i className="fa fa-expand" aria-hidden="true"></i></a></li>
                         <li><a href="#"><i className="fa fa-bookmark-o" aria-hidden="true"></i></a></li>
-                        <li><a onClick={()=>handleclick(add._id)}><i className="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                        <li><a onClick={()=>{(userbool)?handleclick(add._id):toast("Login as Seeker")}}><i className="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </li>
                       </ul>
                     </div>
@@ -259,9 +268,19 @@ function handleclick(id){
                     <div class="pull-left">
                       <h1>Add your resume and let your next job find you.</h1>
                     </div>
-                    <a href="#" class="btn btn-primary pull-right">
-                      Add Your Resume
-                    </a>
+                    { userbool &&!employeebool  ? 
+                <NavLink to="/personaldetail" className="btn btn-primary pull-right">
+                  Add Your Resume
+                </NavLink>
+               : 
+                <button
+                  onClick={invalidResume}
+                  className="btn btn-primary pull-right"
+                >
+                  Add Your Resume
+                </button>
+              }
+              <ToastContainer/>
                   </div>
                 </div>
               </div>
@@ -593,7 +612,7 @@ function handleclick(id){
           <div class="container">
             <div class="copyright">
               <p>
-                Copyright © 2017 <a href="#">Seeker.com.</a> All rights
+                Copyright © 2023 <a href="#">Seeker.com.</a> All rights
                 reserved.
               </p>
             </div>
