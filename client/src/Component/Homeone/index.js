@@ -15,10 +15,9 @@ const Index = () => {
   const invalidResume=()=>{
     toast("Login as a User to create resume")
   }
-
   const userbool=JSON.parse(localStorage.getItem("userbool"));
   const employeebool=JSON.parse(localStorage.getItem("employeebool"));
-  const nav = useNavigate();
+  const navigate = useNavigate();
   useEffect(() => {
     axios.get("http://localhost:8000/data").then(
       (res) => {
@@ -31,13 +30,10 @@ const Index = () => {
       }
     );
   }, []);
-  function handleclick(id){
-    // e.preventDefault();
-      console.log(id);
+  function jobdetailsfunction(id) {
     localStorage.setItem("id",id);
-     nav("/jobdetails")
-   
-   }
+    navigate("/jobdetails")
+  }
   console.log(post);
   return (
     <div>
@@ -373,7 +369,15 @@ const Index = () => {
                                   ></i>
                                 </a>
                               </li>
-                              <li><a onClick={()=>handleclick(add._id)}><i className="fa fa-long-arrow-right" aria-hidden="true"></i></a></li>
+                              <li>
+                                
+                                <button onClick={()=>{(localStorage.getItem("userbool"))?jobdetailsfunction(add._id):toast("Login as Seeker")}}>
+                                  <a><i
+                                    className="fa fa-long-arrow-right"
+                                    aria-hidden="true"
+                                  ></i>
+                                </a></button>
+                              </li>
                             </ul>
                           </div>
                         </div>
@@ -993,7 +997,7 @@ const Index = () => {
             <div className="container">
               <div className="copyright">
                 <p>
-                  Copyright © 2017 <a href="#">Seeker.com.</a> All rights
+                  Copyright © 2023 <a href="#">Seeker.com.</a> All rights
                   reserved.
                 </p>
               </div>

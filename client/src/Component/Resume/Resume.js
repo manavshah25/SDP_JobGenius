@@ -9,32 +9,27 @@ import DownloadPage from '../DownloadPage';
 
 function Resume() {
     const email = localStorage.getItem("user");
-    const [post, setpost] = useState({
-        g: [],
-    })
+    const [current, setcurrent] = useState([]);
     // const [reducer, setreducer] = useReducer(x=>x+1,0)
     const navigate = useNavigate();
     useEffect(() => {
         axios.post("http://localhost:8000/resume", { email }).then(
-            (response) => {
+            (res) => {
                 setTimeout(() => {
-                    setpost({ g: response.data });
-                    // var x=post.g
-                    // console.log("going")
-                    // if(typeof x==="undefined"){
-                    //     setreducer()
-                    // }
-                    // setreducer()
+                    setcurrent(res.data);
+
                 });
-            });
-
-
-    }, [])
-    // const {SchoolName,CollageName,Qualification,YearofGraduation}=post.g.education 
-    console.log(post.g.education)
-    //    console.log(SchoolName)
-    console.log(post.g)
-
+                console.log("success")
+            },
+            (error) => {
+                console.log("error in fetching");
+            }
+        );
+    }, []);
+    console.log(current)
+    
+    
+ 
 
     const back = () => {
         navigate('/')
@@ -42,11 +37,8 @@ function Resume() {
     return (
         <>
 
-            <div class="col" id="resumedownload">
-
-
-                {/* {post.g.map((add,index)=>( */}
-                
+            {current &&
+                (<div class="col" id="resumedownload">
                     <div class="all-view section-padding">
                         <div class="container">
                             <div class="section">
@@ -171,20 +163,21 @@ function Resume() {
 
 
                                 </ul>
-                               <DownloadPage rootElementId="resumedownload" downloadFileName="Resume"/>
+                                <DownloadPage rootElementId="resumedownload" downloadFileName="Resume" />
                             </div>
                         </div>
                     </div>
                 </div>
-                {/* ))} */}
+            )}
 
-                {/* <div>
+
+            {/* <div>
                     <ul className="job-social tr-list">
                         <li><a><i className="fa fa-long-arrow-left" onClick={back} aria-hidden="true"></i></a>
                         </li>
                     </ul>
                 </div> */}
-         
+
 
         </>
     );

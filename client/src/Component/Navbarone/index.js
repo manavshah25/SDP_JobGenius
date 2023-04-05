@@ -18,6 +18,9 @@ const Index = () => {
   // else {
   //   link = "/login"
   // }
+  const handleProfile=()=>{
+    employeebool? navigate("/employeeprofile"):toast("Login to view your Profile")
+  }
   const login = async () => {
     navigate("/login");
   }
@@ -48,18 +51,13 @@ const Index = () => {
 
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="nav navbar-nav">
-                <li className="tr-dropdown active"><NavLink to="/">Home</NavLink>
-                  <ul className="tr-dropdown-menu left tr-list fadeInUp" role="menu">
-                    {/* <li className="active"><NavLink to="#">Home theme one</NavLink></li> */}
-                    <li><NavLink to="/themetwo">Home theme two</NavLink></li>
-                  </ul>
-                </li>
+                
 
                 <li><NavLink to="/joblist">Job List</NavLink></li>
-                <li><NavLink to="/jobdetails">Job Details</NavLink></li>
+            
                 <li className="tr-dropdown"><a href="#">Pages</a>
                   <ul className="tr-dropdown-menu tr-list fadeInUp" role="menu">
-                    <li><NavLink to="/employeeprofile">Employee Profile</NavLink></li>
+                    <li><NavLink onClick={handleProfile}>Employee Profile</NavLink></li>
                     <li><a href="employee-profile.html">Employer Profile</a></li>
                     <li><a href="view-compnay.html">View Compnay</a></li>
                     <li><a href="contact.html">Contact</a></li>
