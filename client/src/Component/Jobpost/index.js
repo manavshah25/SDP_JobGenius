@@ -197,7 +197,7 @@ function Index() {
           <InputLabel htmlFor="standard-adornment-amount">Amount</InputLabel>
           <Input
             id="standard-adornment-amount"
-          type="number"  name="salary" value={Data.salary} onChange={handlechange} startAdornment={<InputAdornment position="start">$</InputAdornment>}
+          type="number"  inputProps={{ inputMode: 'numeric', pattern: '[0-9]*' }} name="salary" value={Data.salary} onChange={handlechange} startAdornment={<InputAdornment position="start">$</InputAdornment>}
           />
         </FormControl>
                     </div>
