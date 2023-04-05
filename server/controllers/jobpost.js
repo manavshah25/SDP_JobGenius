@@ -138,6 +138,27 @@ console.log(retobj)
 exports.deleteuser=async function(req,res){
 const userId=req.body.userId;
 const jobid=req.body.jobid;
+var objdata=await User.find({_id:userId})
+// console.log(objdata)
+console.log("upadtes")
+objdata=objdata[0]
+var  index =objdata.AppliedJobs.findIndex(item => item.jobId === jobid);
+objdata.AppliedJobs[index].status = "Rejected";
+
+var userjob =await jobmodel.find({_id:jobid})
+userjob=userjob[0];
+var indexo =userjob.Applieduser.findIndex(item => item.userId === userId);
+console.log("hfffffffffffffffffffffffiqqwerrrrrrrrrrrrrrrrrrrrrrrrrrr")
+console.log(userjob.Applieduser[indexo])
+
+userjob.Applieduser.splice(indexo, 1);
+// console.log(userjob)
+// db.inventory.deleteOne( { status: "D" } )
+// var userjob=await jobmodel.deleteOne( {_id:jobid,} )
+await userjob.save(); 
+await objdata.save();
+res.status(201).json("sucessfully deleted");
+
 }
 exports.updateaccept=async function(req,res){
 const userId=req.body.userId;

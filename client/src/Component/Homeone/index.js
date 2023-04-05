@@ -370,13 +370,11 @@ const Index = () => {
                                 </a>
                               </li>
                               <li>
-                                
-                                <button onClick={()=>{(userbool)?jobdetailsfunction(add._id):toast("Login as Seeker")}}>
-                                  <a><i
+                                  <a onClick={()=>{(userbool)?jobdetailsfunction(add._id):toast("Login as Seeker")}}><i
                                     className="fa fa-long-arrow-right"
                                     aria-hidden="true"
                                   ></i>
-                                </a></button>
+                                </a>
                               </li>
                             </ul>
                           </div>

@@ -8,6 +8,8 @@ function Index() {
     g: [],
   });
   const [delred, setDelred] = useReducer(x=>x+1,0)
+  const [acceptred, setacceptred] = useReducer(x=>x+1,0)
+  const [rejectred, setrejectred] = useReducer(x=>x+1,0)
   const nav=useNavigate()
   const jobid = localStorage.getItem("cuserid");
   useEffect(() => {
@@ -26,7 +28,7 @@ function Index() {
           console.log("error in fetching");
         }
       );
-  }, [delred]);
+  }, [delred,acceptred,rejectred]);
   var accepted="Accepted"
   var rejected="Rejected"
   const handleclickaccept = async(userId) => {
@@ -36,7 +38,7 @@ function Index() {
         accepted,
      
     })
-    setDelred()
+   setacceptred()
   };
   const handleclickreject= async(userId) => {
  
@@ -46,9 +48,18 @@ function Index() {
     
    
     })
-    setDelred()
+   setrejectred()
   };
+  const handleclickdelete= async(userId) => {
+ 
+    const update= await axios.post("http://localhost:8000/delete",{
+        userId,jobid,
+       
 
+    })
+    setDelred()
+    console.log(update)
+  };
 //   const handleclickdel = async(userId) => {
  
 //     const update= await axios.post("https://localhost:8000/delete",{
@@ -131,6 +142,7 @@ function Index() {
                             <a
                               href="#deleteEmployeeModal"
                               class="delete"
+                              onClick={()=>handleclickdelete(add[0]._id)}
                               data-toggle="modal"
                             >
                               <svg
