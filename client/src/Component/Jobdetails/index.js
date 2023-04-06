@@ -3,8 +3,10 @@ import Navbarone from '../Navbarone'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
-
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import { NavLink } from 'react-router-dom';
 // import ErrorBoundary from '../ErrorBoundary';
 function Index() {
  //const [red,setred]=useReducer(x=>x+1,0)
@@ -13,6 +15,11 @@ function Index() {
         console.log(id);
         const user=JSON.parse(localStorage.getItem("user"))
         console.log(user);
+        const invalidResume=()=>{
+          toast("Login as a User to create resume")
+        }
+        const userbool=JSON.parse(localStorage.getItem("userbool"));
+        const employeebool=JSON.parse(localStorage.getItem("employeebool"));
 const nav=useNavigate()
   useEffect(() => {
     axios.post("http://localhost:8000/details",{id}).then(
@@ -170,7 +177,19 @@ const handleclick=async(id) => {
             <div class="pull-left">
               <h1>Add your resume and let your next job find you.</h1>
             </div>
-            <a href="#" class="btn btn-primary pull-right">Add Your Resume</a>
+            { userbool &&!employeebool  ? 
+                <NavLink to="/personaldetail" className="btn btn-primary pull-right">
+                  Add Your Resume
+                </NavLink>
+               : 
+                <button
+                  onClick={invalidResume}
+                  className="btn btn-primary pull-right"
+                >
+                  Add Your Resume
+                </button>
+              }
+              <ToastContainer/>
           </div>
         </div>
       </div>

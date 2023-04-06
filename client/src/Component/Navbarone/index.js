@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { NavLink, useNavigate } from 'react-router-dom'
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -6,12 +6,18 @@ import { ToastContainer } from 'react-toastify';
 
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import axios from 'axios';
 const Index = () => {
 
   const navigate = useNavigate();
   const userbool = JSON.parse(localStorage.getItem("userbool"))
   const employeebool = JSON.parse(localStorage.getItem("employeebool"))
-  const company=localStorage.getItem("loginemployee")
+  // const checkpostjob=()=>{
+  //   const x=axios.get("http://localhost:8000/jobpost")
+  //   console.log(x)
+    
+    
+  // }
   
   // var link;
   // if (employeebool) {
@@ -48,20 +54,20 @@ const Index = () => {
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"><i className="fa fa-align-justify"></i></span>
               </button>
-              <a className="navbar-brand" href="index-2.html"><img className="img-fluid" src="images/logo.png" alt="Logo" /></a>
+              <NavLink to="/"><a className="navbar-brand" ><img className="img-fluid" src="images/logo.png" alt="Logo" /></a></NavLink>
             </div>
 
             <div className="collapse navbar-collapse" id="navbarNav">
               <ul className="nav navbar-nav">
                 
-
+              {/* {employeebool?(checkpostjob)?<NavLink to="/adminpanel">Admin Panel</NavLink>:toast("You need to First Post Job for viewing Admin Panel"):<></>} */}
                 <li>{employeebool?<NavLink to="/adminpanel">Admin Panel</NavLink>:<></>}</li>
                 <li><NavLink to="/joblist">Job List</NavLink></li>
                 <li className="tr-dropdown"><a href="#">Pages</a>
                   <ul className="tr-dropdown-menu tr-list fadeInUp" role="menu">
                     <li><NavLink onClick={handleProfile}>Employee Profile</NavLink></li>
                     <li><a href="employee-profile.html">Employer Profile</a></li>
-                    <li><a href="contact.html">Contact</a></li>
+                    <li><NavLink to="/contact">Contact</NavLink></li>
                     <li><NavLink to="/signup">SIGNUP</NavLink></li>
                     <li><NavLink to="/Login">SIGNIN</NavLink></li>
                   </ul>

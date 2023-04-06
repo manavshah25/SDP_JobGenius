@@ -1,6 +1,6 @@
 import React from "react";
 import Navbarone from "./../Navbarone";
-function contact() {
+function Contact() {
   return (
     <>
       <Navbarone />
@@ -21,9 +21,7 @@ function contact() {
       </div>
       <div class="page-content">
         <div class="container">
-          <div class="tr-map">
-            <div id="gmap"></div>
-          </div>
+         
           <div class="contact-section">
             <div class="row">
               <div class="col-md-8">
@@ -286,4 +284,4 @@ function contact() {
   );
 }
 
-export default contact;
+export default Contact;

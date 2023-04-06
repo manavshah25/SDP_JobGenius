@@ -559,8 +559,7 @@ const Index = () => {
                   <h1>01 Steps</h1>
                   <h2>Register an account</h2>
                   <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry.
+                   Register yourself to brighten your Future with a desired job.
                   </p>
                 </div>
               </div>
@@ -576,8 +575,7 @@ const Index = () => {
                   <h1>02 Steps</h1>
                   <h2>search your desired job</h2>
                   <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry.
+                   Advance us with your Skills to guide you for your Career
                   </p>
                 </div>
               </div>
@@ -593,8 +591,7 @@ const Index = () => {
                   <h1>03 Steps</h1>
                   <h2>Send your resume to employers</h2>
                   <p>
-                    Lorem Ipsum is simply dummy text of the printing and
-                    typesetting industry. Lorem Ipsum has been the industry.
+                   Wonna Create Resume to enchance people's/employees with your skills and talent
                   </p>
                 </div>
               </div>
@@ -621,23 +618,20 @@ const Index = () => {
                 </div>
                 <div className="entry-content media-body">
                   <h2 className="entry-title">
-                    <a href="#">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    <a href="https://theconversation.com/why-a-universal-job-guarantee-beats-the-basic-income-pipe-dream-186793">
+                    Why a universal job guarantee beats the basic income pipe dream
                     </a>
                   </h2>
                   <ul className="entry-meta tr-list">
                     <li>
                       <i className="fa fa-user"></i>By{" "}
-                      <a href="#">owen williams </a>
+                      <a href="https://theconversation.com/why-a-universal-job-guarantee-beats-the-basic-income-pipe-dream-186793">Daniel Tsai </a>
                     </li>
                     <li>
                       <i className="fa fa-clock-o"></i>{" "}
-                      <a href="#">Aug 1, 2017</a>
+                      <a href="https://theconversation.com/why-a-universal-job-guarantee-beats-the-basic-income-pipe-dream-186793">July 27, 2022s</a>
                     </li>
-                    <li>
-                      <i className="fa fa-comment-o"></i>{" "}
-                      <a href="#">189 Comments</a>
-                    </li>
+                    
                   </ul>
                 </div>
                 <div className="blog-post"></div>
@@ -656,61 +650,25 @@ const Index = () => {
                 </div>
                 <div className="entry-content media-body">
                   <h2 className="entry-title">
-                    <a href="#">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                    <a href="https://theconversation.com/effective-job-search-requires-good-emotion-management-152655">
+                    Effective job search requires good emotion management
                     </a>
                   </h2>
                   <ul className="entry-meta tr-list">
                     <li>
                       <i className="fa fa-user"></i>By{" "}
-                      <a href="#">owen williams </a>
+                      <a href="https://theconversation.com/effective-job-search-requires-good-emotion-management-152655">Serge da Motta Veiga </a>
                     </li>
                     <li>
                       <i className="fa fa-clock-o"></i>{" "}
-                      <a href="#">Aug 1, 2017</a>
+                      <a href="https://theconversation.com/effective-job-search-requires-good-emotion-management-152655">September 17, 2019</a>
                     </li>
-                    <li>
-                      <i className="fa fa-comment-o"></i>{" "}
-                      <a href="#">189 Comments</a>
-                    </li>
+                    
                   </ul>
                 </div>
                 <div className="blog-post"></div>
               </div>
-              <div className="tr-post media">
-                <div className="entry-header pull-left">
-                  <div className="entry-thumbnail">
-                    <a href="#">
-                      <img
-                        src="images/blog/3.jpg"
-                        alt="images"
-                        className="img-fluid"
-                      />
-                    </a>
-                  </div>
-                </div>
-                <div className="entry-content media-body">
-                  <h2 className="entry-title">
-                    <a href="#">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                    </a>
-                  </h2>
-                  <ul className="entry-meta tr-list">
-                    <li>
-                      <i className="fa fa-user"></i>By{" "}
-                      <a href="#">owen williams </a>
-                    </li>
-                    <li>
-                      <i className="fa fa-clock-o"></i>{" "}
-                      <a href="#">Aug 1, 2017</a>
-                    </li>
-                    <li>
-                      <i className="fa fa-comment-o"></i>{" "}
-                      <a href="#">189 Comments</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+              
             </div>
           </div>
         </div>
@@ -729,12 +687,11 @@ const Index = () => {
                     </div>
                     <div className="media-body">
                       <p>
-                        ‘’ Lorem ipsum dolor sit amet, consectetur adipisicing,
-                        sed do eiusmod tempor incididunt ut labore. ‘’
+                      If we all did the things we are capable of, we would literally astound ourselves.
                       </p>
                       <div className="testimonial-title">
-                        <h2>Stive Frankman</h2>
-                        <p>CEO, Frakman Inc</p>
+                        <h2>Thomas Edison</h2>
+                       
                       </div>
                     </div>
                   </div>
@@ -750,12 +707,11 @@ const Index = () => {
                     </div>
                     <div className="media-body">
                       <p>
-                        ‘’ Lorem ipsum dolor sit amet, consectetur adipisicing,
-                        sed do eiusmod tempor incididunt ut labore. ‘’
+                      The most common way people give up their power is by thinking they don't have any.
                       </p>
                       <div className="testimonial-title">
-                        <h2>Stive Frankman</h2>
-                        <p>CEO, Frakman Inc</p>
+                        <h2>Alice Walker</h2>
+                       
                       </div>
                     </div>
                   </div>
@@ -771,12 +727,11 @@ const Index = () => {
                     </div>
                     <div className="media-body">
                       <p>
-                        ‘’ Lorem ipsum dolor sit amet, consectetur adipisicing,
-                        sed do eiusmod tempor incididunt ut labore. ‘’
+                      I always did something I was a little not ready to do. I think that's how you grow. When there's that moment of 'Wow, I'm not really sure I can do this,' and you push through those moments, that's when you have a breakthrough.
                       </p>
                       <div className="testimonial-title">
-                        <h2>Stive Frankman</h2>
-                        <p>CEO, Frakman Inc</p>
+                        <h2> Marissa Mayer</h2>
+                    
                       </div>
                     </div>
                   </div>

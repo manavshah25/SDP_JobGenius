@@ -16,6 +16,9 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Input from '@mui/material/Input';
 import FormLabel from '@mui/material/FormLabel';
 import FormGroup from '@mui/material/FormGroup';
+import { ToastContainer } from 'react-toastify';
+import {toast} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function Index() {
     var  loginuserinfo=localStorage.getItem("employee");
@@ -84,11 +87,11 @@ function Index() {
   const y= await resi.json();
     console.log(y);
     if (!y.error) {
-      alert("Thanks for posting"+ y.message)
-      Navigate("/")
+      toast("You have Posted Job succesfully!");
+      
     }
     else {
-      alert("You don't have accont");
+      toast("You don't have account");
     }
   } 
   catch(error)
@@ -126,6 +129,7 @@ function Index() {
           <div class="row">
             <div class="col-md-9">
               <div class="short-info code-edit-small">
+                <ToastContainer/>
                 <div class="section">
                   <span class="tr-title">Short Info</span>
                   <div class="row">
@@ -313,7 +317,7 @@ function Index() {
                   <button type="submit" class="btn btn-primary"> 
                     Post Your Job</button>
                   <NavLink to="/" class="btn button-cancle">
-                    can</NavLink>
+                    Cancel</NavLink>
                 </div>
                 </label>
               </div>
