@@ -10,4 +10,5 @@ router.post("/jobuser",jobpost_controller.adminuser);
 router.post("/delete",jobpost_controller.deleteuser);
 router.post("/updateaccept",jobpost_controller.updateaccept);
 router.post("/updatereject",jobpost_controller.updatereject);
+router.post("/companycheck",jobpost_controller.companycheck);
 module.exports=router;

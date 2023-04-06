@@ -51,8 +51,14 @@ function Index() {
         });
         console.log(res)
         var mes = await res.json()
-        console.log(mes.message);
-        toast("You have register successfully")
+        if (mes.error) {
+          console.error(mes.error)
+          toast(mes.error)
+        } else {
+
+          console.log(mes.message);
+          toast("You have Successfully added to Seeker Family and Kindly check your mail box for rules and regulations")
+        }
       }
       // navigate("/login")
     }
@@ -92,8 +98,6 @@ function Index() {
         toast("Password and Confirm Password do not match")
       }
       else {
-
-
         const res = await fetch("http://localhost:8000/employeesignup", {
           method: "POST",
           headers: {
@@ -110,10 +114,14 @@ function Index() {
         });
         console.log(res)
         var mes = await res.json()
-        console.log(mes.message);
-        // navigate("/login")
-        toast("You have register successfully")
-        
+        if (mes.error) {
+          console.error(mes.error)
+          toast(mes.error)
+        } else {
+
+          console.log(mes.message);
+          toast("You have Successfully added to Seeker Family and Kindly check your mail box for rules and regulations")
+        }
       }
     }
     catch (err) {
@@ -194,10 +202,10 @@ function Index() {
                         placeholder="Conform Password"
                       />
                     </div>
-                    <FormControl  fullWidth>
+                    <FormControl fullWidth>
                       <InputLabel id="demo-simple-select-label">WorkStatus</InputLabel>
                       <Select
-                        style={{borderRadius:"15px"}}
+                        style={{ borderRadius: "15px" }}
                         labelId="demo-simple-select-label"
                         dropDownMenuProps={dropdownMenuProps}
                         id="demo-simple-select"
@@ -210,8 +218,8 @@ function Index() {
                         <MenuItem value={"Student"}>Student</MenuItem>
                       </Select>
                     </FormControl>
-                    
-                    <br/><br/>
+
+                    <br /><br />
                     <button type="submit" class="btn btn-primary">Sign Up</button>
                   </form>
                   <div class="new-user text-center">

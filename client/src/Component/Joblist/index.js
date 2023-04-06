@@ -223,7 +223,7 @@ function handleclick(id){
                       <a href="#" className="btn btn-primary">{add.jobtype}</a>
                       <span className="tr-title">
                         <a href="job-details.html">{add.title}</a>
-                        <span><a href="#">Dig File</a></span>
+                        <span><a href="#">{add.companyname}</a></span>
                       </span>
                       <ul className="tr-list job-meta">
                         <li><i className="fa fa-map-signs" aria-hidden="true"></i>{add.category} Developer</li>
@@ -245,7 +245,7 @@ function handleclick(id){
                     </div>
                     <span className="tr-title">
                       <a href="#">{add.title}</a>
-                      <span><a href="#">Dig File</a></span>
+                      <span><a href="#">{add.companyname}</a></span>
                     </span>
                     <ul className="tr-list job-meta">
                       <li><span><i className="fa fa-map-signs" aria-hidden="true"></i></span>{add.category} Developer</li>
@@ -293,7 +293,7 @@ function handleclick(id){
                       <a href="#" className="btn btn-primary">{add.jobtype}</a>
                       <span className="tr-title">
                         <a href="job-details.html">{add.title}</a>
-                        <span><a href="#">Dig File</a></span>
+                        <span><a href="#">{add.companyname}</a></span>
                       </span>
                       <ul className="tr-list job-meta">
                         <li><i className="fa fa-map-signs" aria-hidden="true"></i>{add.category} Developer</li>
@@ -315,7 +315,7 @@ function handleclick(id){
                     </div>
                     <span className="tr-title">
                       <a href="#">{add.title}</a>
-                      <span><a href="#">Dig File</a></span>
+                      <span><a href="#">{add.companyname}</a></span>
                     </span>
                     <ul className="tr-list job-meta">
                       <li><span><i className="fa fa-map-signs" aria-hidden="true"></i></span>{add.category} Developer</li>

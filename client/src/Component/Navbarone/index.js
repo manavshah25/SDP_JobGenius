@@ -12,20 +12,31 @@ const Index = () => {
   const navigate = useNavigate();
   const userbool = JSON.parse(localStorage.getItem("userbool"))
   const employeebool = JSON.parse(localStorage.getItem("employeebool"))
-  // const checkpostjob=()=>{
-  //   const x=axios.get("http://localhost:8000/jobpost")
-  //   console.log(x)
+  const companyname=localStorage.getItem("company")
+  // console.log(companyname)
+  const checkpostjob=async()=>{
+    const x = await fetch("http://localhost:8000/companycheck", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        companyname,
+      }),
+    })
+    const res=await x.json();
+    console.log(res)
+    if(res.error){
+      toast(res.error)
+    }
+    else{
+      localStorage.setItem("jobcount",res.company);
+      navigate("/adminpanel")
+    }
     
-    
-  // }
+  }
   
-  // var link;
-  // if (employeebool) {
-  //   link = "/postjob"
-  // }
-  // else {
-  //   link = "/login"
-  // }
+ 
   const handleProfile=()=>{
     employeebool? navigate("/employeeprofile"):toast("Login to view your Profile")
   }
@@ -61,7 +72,7 @@ const Index = () => {
               <ul className="nav navbar-nav">
                 
               {/* {employeebool?(checkpostjob)?<NavLink to="/adminpanel">Admin Panel</NavLink>:toast("You need to First Post Job for viewing Admin Panel"):<></>} */}
-                <li>{employeebool?<NavLink to="/adminpanel">Admin Panel</NavLink>:<></>}</li>
+                <li>{employeebool?<NavLink onClick={checkpostjob}>Admin Panel</NavLink>:<></>}</li>
                 <li><NavLink to="/joblist">Job List</NavLink></li>
                 <li className="tr-dropdown"><a href="#">Pages</a>
                   <ul className="tr-dropdown-menu tr-list fadeInUp" role="menu">

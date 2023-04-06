@@ -53,7 +53,7 @@ const Index = () => {
         localStorage.setItem("employee",u)
         localStorage.setItem("employeebool",JSON.stringify(true))
         localStorage.setItem("userbool",JSON.stringify(false))
-        
+        localStorage.setItem("company",y.loginemployee.companyname)
 
         navigate("/")
       }
