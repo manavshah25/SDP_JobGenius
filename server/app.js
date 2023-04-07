@@ -18,10 +18,12 @@ const user_routes=require('./routes/mainuser.js');
 const employee_routes=require('./routes/employee.js');
 const resume_routes=require('./routes/resume.js');
 const jobpost_routes=require('./routes/jobpost.js')
+const recommend_routes=require('./routes/recommend.js')
 app.use(user_routes);
 app.use(employee_routes);
 app.use(resume_routes);
 app.use(jobpost_routes)
+app.use(recommend_routes);
 // app.use(user_auth);
 //router.post("/signup",register)
 const port =process.env.port;
