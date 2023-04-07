@@ -29,7 +29,7 @@ function App() {
         <Route  path="/login" element={<Login/>}/>
         <Route  path="/signup" element={<Signup/>}/>
        <Route  path="/jobdetails" element={<Jobdetails/>}/> 
-      {!employee && <Route path="/postjob" exact element={<Navigate replace to="/login"/>}/>}
+      {/* {!employee && <Route path="/postjob" exact element={<Navigate replace to="/login"/>}/>} */}
        <Route  path="/postjob" element={<Jobpost/>}/> 
        {/* {!employee && <Route path="/adminpanel" exact element={<Navigate replace to="/login"/>}/>} */}
        <Route  path="/adminpanel" element={<Admin />}/> 
