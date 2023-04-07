@@ -36,10 +36,11 @@ function Index() {
 
     <div>
       <Navbarone />
-
+      <div  class="cont">
       {post.g.map((add, i) => (
 
-        <div key={i} class="cont">
+   
+        <div class="shift"  key={i}>
           <article onClick={() => handleClick(add._id)}>
             <figure>
               <img alt="A rather marvellous macaw, opening one of its wings to support the cause." src="https://images.pexels.com/photos/2317904/pexels-photo-2317904.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
@@ -63,7 +64,8 @@ function Index() {
               <strong style={{ marginLeft: "-5%" }}>{add.companyname}</strong>
             </div>
           </article>
-        </div>))}
+          </div>
+        ))}</div>
       <div className="footer">
         <div className="footer-top section-padding">
           <div className="container">

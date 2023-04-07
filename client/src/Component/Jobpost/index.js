@@ -186,7 +186,7 @@ function Index() {
                         <label>Title for your job</label>
                       </div>
                       <div class="col-sm-9">
-                        <Box style={{ marginLeft: "-5%" }} sx={{ '& > :not(style)': { m: 1 } }}>
+                        <Box  sx={{ '& > :not(style)': { } }}>
                           <Box sx={{ display: 'flex', alignItems: 'flex-end' }}>
                             {/* <AccountCircle sx={{ color: 'action.active', mr: 1, my: 0.5 }} /> */}
                             <TextField required fullWidth vale={Data.title}
@@ -200,7 +200,7 @@ function Index() {
                         <label>Job Category</label>
                       </div>
                       <div class="col-sm-9">
-                        <FormControl required fullWidth style={{ marginTop: "-0.5%" }} variant="standard" sx={{ m: 1 }}>
+                        <FormControl required fullWidth style={{ marginTop: "-0.5%" }} variant="standard" sx={{}}>
                           <InputLabel id="demo-simple-select-standard-label">Job Category</InputLabel>
                           <Select
                             labelId="demo-simple-select-standard-label"
@@ -326,12 +326,12 @@ function Index() {
           labelPlacement="end"
         />
       </FormGroup> */}
-                          <div class="row">
-                            <TextField id="filled-basic" onChange={recommendchange} value={recommend.JavaDev} name="JavaDev" label="Java Dev" variant="filled" style={{ margin: "10px" }} />
-                            <TextField id="filled-basic" onChange={recommendchange} value={recommend.PythonDev} name="PythonDev" label="Python Dev" variant="filled" style={{ margin: "10px" }} /><br />
-                            <TextField id="filled-basic" onChange={recommendchange} value={recommend.FullStackDev} name="FullStackDev" label="Full Stack Dev" variant="filled" style={{ margin: "10px" }} />
-                            <TextField id="filled-basic" onChange={recommendchange} value={recommend.UIUXDesginer} name="UIUXDesginer" label="UI-UX Desginer" variant="filled" style={{ margin: "10px" }} />
-                            <TextField id="filled-basic" onChange={recommendchange} value={recommend.AndroidDev} name="AndroidDev" label="Android Dev" variant="filled" style={{ margin: "10px" }} />
+                          <div class="row" style={{marginLeft:"0.1%"}}>
+                            <TextField id="filled-basic" onChange={recommendchange} value={recommend.JavaDev} name="JavaDev" label="Java Dev" min="1" max="5"  type="number" variant="standard" style={{ margin: "10px" }} />
+                            <TextField id="filled-basic" onChange={recommendchange} value={recommend.PythonDev} name="PythonDev" label="Python Dev" type="number" variant="standard" style={{ margin: "10px" }} /><br />
+                            <TextField id="filled-basic" onChange={recommendchange} value={recommend.FullStackDev} name="FullStackDev" label="Full Stack Dev" type="number" variant="standard" style={{ margin: "10px" }} />
+                            <TextField id="filled-basic" onChange={recommendchange} value={recommend.UIUXDesginer} name="UIUXDesginer" label="UI-UX Desginer" type="number" variant="standard" style={{ margin: "10px" }} />
+                            <TextField id="filled-basic" onChange={recommendchange} value={recommend.AndroidDev} name="AndroidDev" label="Android Dev" type="number" variant="standard" style={{ margin: "10px" }} />
                           </div>
                         </FormControl>
                       </div>

@@ -12,26 +12,41 @@
   perspective: 500px;
 }  */
 .cont{
-    display:inline-flex;
+    /* display:flex;
     min-height:2%;
     flex-direction: row;
     margin-top: 10%;
-    perspective: 500px;
+    perspective: 500px; */
     /* margin-bottom: -10%; */
     /* transition: transform .2s; */
-    transition: .3s;
+    /* transition: .3s;
     margin-left: 10%;
      flex-wrap:nowrap;
     justify-content: flex-start; 
- 
+  */
     /*align-content: center; 
  align-items: flex-start; */
-    
-}
-.cont :hover{
-    background-color:#94cef6;
+
+ display: flex;
+ min-height: 2%;
+ flex-direction: row;
+ margin: 6%;
+ margin-top: 4%;
+ /* transition: transform .2s; */
+ transition: .9s;
+ /* margin-left: 10%; */
+ flex-wrap: wrap;
   
 }
+.shift{
+  margin-left:12%;
+  margin-top: 8%;
+}
+.shift :hover{
+  
+  background-color:#94cef6;
+}
+
 h1{
   opacity: 1;
   display: inline-block;
