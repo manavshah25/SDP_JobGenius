@@ -24,8 +24,17 @@ exports.skill = async (req, res) => {
         });
         console.log(obj.title);
         await obj.save();
-        const csv= `${loginuserinfo},${JavaDev},${PythonDev},${FullStackDev},${UIUXDesginer},${AndroidDev},${title}`+"\n";
-        re.appendFileSync("./Dataset.csv", csv);
+        const json=`{
+           "Hello" : {
+                "JavaDev": ${JavaDev},
+                "PythonDev": ${PythonDev},
+                "FullStackDev": ${FullStackDev},
+                "UIUXDesginer": ${UIUXDesginer},
+                "AndroidDev": ${AndroidDev}
+            }
+        }`
+        // const csv= `${loginuserinfo},${JavaDev},${PythonDev},${FullStackDev},${UIUXDesginer},${AndroidDev},${title}`+"\n";
+        re.appendFileSync("./Dataset.json", json);
         return res.status(200).json({
             message: "skills number successfully",
 
