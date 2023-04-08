@@ -18,7 +18,6 @@ import FormLabel from '@mui/material/FormLabel';
 import FormGroup from '@mui/material/FormGroup';
 import { ToastContainer } from 'react-toastify';
 import { toast } from 'react-toastify';
-
 import 'react-toastify/dist/ReactToastify.css';
 
 function Index() {
@@ -32,22 +31,15 @@ function Index() {
     jobtype: "",
     salary: "",
     exprience: "",
-    JavaDev: "false",
-    PythonDev: "false",
-    FullStackDev: "false",
-    UIUXDesginer: "false",
-    AndroidDev: "false",
-    jobsummary: "",
-    jobrequirement: "",
-  });
-  const [recommend, setrecommend] = useState({
     JavaDev: "",
     PythonDev: "",
     FullStackDev: "",
     UIUXDesginer: "",
     AndroidDev: "",
-
-  })
+    jobsummary: "",
+    jobrequirement: "",
+  });
+ 
 
   const Navigate = useNavigate();
   let handlechange = async (event) => {
@@ -66,12 +58,7 @@ function Index() {
     localStorage.setItem("jobtitle", Data.title)
 
   }
-  let recommendchange = async (event) => {
-    const name = event.target.name;
-    const val = event.target.value;
-    setrecommend(values => ({ ...values, [name]: val }))
-  }
-
+ 
   const handlesubmit = async (e) => {
     e.preventDefault();
     try {
@@ -112,41 +99,41 @@ function Index() {
     catch (error) {
       console.log(error);
     }
-    try {
-      const title = localStorage.getItem("jobtitle"); console.log(title);
-      const { JavaDev, PythonDev, FullStackDev, UIUXDesginer, AndroidDev } = recommend;
-      const resi = await fetch("http://localhost:8000/recommend", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          loginuserinfo,
-          JavaDev,
-          PythonDev,
-          FullStackDev,
-          UIUXDesginer,
-          AndroidDev,
-          title,
-        }),
-      })
+    // try {
+    //   const title = localStorage.getItem("jobtitle"); console.log(title);
+    //   // const { JavaDev, PythonDev, FullStackDev, UIUXDesginer, AndroidDev } = recommend;
+    //   // const resi = await fetch("http://localhost:8000/recommend", {
+    //     method: "POST",
+    //     headers: {
+    //       "Content-Type": "application/json",
+    //     },
+    //     body: JSON.stringify({
+    //       loginuserinfo,
+    //       JavaDev,
+    //       PythonDev,
+    //       FullStackDev,
+    //       UIUXDesginer,
+    //       AndroidDev,
+    //       title,
+    //     }),
+    //   // })
 
-      const y = await resi.json();
-      localStorage.removeItem('jobtitle');
-      console.log(y);
-      // if (!y.error) {
-      //   // const csv= `${loginuserinfo},${JavaDev},${PythonDev},${FullStackDev},${UIUXDesginer},${AndroidDev}`
-      //   // appendFileSync("./Dataset.csv", csv);
-      //   toast("You have Posted Job succesfully!");
+    //   // const y = await resi.json();
+    //   localStorage.removeItem('jobtitle');
+    //   console.log(y);
+    //   // if (!y.error) {
+    //   //   // const csv= `${loginuserinfo},${JavaDev},${PythonDev},${FullStackDev},${UIUXDesginer},${AndroidDev}`
+    //   //   // appendFileSync("./Dataset.csv", csv);
+    //   //   toast("You have Posted Job succesfully!");
 
-      // }
-      // else {
-      //   toast("You don't have account");
-      // }
-    }
-    catch (error) {
-      console.log(error);
-    }
+    //   // }
+    //   // else {
+    //   //   toast("You don't have account");
+    //   // }
+    // }
+    // catch (error) {
+    //   console.log(error);
+    // }
   }
 
   const handlechangecheck = (event) => {
@@ -327,11 +314,11 @@ function Index() {
         />
       </FormGroup> */}
                           <div class="row" style={{marginLeft:"0.1%"}}>
-                            <TextField id="filled-basic" onChange={recommendchange} value={recommend.JavaDev} name="JavaDev" label="Java Dev" min="1" max="5"  type="number" variant="standard" style={{ margin: "10px" }} />
-                            <TextField id="filled-basic" onChange={recommendchange} value={recommend.PythonDev} name="PythonDev" label="Python Dev" type="number" variant="standard" style={{ margin: "10px" }} /><br />
-                            <TextField id="filled-basic" onChange={recommendchange} value={recommend.FullStackDev} name="FullStackDev" label="Full Stack Dev" type="number" variant="standard" style={{ margin: "10px" }} />
-                            <TextField id="filled-basic" onChange={recommendchange} value={recommend.UIUXDesginer} name="UIUXDesginer" label="UI-UX Desginer" type="number" variant="standard" style={{ margin: "10px" }} />
-                            <TextField id="filled-basic" onChange={recommendchange} value={recommend.AndroidDev} name="AndroidDev" label="Android Dev" type="number" variant="standard" style={{ margin: "10px" }} />
+                            <TextField id="filled-basic" onChange={handlechange} value={Data.JavaDev} name="JavaDev" label="Java Dev" min="1" max="5"  type="number" variant="standard" style={{ margin: "10px" }} />
+                            <TextField id="filled-basic" onChange={handlechange} value={Data.PythonDev} name="PythonDev" label="Python Dev" type="number" variant="standard" style={{ margin: "10px" }} /><br />
+                            <TextField id="filled-basic" onChange={handlechange} value={Data.FullStackDev} name="FullStackDev" label="Full Stack Dev" type="number" variant="standard" style={{ margin: "10px" }} />
+                            <TextField id="filled-basic" onChange={handlechange} value={Data.UIUXDesginer} name="UIUXDesginer" label="UI-UX Desginer" type="number" variant="standard" style={{ margin: "10px" }} />
+                            <TextField id="filled-basic" onChange={handlechange} value={Data.AndroidDev} name="AndroidDev" label="Android Dev" type="number" variant="standard" style={{ margin: "10px" }} />
                           </div>
                         </FormControl>
                       </div>

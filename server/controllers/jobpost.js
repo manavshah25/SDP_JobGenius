@@ -1,6 +1,6 @@
 const jobmodel = require('../models/jobpost');
 const User = require('../models/register');
-
+const fs = require("fs");
 const bcrypt = require("bcryptjs");
 exports.jobpost = async function (req, res) {
   console.log("hello manav job")
@@ -46,6 +46,25 @@ exports.jobpost = async function (req, res) {
 
     });
     await obj.save();
+    var u = obj._id;
+    var existingData = JSON.parse(fs.readFileSync("Dataset.json"));
+
+    // Update the object with new data
+ 
+    var newData = {
+      [u]: {
+        JavaDev: parseInt(JavaDev),
+        PythonDev: parseInt(PythonDev),
+        FullStackDev: parseInt(FullStackDev),
+        UIUXDesginer: parseInt(UIUXDesginer),
+        AndroidDev: parseInt(AndroidDev),
+      },
+    };
+
+    existingData = { ...existingData, ...newData };
+
+    // Write the updated object back to the JSON file
+    fs.writeFileSync("Dataset.json", JSON.stringify(existingData));
     return res.status(200).json({
       message: "jobposted succefully",
       date: deadlineDate,

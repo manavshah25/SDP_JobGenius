@@ -1,4 +1,5 @@
 const mongoose=require("mongoose");
+const fs = require("fs");
 const Jobpost =new mongoose.Schema({
  title:{type:String,require: [true, "Please enter title"]},
  companyname:{type:String,require: [true, "Please enter company name"]},
