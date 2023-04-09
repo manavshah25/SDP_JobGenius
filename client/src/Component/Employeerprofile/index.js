@@ -53,7 +53,7 @@ function Index() {
               <div class="tab-content">
                 <div role="tabpanel" class="tab-pane fade in show active account-info" id="account-info">
                   <div class="tr-fun-fact">
-                    {/* <div class="row">
+                   <div class="row">
                   <div class="col-sm-4">
                     <div class="fun-fact media">
                       <div class="fun-fact-icon">
@@ -87,7 +87,7 @@ function Index() {
                       </div>
                     </div>
                   </div>
-                </div> */}
+                </div> 
                   </div>
                   {/* <div class="section resume-last-updated">
                 <span class="icon pull-left"><img src="images/icons/1.png" alt="Icon" class="img-fluid"/></span>

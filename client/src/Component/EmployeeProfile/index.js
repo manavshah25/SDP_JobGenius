@@ -1,10 +1,14 @@
-
-
-  <div class="tr-breadcrumb bg-image section-before">
+import React from 'react'
+import Navbarone from '../Navbarone'
+function EmployeeProfile() {
+  return (
+    <div>
+    <Navbarone/>
+        <div class="tr-breadcrumb bg-image section-before">
     <div class="container">
       <div class="breadcrumb-info text-center">
         <div class="user-image">
-          <img src="images/others/author.png" alt="Image" class="img-fluid">
+          <img src="images/others/author.png" alt="Image" class="img-fluid"/>
         </div>
         <div class="user-title">
           <h1>Jhon Doe</h1>
@@ -61,7 +65,7 @@
                   <div class="col-sm-4">
                     <div class="fun-fact">
                       <div class="fun-fact-icon">
-                        <img src="images/icons/fun-fact4.png" alt="images" class="img-fluid">
+                        <img src="images/icons/fun-fact4.png" alt="images" class="img-fluid"/>
                       </div>
                       <div class="media-body">
                         <h1 class="counter">329</h1>
@@ -72,7 +76,7 @@
                   <div class="col-sm-4">
                     <div class="fun-fact">
                       <div class="fun-fact-icon">
-                        <img src="images/icons/fun-fact5.png" alt="images" class="img-fluid">
+                        <img src="images/icons/fun-fact5.png" alt="images" class="img-fluid"/>
                       </div>
                       <div class="media-body">
                         <h1 class="counter">32</h1>
@@ -83,7 +87,7 @@
                   <div class="col-sm-4">
                     <div class="fun-fact">
                       <div class="fun-fact-icon">
-                        <img src="images/icons/fun-fact6.png" alt="images" class="img-fluid">
+                        <img src="images/icons/fun-fact6.png" alt="images" class="img-fluid"/>
                       </div>
                       <div class="media-body">
                         <h1 class="counter">27</h1>
@@ -94,7 +98,7 @@
                 </div>
               </div>
               <div class="section resume-last-updated">
-                <span class="icon pull-left"><img src="images/icons/1.png" alt="Icon" class="img-fluid"></span>
+                <span class="icon pull-left"><img src="images/icons/1.png" alt="Icon" class="img-fluid"/></span>
                 <div class="updated-info">
                   <span class="pull-left">Resume last updated on</span>
                   <span class="pull-right">24/4/2017</span>
@@ -102,16 +106,16 @@
               </div>
               <div class="section display-information">
                 <div class="title title-after">
-                  <div class="icon"><img src="images/icons/2.png" alt="Icon" class="img-fluid"></div>
+                  <div class="icon"><img src="images/icons/2.png" alt="Icon" class="img-fluid"/></div>
                   <span>Your display Information</span>
                 </div>
                 <div class="change-photo">
                   <div class="user-image">
-                    <img src="images/others/author.png" alt="Image" class="img-fluid">
+                    <img src="images/others/author.png" alt="Image" class="img-fluid"/>
                   </div>
                   <div class="upload-photo">
                     <label class="btn btn-primary" for="upload-photo">
-                      <input type="file" id="upload-photo">
+                      <input type="file" id="upload-photo"/>
                       Change Photo
                     </label>
                     <span class="max-size">Max 20 MB</span>
@@ -129,7 +133,7 @@
               </div>
               <div class="section">
                 <div class="title title-after">
-                  <div class="icon"><img src="images/icons/3.png" alt="Icon" class="img-fluid"></div>
+                  <div class="icon"><img src="images/icons/3.png" alt="Icon" class="img-fluid"/></div>
                   <span>Social Link</span>
                 </div>
                 <ul class="social social-icon-bg tr-list">
@@ -162,7 +166,7 @@
                       labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
                       nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
                       esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-                      in culpa qui officia deserunt mollit anim id est laborum.</p> <br>
+                      in culpa qui officia deserunt mollit anim id est laborum.</p> <br/>
                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
                       totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
                       dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
@@ -355,7 +359,7 @@
                       labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
                       nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
                       esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt
-                      in culpa qui officia deserunt mollit anim id est laborum.</p> <br>
+                      in culpa qui officia deserunt mollit anim id est laborum.</p> <br/>
                     <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium,
                       totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
                       dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit,
@@ -381,7 +385,7 @@
                         labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
                         voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> <br>
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> <br/>
                       <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
                         laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
                         beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
@@ -413,12 +417,12 @@
                           <div class="col-sm-6 col-md-4">
                             <label>To</label>
                             <div class="calendar">
-                              <input type="date" class="form-control" value="2016-01-13">
+                              <input type="date" class="form-control" value="2016-01-13"/>
                             </div>
                           </div>
                           <div class="col-md-4">
                             <div class="checkbox">
-                              <label for="logged-1"><input type="checkbox" name="logged-1" id="logged-1">I currently
+                              <label for="logged-1"><input type="checkbox" name="logged-1" id="logged-1"/>I currently
                                 work here</label>
                             </div>
                           </div>
@@ -445,13 +449,13 @@
                           <div class="col-sm-6 col-md-4">
                             <label>From Year</label>
                             <div class="calendar">
-                              <input type="date" class="form-control" value="2012-01-01">
+                              <input type="date" class="form-control" value="2012-01-01"/>
                             </div>
                           </div>
                           <div class="col-sm-6 col-md-4">
                             <label>To Year (or expected)</label>
                             <div class="calendar">
-                              <input type="date" class="form-control" value="2017-01-13">
+                              <input type="date" class="form-control" value="2017-01-13"/>
                             </div>
                           </div>
                           <div class="col-sm-6 col-md-4">
@@ -580,7 +584,7 @@
                       </div>
                       <div class="col-sm-8">
                         <div class="calendar">
-                          <input type="date" class="form-control" value="1982-01-26">
+                          <input type="date" class="form-control" value="1982-01-26"/>
                         </div>
                       </div>
                     </div>
@@ -629,7 +633,7 @@
                         labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                         laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
                         voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> <br>
+                        non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p> <br/>
                       <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
                         laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
                         beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut
@@ -672,7 +676,7 @@
                     </div>
                     <div class="job-info">
                       <div class="company-logo">
-                        <img src="images/job/1.png" alt="images" class="img-fluid">
+                        <img src="images/job/1.png" alt="images" class="img-fluid"/>
                       </div>
                       <span class="tr-title">
                         <a href="#">Project Manager</a>
@@ -716,7 +720,7 @@
                     </div>
                     <div class="job-info">
                       <div class="company-logo">
-                        <img src="images/job/2.png" alt="images" class="img-fluid">
+                        <img src="images/job/2.png" alt="images" class="img-fluid"/>
                       </div>
                       <span class="tr-title">
                         <a href="#">Design Associate</a>
@@ -760,7 +764,7 @@
                     </div>
                     <div class="job-info">
                       <div class="company-logo">
-                        <img src="images/job/3.png" alt="images" class="img-fluid">
+                        <img src="images/job/3.png" alt="images" class="img-fluid"/>
                       </div>
                       <span class="tr-title">
                         <a href="#">Graphic Designer</a>
@@ -804,7 +808,7 @@
                     </div>
                     <div class="job-info">
                       <div class="company-logo">
-                        <img src="images/job/4.png" alt="images" class="img-fluid">
+                        <img src="images/job/4.png" alt="images" class="img-fluid"/>
                       </div>
                       <span class="tr-title">
                         <a href="#">Design Consultant</a>
@@ -848,7 +852,7 @@
                     </div>
                     <div class="job-info">
                       <div class="company-logo">
-                        <img src="images/job/5.png" alt="images" class="img-fluid">
+                        <img src="images/job/5.png" alt="images" class="img-fluid"/>
                       </div>
                       <span class="tr-title">
                         <a href="#">Project Manager</a>
@@ -892,7 +896,7 @@
                     </div>
                     <div class="job-info">
                       <div class="company-logo">
-                        <img src="images/job/6.png" alt="images" class="img-fluid">
+                        <img src="images/job/6.png" alt="images" class="img-fluid"/>
                       </div>
                       <span class="tr-title">
                         <a href="#">Design Associate</a>
@@ -936,7 +940,7 @@
                     </div>
                     <div class="job-info">
                       <div class="company-logo">
-                        <img src="images/job/7.png" alt="images" class="img-fluid">
+                        <img src="images/job/7.png" alt="images" class="img-fluid"/>
                       </div>
                       <span class="tr-title">
                         <a href="#">Graphic Designer</a>
@@ -980,7 +984,7 @@
                     </div>
                     <div class="job-info">
                       <div class="company-logo">
-                        <img src="images/job/8.png" alt="images" class="img-fluid">
+                        <img src="images/job/8.png" alt="images" class="img-fluid"/>
                       </div>
                       <span class="tr-title">
                         <a href="#">Design Consultant</a>
@@ -1006,7 +1010,7 @@
                   <div class="left-content">
                     <div class="clearfix">
                       <div class="company-logo">
-                        <img src="images/job/1.png" alt="images" class="img-fluid">
+                        <img src="images/job/1.png" alt="images" class="img-fluid"/>
                       </div>
                       <span class="tr-title">
                         <a href="job-details.html">Design Associate</a><span><a href="#">Loop</a></span>
@@ -1030,7 +1034,7 @@
                   <div class="left-content">
                     <div class="clearfix">
                       <div class="company-logo">
-                        <img src="images/job/2.png" alt="images" class="img-fluid">
+                        <img src="images/job/2.png" alt="images" class="img-fluid"/>
                       </div>
                       <span class="tr-title">
                         <a href="job-details.html">Design Associate</a><span><a href="#">Loop</a></span>
@@ -1054,7 +1058,7 @@
                   <div class="left-content">
                     <div class="clearfix">
                       <div class="company-logo">
-                        <img src="images/job/3.png" alt="images" class="img-fluid">
+                        <img src="images/job/3.png" alt="images" class="img-fluid"/>
                       </div>
                       <span class="tr-title">
                         <a href="job-details.html">Design Associate</a><span><a href="#">Loop</a></span>
@@ -1078,7 +1082,7 @@
                   <div class="left-content">
                     <div class="clearfix">
                       <div class="company-logo">
-                        <img src="images/job/4.png" alt="images" class="img-fluid">
+                        <img src="images/job/4.png" alt="images" class="img-fluid"/>
                       </div>
                       <span class="tr-title">
                         <a href="job-details.html">Design Associate</a><span><a href="#">Loop</a></span>
@@ -1102,7 +1106,7 @@
                   <div class="left-content">
                     <div class="clearfix">
                       <div class="company-logo">
-                        <img src="images/job/5.png" alt="images" class="img-fluid">
+                        <img src="images/job/5.png" alt="images" class="img-fluid"/>
                       </div>
                       <span class="tr-title">
                         <a href="job-details.html">Design Associate</a><span><a href="#">Loop</a></span>
@@ -1126,7 +1130,7 @@
                   <div class="left-content">
                     <div class="clearfix">
                       <div class="company-logo">
-                        <img src="images/job/6.png" alt="images" class="img-fluid">
+                        <img src="images/job/6.png" alt="images" class="img-fluid"/>
                       </div>
                       <span class="tr-title">
                         <a href="job-details.html">Design Associate</a><span><a href="#">Loop</a></span>
@@ -1150,7 +1154,7 @@
                   <div class="left-content">
                     <div class="clearfix">
                       <div class="company-logo">
-                        <img src="images/job/7.png" alt="images" class="img-fluid">
+                        <img src="images/job/7.png" alt="images" class="img-fluid"/>
                       </div>
                       <span class="tr-title">
                         <a href="job-details.html">Design Associate</a><span><a href="#">Loop</a></span>
@@ -1192,7 +1196,7 @@
             <div class="download-app">
               <a href="#">
                 <div class="download-image">
-                  <img src="images/icons/app1.png" alt="Image" class="img-fluid">
+                  <img src="images/icons/app1.png" alt="Image" class="img-fluid"/>
                 </div>
                 <div class="download-info">
                   <span>available on</span>
@@ -1205,7 +1209,7 @@
             <div class="download-app">
               <a href="#">
                 <div class="download-image">
-                  <img src="images/icons/app2.png" alt="Image" class="img-fluid">
+                  <img src="images/icons/app2.png" alt="Image" class="img-fluid"/>
                 </div>
                 <div class="download-info">
                   <span>available on</span>
@@ -1218,7 +1222,7 @@
             <div class="download-app">
               <a href="#">
                 <div class="download-image">
-                  <img src="images/icons/app3.png" alt="Image" class="img-fluid">
+                  <img src="images/icons/app3.png" alt="Image" class="img-fluid"/>
                 </div>
                 <div class="download-info">
                   <span>available on</span>
@@ -1277,7 +1281,7 @@
               <p>Earum cumque doloribus, incidunt! Tempora voluptatibus</p>
               <form class="contact-form" method="post" action="#">
                 <div class="form-group">
-                  <input type="email" class="form-control" required="required" placeholder="Your email Id">
+                  <input type="email" class="form-control" required="required" placeholder="Your email Id"/>
                 </div>
                 <div class="form-group">
                   <button type="submit" class="btn btn-primary">Sign Up</button>
@@ -1304,3 +1308,9 @@
       </div>
     </div>
   </div>
+
+    </div>
+  )
+}
+
+export default EmployeeProfile

@@ -3,7 +3,7 @@ import recommender
 
 app = Flask(__name__)
 
-@app.route('/', methods=['POST', 'GET'])
+@app.route('/profile', methods=['POST', 'GET'])
 def hello_world():
     if request.method == 'POST':
         result = request.form

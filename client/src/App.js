@@ -17,6 +17,7 @@ import Companyuser from './Component/Companyuser';
 import Admin from './Component/Admin'
 import PageNotFound from './Component/PageNotFound';
 import Contact from './Component/Contact/contact';
+import EmployeeProfile from './Component/EmployeeProfile';
 function App() {
   const user=JSON.parse(localStorage.getItem("userbool"));
   const employee=JSON.parse(localStorage.getItem("employeebool"));
@@ -44,6 +45,7 @@ function App() {
         <Route path="/experience" element={<Experience/>}/>
         <Route path="/skill" element={<Skill/>}/>
         <Route path="/resume" element={<Resume/>}/>
+        <Route path="/employeeprofile" element={<EmployeeProfile/>}/>
         <Route path="*" element={<PageNotFound/>} />
     </Routes>
     </BrowserRouter>

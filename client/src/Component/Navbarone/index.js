@@ -97,8 +97,8 @@ const Index = () => {
 
               </div>:<div className="navbar-right">
               <ul className="tr-list">
-             
-                <Button onClick={handlelogout}>LOGOUT</Button>&nbsp;&nbsp;&nbsp;&nbsp;
+              <a onClick={()=>handlelogout()} style={{color:"white"}} class="btn button-cancle">Logout</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                {/* <Button onClick={handlelogout}>LOGOUT</Button> */}
                 
               </ul>
 
@@ -106,8 +106,8 @@ const Index = () => {
 
               <div className="navbar-right">
                 <ul className="tr-list">
-
-                  <Button onClick={handlelogout}>LOGOUT</Button>&nbsp;&nbsp;&nbsp;&nbsp;
+                <a onClick={()=>handlelogout()} style={{color:"white"}} class="btn button-cancle">Logout</a>&nbsp;&nbsp;&nbsp;&nbsp;
+                  {/* <Button >LOGOUT</Button>&nbsp;&nbsp;&nbsp;&nbsp; */}
                   
                   
                 </ul>

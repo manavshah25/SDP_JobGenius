@@ -25,6 +25,8 @@ function Index() {
   loginuserinfo = JSON.parse(loginuserinfo)
   loginuserinfo = loginuserinfo.companyname
   console.log(loginuserinfo)
+  const Navigate = useNavigate();
+
   const [Data, setData] = useState({
     title: "",
     category: "",
@@ -41,7 +43,7 @@ function Index() {
   });
  
 
-  const Navigate = useNavigate();
+
   let handlechange = async (event) => {
     const name = event.target.name;
     const val = event.target.value;
@@ -359,8 +361,7 @@ function Index() {
                     <div class="buttons" style={{ marginTop: "2%" }}>
                       <button type="submit" class="btn btn-primary">
                         Post Your Job</button>
-                      <NavLink to="/" class="btn button-cancle">
-                        Cancel</NavLink>
+                        <a onClick={()=>{Navigate("/")}}  style={{color:"white"}} class="btn button-cancle">Cancel</a>
                     </div>
                   </label>
                 </div>
