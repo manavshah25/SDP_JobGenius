@@ -244,7 +244,7 @@ function Index() {
                     </div>
                     <div class="row exprience-level">
                       <div class="col-sm-3">
-                        <label>Exprience Level</label>
+                        <label>Experience Level</label>
                       </div>
                       <div class="col-sm-9">
                         <FormControl>

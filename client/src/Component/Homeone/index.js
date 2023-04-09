@@ -5,18 +5,18 @@ import { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer } from 'react-toastify';
-
+import { Button } from "@mui/material";
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
 const Index = () => {
   const [post, setPost] = useState({
     g: [],
   });
-  const invalidResume=()=>{
+  const invalidResume = () => {
     toast("Login as a User to create resume")
   }
-  const userbool=JSON.parse(localStorage.getItem("userbool"));
-  const employeebool=JSON.parse(localStorage.getItem("employeebool"));
+  const userbool = JSON.parse(localStorage.getItem("userbool"));
+  const employeebool = JSON.parse(localStorage.getItem("employeebool"));
   const navigate = useNavigate();
   useEffect(() => {
     axios.get("http://localhost:8000/data").then(
@@ -31,9 +31,20 @@ const Index = () => {
     );
   }, []);
   function jobdetailsfunction(id) {
-    localStorage.setItem("id",id);
+    localStorage.setItem("id", id);
     navigate("/jobdetails")
   }
+  // const resumeExist = async () => {
+  //   const res = axios.get("http://localhost:8000/personaldetail")
+  //   //console.log(res)
+  //   let y = await res.json()
+  //   if (y.error) {
+  //     toast(y.err)
+  //   }
+  //   else {
+  //     navigate("/personaldetail")
+  //   }
+  // }
   console.log(post);
   return (
     <div>
@@ -43,7 +54,7 @@ const Index = () => {
           <div className="banner-content text-center">
             <h1>The Easiest Way to Get Your New Job</h1>
             <h2>We offer 12000 jobs vacation right now</h2>
-            <div className="banner-form">
+            {/* <div className="banner-form">
               <form action="#">
                 <input
                   type="text"
@@ -78,7 +89,7 @@ const Index = () => {
                   Search
                 </button>
               </form>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
@@ -260,11 +271,13 @@ const Index = () => {
               </div>
               {/* {console.log(userbool)}
               {console.log(!employeebool)} */}
-              { userbool &&!employeebool  ? 
+              {userbool && !employeebool ?
                 <NavLink to="/personaldetail" className="btn btn-primary pull-right">
                   Add Your Resume
                 </NavLink>
-               : 
+                // <a onClick={resumeExist} className="btn btn-primary pull-right">
+                //   Add Your Resume</a>
+                :
                 <button
                   onClick={invalidResume}
                   className="btn btn-primary pull-right"
@@ -272,7 +285,7 @@ const Index = () => {
                   Add Your Resume
                 </button>
               }
-              <ToastContainer/>
+              <ToastContainer />
             </div>
           </div>
         </div>
@@ -370,10 +383,10 @@ const Index = () => {
                                 </a>
                               </li>
                               <li>
-                                  <a onClick={()=>{(userbool)?jobdetailsfunction(add._id):toast("Login as Seeker")}}><i
-                                    className="fa fa-long-arrow-right"
-                                    aria-hidden="true"
-                                  ></i>
+                                <a onClick={() => { (userbool) ? jobdetailsfunction(add._id) : toast("Login as Seeker") }}><i
+                                  className="fa fa-long-arrow-right"
+                                  aria-hidden="true"
+                                ></i>
                                 </a>
                               </li>
                             </ul>
@@ -559,7 +572,7 @@ const Index = () => {
                   <h1>01 Steps</h1>
                   <h2>Register an account</h2>
                   <p>
-                   Register yourself to brighten your Future with a desired job.
+                    Register yourself to brighten your Future with a desired job.
                   </p>
                 </div>
               </div>
@@ -575,7 +588,7 @@ const Index = () => {
                   <h1>02 Steps</h1>
                   <h2>search your desired job</h2>
                   <p>
-                   Advance us with your Skills to guide you for your Career
+                    Advance us with your Skills to guide you for your Career
                   </p>
                 </div>
               </div>
@@ -591,7 +604,7 @@ const Index = () => {
                   <h1>03 Steps</h1>
                   <h2>Send your resume to employers</h2>
                   <p>
-                   Wonna Create Resume to enchance people's/employees with your skills and talent
+                    Wonna Create Resume to enchance people's/employees with your skills and talent
                   </p>
                 </div>
               </div>
@@ -619,7 +632,7 @@ const Index = () => {
                 <div className="entry-content media-body">
                   <h2 className="entry-title">
                     <a href="https://theconversation.com/why-a-universal-job-guarantee-beats-the-basic-income-pipe-dream-186793">
-                    Why a universal job guarantee beats the basic income pipe dream
+                      Why a universal job guarantee beats the basic income pipe dream
                     </a>
                   </h2>
                   <ul className="entry-meta tr-list">
@@ -631,7 +644,7 @@ const Index = () => {
                       <i className="fa fa-clock-o"></i>{" "}
                       <a href="https://theconversation.com/why-a-universal-job-guarantee-beats-the-basic-income-pipe-dream-186793">July 27, 2022s</a>
                     </li>
-                    
+
                   </ul>
                 </div>
                 <div className="blog-post"></div>
@@ -651,7 +664,7 @@ const Index = () => {
                 <div className="entry-content media-body">
                   <h2 className="entry-title">
                     <a href="https://theconversation.com/effective-job-search-requires-good-emotion-management-152655">
-                    Effective job search requires good emotion management
+                      Effective job search requires good emotion management
                     </a>
                   </h2>
                   <ul className="entry-meta tr-list">
@@ -663,12 +676,12 @@ const Index = () => {
                       <i className="fa fa-clock-o"></i>{" "}
                       <a href="https://theconversation.com/effective-job-search-requires-good-emotion-management-152655">September 17, 2019</a>
                     </li>
-                    
+
                   </ul>
                 </div>
                 <div className="blog-post"></div>
               </div>
-              
+
             </div>
           </div>
         </div>
@@ -687,11 +700,11 @@ const Index = () => {
                     </div>
                     <div className="media-body">
                       <p>
-                      If we all did the things we are capable of, we would literally astound ourselves.
+                        If we all did the things we are capable of, we would literally astound ourselves.
                       </p>
                       <div className="testimonial-title">
                         <h2>Thomas Edison</h2>
-                       
+
                       </div>
                     </div>
                   </div>
@@ -707,11 +720,11 @@ const Index = () => {
                     </div>
                     <div className="media-body">
                       <p>
-                      The most common way people give up their power is by thinking they don't have any.
+                        The most common way people give up their power is by thinking they don't have any.
                       </p>
                       <div className="testimonial-title">
                         <h2>Alice Walker</h2>
-                       
+
                       </div>
                     </div>
                   </div>
@@ -727,11 +740,11 @@ const Index = () => {
                     </div>
                     <div className="media-body">
                       <p>
-                      I always did something I was a little not ready to do. I think that's how you grow. When there's that moment of 'Wow, I'm not really sure I can do this,' and you push through those moments, that's when you have a breakthrough.
+                        I always did something I was a little not ready to do. I think that's how you grow. When there's that moment of 'Wow, I'm not really sure I can do this,' and you push through those moments, that's when you have a breakthrough.
                       </p>
                       <div className="testimonial-title">
                         <h2> Marissa Mayer</h2>
-                    
+
                       </div>
                     </div>
                   </div>
@@ -740,7 +753,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-        <div className="tr-fun-fact section-padding">
+        {/* <div className="tr-fun-fact section-padding">
           <div className="container">
             <div className="fun-fact-content">
               <div className="row text-center">
@@ -789,7 +802,7 @@ const Index = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div> */}
         <div className="tr-download-app bg-image section-padding section-before">
           <div className="container text-center">
             <h1>Download on App Store</h1>

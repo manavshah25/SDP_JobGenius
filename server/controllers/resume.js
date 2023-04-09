@@ -21,9 +21,19 @@ exports.personaldetail=async(req,res)=>{
         // console.log(detail._id)
         let msg=await detail.save();
         console.log(msg)
-        return res.status(200).json({
-            message: "personaldetail register"
-        });
+        // const emailexit = await resumepersonaldetail.findOne({
+        //     email: email
+        //   });
+        //   if(emailexit){
+        //     return res.status(200).json({
+        //         error: "You have already created your Resume"
+        //     });
+        //   }
+        //   else{
+              return res.status(200).json({
+                  message: "personaldetail register"
+              });
+        //   }
     }
     catch(err){
         console.log(err);

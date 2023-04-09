@@ -36,6 +36,19 @@ function Index() {
 
     <div>
       <Navbarone />
+      <div class="tr-breadcrumb bg-image section-before">
+          <div class="container">
+            <div class="breadcrumb-info text-center">
+            <div class="page-title">
+              <h1>Admin Panel</h1>
+              
+            </div>
+
+              
+
+            </div>
+          </div>
+        </div>
       <div  class="cont">
       {post.g.map((add, i) => (
 
@@ -49,18 +62,21 @@ function Index() {
 
 
             <div>
-              <p>{add.salary}{add.jobtype}{add.category}
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti repellat, consequuntur doloribus voluptate esse iure?
+              <p>
+                This job <b>{add.title}</b> is given to employee which is required by our company <b>{add.companyname}</b> which offers you <b>{add.salary}</b>.
+                The employee should  have job of type <b>{add.jobtype}</b> and job of category <b>{add.category}</b>
+                {/* <strong>Job Summary:</strong>{add.jobsummary}<br />
+                <strong>Salary:</strong>{add.salary}<br />
+                <strong>Job Type:</strong>{add.jobtype}<br/>
+                <strong>Job Category:</strong>{add.category}<br/> */}
+               
               </p>
 
-              <div style={{ display: "flex", marginBottom: "-10%" }}>
-                <strong>Deadline&nbsp;</strong> :<h1 style={{ marginTop: "4%", }}>&nbsp;{add.deadlineDate.slice(0, 15)}
-                </h1>
-              </div>
-              <div style={{ display: "flex" }}>
-                <strong>Posted &nbsp;</strong> : <h1 style={{ marginTop: "4%" }}>&nbsp;{add.postedDate.slice(0, 15)}
-                </h1>
-              </div>
+              <p>
+                <strong>Deadline:</strong>{add.deadlineDate.slice(0, 15)}<br/>  
+                <strong>Posted:</strong> {add.postedDate.slice(0, 15)}
+              </p>
+              
               <strong style={{ marginLeft: "-5%" }}>{add.companyname}</strong>
             </div>
           </article>

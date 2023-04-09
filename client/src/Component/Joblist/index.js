@@ -46,15 +46,13 @@ function handleclick(id){
         <div class="container">
           <div class="breadcrumb-info text-center">
             <div class="page-title">
-              <h1>Graphics Designer</h1>
+              <h1>Career Opportunities lists</h1>
+              
             </div>
             <ol class="breadcrumb">
-              <li>
-                <a href="index-2.html">Home</a>
-              </li>
-              <li class="active">Graphics Design</li>
+              <li class="active">A way for your career</li>
             </ol>
-            <div class="banner-form">
+            {/* <div class="banner-form">
               <form action="#">
                 <input
                   type="text"
@@ -85,129 +83,14 @@ function handleclick(id){
                   Search
                 </button>
               </form>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
       <div class="jobs-listing section-padding">
         <div class="container">
-          <div class="job-topbar">
-            <span class="pull-left">Filter jobs by</span>
-            <ul class="nav nav-tabs job-tabs" role="tablist">
-              <li>235 Total jobs</li>
-              <li role="presentation" class="active">
-                <a
-                  href="#four-colum"
-                  aria-controls="four-colum"
-                  role="tab"
-                  data-toggle="tab"
-                >
-                  <i class="fa fa-th" aria-hidden="true"></i>
-                </a>
-              </li>
-              <li role="presentation">
-                <a
-                  href="#two-column"
-                  aria-controls="two-column"
-                  role="tab"
-                  data-toggle="tab"
-                >
-                  <i class="fa fa-th-list" aria-hidden="true"></i>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="list-menu text-center clearfix">
-            <ul class="tr-list">
-              <li class="dropdown tr-change-dropdown">
-                Category:
-                <a data-toggle="dropdown" href="#" aria-expanded="false">
-                  <span class="change-text">Designer</span>
-                  <i class="fa fa-angle-down"></i>
-                </a>
-                <ul class="dropdown-menu tr-change">
-                  <li>
-                    <a href="#">Designer</a>
-                  </li>
-                  <li>
-                    <a href="#">Marketing</a>
-                  </li>
-                  <li>
-                    <a href="#">Developement</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="dropdown tr-change-dropdown">
-                Level:
-                <a data-toggle="dropdown" href="#" aria-expanded="false">
-                  <span class="change-text">Mid</span>
-                  <i class="fa fa-angle-down"></i>
-                </a>
-                <ul class="dropdown-menu tr-change">
-                  <li>
-                    <a href="#">Top Level</a>
-                  </li>
-                  <li>
-                    <a href="#">Mid Level</a>
-                  </li>
-                  <li>
-                    <a href="#">Entry Level</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="dropdown tr-change-dropdown">
-                Org Type:
-                <a data-toggle="dropdown" href="#" aria-expanded="false">
-                  <span class="change-text">Private</span>
-                  <i class="fa fa-angle-down"></i>
-                </a>
-                <ul class="dropdown-menu tr-change">
-                  <li>
-                    <a href="#">Private</a>
-                  </li>
-                  <li>
-                    <a href="#">public</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="dropdown tr-change-dropdown">
-                Location:
-                <a data-toggle="dropdown" href="#" aria-expanded="false">
-                  <span class="change-text">USA</span>
-                  <i class="fa fa-angle-down"></i>
-                </a>
-                <ul class="dropdown-menu tr-change">
-                  <li>
-                    <a href="#">USA</a>
-                  </li>
-                  <li>
-                    <a href="#">London</a>
-                  </li>
-                  <li>
-                    <a href="#">New York</a>
-                  </li>
-                </ul>
-              </li>
-              <li class="dropdown tr-change-dropdown">
-                Salary:
-                <a data-toggle="dropdown" href="#" aria-expanded="false">
-                  <span class="change-text">0 - 50K</span>
-                  <i class="fa fa-angle-down"></i>
-                </a>
-                <ul class="dropdown-menu tr-change">
-                  <li>
-                    <a href="#">0 - 50K</a>
-                  </li>
-                  <li>
-                    <a href="#">50k - 70K</a>
-                  </li>
-                  <li>
-                    <a href="#">70k - 85K</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div>
+          
+         
           <div class="tab-content tr-job-posted">
             <div
               role="tabpanel"
@@ -304,7 +187,7 @@ function handleclick(id){
                         <li><a href="#"><i className="fa fa-heart-o" aria-hidden="true"></i></a></li>
                         <li><a href="#"><i className="fa fa-expand" aria-hidden="true"></i></a></li>
                         <li><a href="#"><i className="fa fa-bookmark-o" aria-hidden="true"></i></a></li>
-                        <li><a href="job-details.html"><i className="fa fa-long-arrow-right" aria-hidden="true"></i></a>
+                        <li><a onClick={()=>{(userbool)?handleclick(add._id):toast("Login as Seeker")}}><i className="fa fa-long-arrow-right" aria-hidden="true"></i></a>
                         </li>
                       </ul>
                     </div>

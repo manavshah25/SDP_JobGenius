@@ -6,7 +6,7 @@ import Signup from "./Component/Signup";
 import{Route,Routes,Navigate,BrowserRouter} from 'react-router-dom';
 import Jobpost from "./Component/Jobpost"
 import Joblist from "./Component/Joblist"
-import Employeeprofile from "./Component/Employeeprofile"
+import Employeerprofile from "./Component/Employeerprofile"
 import Personaldetail from './Component/Resume/Personaldetail';
 import Education from './Component/Resume/Education';
 import Experience from './Component/Resume/Experience';
@@ -37,7 +37,7 @@ function App() {
 
         <Route path='/joblist' exact  element={<Joblist/>}/> 
         {/* <Route path="/joblist" exact element={<Navigate replace to="/login"/>}/> */}
-        <Route path='/employeeprofile' element={<Employeeprofile/>}/>
+        <Route path='/employeerprofile' element={<Employeerprofile/>}/>
         <Route path='/personaldetail' element={<Personaldetail/>}/>
         <Route path="/contact" element={<Contact/>}/>
         <Route path="/education" element={<Education/>}/>
