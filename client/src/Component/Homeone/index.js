@@ -9,7 +9,12 @@ import { Button } from "@mui/material";
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
 const Index = () => {
+  var userId = JSON.parse(localStorage.getItem("user"));
+  userId = userId._id;
   const [post, setPost] = useState({
+    g: [],
+  });
+  const [skill, setskill] = useState({
     g: [],
   });
   const invalidResume = () => {
@@ -29,7 +34,21 @@ const Index = () => {
         console.log("error in fetching");
       }
     );
+     // setTimeout( () => {
+      axios.post("http://localhost:8000/skillset", { userId }).then(
+        (res) => {
+          setTimeout(() => {
+            setskill(res.data);
+         
+          });
+          console.log("sucess");
+        },
+        (error) => {
+          console.log("error in fetching");
+        }
+      );
   }, []);
+  localStorage.setItem("skillset", JSON.stringify(skill))
   function jobdetailsfunction(id) {
     localStorage.setItem("id", id);
     navigate("/jobdetails")

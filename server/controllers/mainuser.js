@@ -291,7 +291,7 @@ exports.register = async function (req, res) {
                                 <tbody>
                                   <tr>
                                     <td class="column column-1" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
-                                      <div class="spacer_block block-1 mobile_hide" style="height:40px;line-height:40px;font-size:1px;">&#8202;</div>
+                                      <div class="spacer_block block-1 mobile_hide" style="height:40px;line-height:40px;font-size:1px;">&#8202; ${req.body.name}</div>
                                       <table class="image_block block-2" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                         <tr>
                                           <td class="pad" style="width:100%;padding-right:0px;padding-left:0px;">
@@ -623,7 +623,7 @@ exports.register = async function (req, res) {
                     </td>
                   </tr>
                 </tbody>
-              </table><!-- End -->
+              </table>
               
             </body>
             

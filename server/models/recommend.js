@@ -1,31 +1,27 @@
-const mongoose=require("mongoose");
-const recommend =new mongoose.Schema({
- companyname:{type:String,require: [true, "Please enter company name"]},
- jobfunction :[
+const mongoose = require("mongoose");
+const recommend = new mongoose.Schema({
+  userId: { type: String, require: [true, "Please enter company name"] },
+  jobfunction: [
     {
-        JavaDev:{
-            type:String
-        },
-        PythonDev:{
-            type:String
-        },
-        FullStackDev:{
-            type:String
-        },
-        UIUXDesginer:{
-            type:String
-        },
-        AndroidDev:{
-            type:String
-        },
+      JavaDev: {
+        type: Number,
+      },
+      PythonDev: {
+        type: Number,
+      },
+      FullStackDev: {
+        type: Number,
+      },
+      UIUXDesginer: {
+        type: Number,
+      },
+      AndroidDev: {
+        type: Number,
+      },
     },
- ],
- title:{type:String,require: [true, "Please enter job title"]},
- 
+  ],
+});
 
-})
+const jobrecommend = mongoose.model("Jobrecommend", recommend);
 
-
-const jobrecommend =mongoose.model("JobDataset",recommend);
-
-module.exports= jobrecommend; 
+module.exports = jobrecommend;

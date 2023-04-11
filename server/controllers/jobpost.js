@@ -227,4 +227,7 @@ exports.updatereject = async function (req, res) {
 
 
 }
-
+exports.jobrecommend=async function(req, res, ) {
+  var jobs=req.body.recommend
+  console.log(jobs)
+}

@@ -11,4 +11,5 @@ router.post("/delete",jobpost_controller.deleteuser);
 router.post("/updateaccept",jobpost_controller.updateaccept);
 router.post("/updatereject",jobpost_controller.updatereject);
 router.post("/companycheck",jobpost_controller.companycheck);
+router.post("/jobrecommend",jobpost_controller.jobrecommend);
 module.exports=router;
