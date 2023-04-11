@@ -88,6 +88,7 @@ const Index = () => {
       if (!y.error) {
         // alert("Login successfully")
         localStorage.setItem("user",u)        
+        localStorage.setItem("useremail",y.loginuser.email)        
         localStorage.setItem("userbool",JSON.stringify(true))        
         localStorage.setItem("employeebool",JSON.stringify(false))        
 

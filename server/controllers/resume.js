@@ -116,24 +116,29 @@ exports.resume=async function(req,res){
     console.log("Resume Display")
     const {email}=req.body
     // console.log(email)
-    const education = await resumeeducation.findOne({
+    const education = await resumeeducation.find({
         Email: email
       });
     console.log(education)
-    const personaldetail = await resumepersonaldetail.findOne({
+    const personaldetail = await resumepersonaldetail.find({
         Email: email
       });
     console.log(personaldetail)
-    const experience = await resumeexperience.findOne({
+    const experience = await resumeexperience.find({
         Email: email
       });
     console.log(experience)
-    const skill = await resumeskills.findOne({
+    const skill = await resumeskills.find({
         Email: email
       });
     console.log(skill)
+
     const obj={
-        personaldetail,education,experience,skill
+        personaldetail: personaldetail,
+        education:education,
+        experience:experience,
+        skill:skill
     }
+    console.log(obj);
     res.status(200).json(obj)
 }

@@ -7,10 +7,12 @@ import DownloadPage from '../DownloadPage';
 
 
 
+
 function Resume() {
-    const email = localStorage.getItem("user");
-    const [current, setcurrent] = useState([]);
-    // const [reducer, setreducer] = useReducer(x=>x+1,0)
+   var  email =localStorage.getItem("useremail");
+
+    const [current, setcurrent] = useState({});
+    // const [reducer, setreducer] = useRedcer(x=>x+1,0)
     const navigate = useNavigate();
     useEffect(() => {
         axios.post("http://localhost:8000/resume", { email }).then(
@@ -26,7 +28,7 @@ function Resume() {
             }
         );
     }, []);
-    console.log(current)
+    console.log(current.g)
     
     
  
@@ -37,8 +39,7 @@ function Resume() {
     return (
         <>
 
-            {current &&
-                (<div class="col" id="resumedownload">
+        <div class="col" id="resumedownload">
                     <div class="all-view section-padding">
                         <div class="container">
                             <div class="section">
@@ -49,10 +50,12 @@ function Resume() {
                                         </div>
                                         <div class="media-body">
                                             <span class="tr-title">Personal Details</span>
-                                            <ul class="tr-list">
-                                                <li><span class="left">FirstName</span><span class="middle">:</span> <span class="right"></span>
+                                            {current.personaldetail?.map((add,i) => (
+                                            
+                                            <ul class="tr-list" key={i}>
+                                                <li><span class="left">FirstName</span><span class="middle">:</span><span class="right">{add.Firstname}</span>
                                                 </li>
-                                                <li><span class="left">LastName</span><span class="middle">:</span> <span class="right"></span></li>
+                                                <li><span class="left">LastName</span><span class="middle">:</span> <span class="right">{add.Lastname}</span></li>
                                                 <li><span class="left">City</span><span class="middle">:</span> <span class="right"></span></li>
                                                 <li><span class="left">Country</span><span class="middle">:</span> <span
                                                     class="right"></span></li>
@@ -60,6 +63,7 @@ function Resume() {
                                                 <li><span class="left">Mobile Number</span><span class="middle">:</span> <span
                                                     class="right"></span></li>
                                             </ul>
+                                            ))}
                                         </div>
                                     </li>
 
@@ -168,7 +172,6 @@ function Resume() {
                         </div>
                     </div>
                 </div>
-            )}
 
 
             {/* <div>

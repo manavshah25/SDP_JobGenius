@@ -19,7 +19,7 @@ function Skill() {
         e.preventDefault();
         // console.log("detail")
         try {
-            const email=localStorage.getItem("user")
+            const email=localStorage.getItem("useremail")
             const {Java,Python,React,ASPNET,dbms} = skill;
             
             const res = await fetch("http://localhost:8000/skill", {

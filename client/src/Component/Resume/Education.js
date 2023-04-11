@@ -20,7 +20,7 @@ function Education() {
         e.preventDefault();
         console.log("detail")
         try {
-            const email=localStorage.getItem("user")
+            const email=localStorage.getItem("useremail")
             const { schoolname,collagename,qualification,yearofgraduation } = edu;
 
             const res = await fetch("http://localhost:8000/education", {

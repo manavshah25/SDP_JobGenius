@@ -9,8 +9,12 @@ import { Button } from "@mui/material";
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from "react-toastify";
 const Index = () => {
+  const userbool = JSON.parse(localStorage.getItem("userbool"));
+  const employeebool = JSON.parse(localStorage.getItem("employeebool"));
   var userId = JSON.parse(localStorage.getItem("user"));
-  userId = userId._id;
+  if(userbool){
+    userId=userId._id}
+ 
   const [post, setPost] = useState({
     g: [],
   });
@@ -20,8 +24,7 @@ const Index = () => {
   const invalidResume = () => {
     toast("Login as a User to create resume")
   }
-  const userbool = JSON.parse(localStorage.getItem("userbool"));
-  const employeebool = JSON.parse(localStorage.getItem("employeebool"));
+ 
   const navigate = useNavigate();
   useEffect(() => {
     axios.get("http://localhost:8000/data").then(
@@ -35,7 +38,8 @@ const Index = () => {
       }
     );
      // setTimeout( () => {
-      axios.post("http://localhost:8000/skillset", { userId }).then(
+    
+      axios.post("http://localhost:8000/skillset", {userId}).then(
         (res) => {
           setTimeout(() => {
             setskill(res.data);
@@ -47,6 +51,7 @@ const Index = () => {
           console.log("error in fetching");
         }
       );
+      
   }, []);
   localStorage.setItem("skillset", JSON.stringify(skill))
   function jobdetailsfunction(id) {
