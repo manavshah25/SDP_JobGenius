@@ -141,7 +141,6 @@ exports.adminuser = async function (req, res) {
   var jobid = req.body.jobid;
   console.log("j")
   console.log(jobid)
-
   const objectdata = await jobmodel.find({ _id: jobid })
   const userlist = objectdata[0].Applieduser
   var retobj = []
