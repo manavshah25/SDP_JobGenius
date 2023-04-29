@@ -2,15 +2,15 @@ import React, { useReducer } from "react";
 import "./user.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 function Index() {
   const [post, setPost] = useState({
     g: [],
   });
-  const [delred, setDelred] = useReducer(x=>x+1,0)
-  const [acceptred, setacceptred] = useReducer(x=>x+1,0)
-  const [rejectred, setrejectred] = useReducer(x=>x+1,0)
-  const nav=useNavigate()
+  const [delred, setDelred] = useReducer(x => x + 1, 0)
+  const [acceptred, setacceptred] = useReducer(x => x + 1, 0)
+  const [rejectred, setrejectred] = useReducer(x => x + 1, 0)
+  const nav = useNavigate()
   const jobid = localStorage.getItem("cuserid");
   useEffect(() => {
     axios
@@ -28,45 +28,45 @@ function Index() {
           console.log("error in fetching");
         }
       );
-  }, [delred,acceptred,rejectred]);
-  var accepted="Accepted"
-  var rejected="Rejected"
-  const handleclickaccept = async(userId) => {
- 
-    const update= await axios.post("http://localhost:8000/updateaccept",{
-        userId,jobid,
-        accepted,
-     
+  }, [delred, acceptred, rejectred]);
+  var accepted = "Accepted"
+  var rejected = "Rejected"
+  const handleclickaccept = async (userId) => {
+
+    const update = await axios.post("http://localhost:8000/updateaccept", {
+      userId, jobid,
+      accepted,
+
     })
-   setacceptred()
+    setacceptred()
   };
-  const handleclickreject= async(userId) => {
- 
-    const update= await axios.post("http://localhost:8000/updatereject",{
-        userId,jobid,
-        rejected,
-    
-   
+  const handleclickreject = async (userId) => {
+
+    const update = await axios.post("http://localhost:8000/updatereject", {
+      userId, jobid,
+      rejected,
+
+
     })
-   setrejectred()
+    setrejectred()
   };
-  const handleclickdelete= async(userId) => {
- 
-    const update= await axios.post("http://localhost:8000/delete",{
-        userId,jobid,
-       
+  const handleclickdelete = async (userId) => {
+
+    const update = await axios.post("http://localhost:8000/delete", {
+      userId, jobid,
+
 
     })
     setDelred()
     console.log(update)
   };
-//   const handleclickdel = async(userId) => {
- 
-//     const update= await axios.post("https://localhost:8000/delete",{
-//      userId,jobid
-//     })
-//     setDelred()
-//   };
+  //   const handleclickdel = async(userId) => {
+
+  //     const update= await axios.post("https://localhost:8000/delete",{
+  //      userId,jobid
+  //     })
+  //     setDelred()
+  //   };
   console.log(post.g);
 
   return (
@@ -121,28 +121,30 @@ function Index() {
                         <td>{add.status}</td>
                         <td>
                           <td>
-                            <a
-                              href="#editEmployeeModal"
-                              class="edit"
-                              data-toggle="modal"
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="16"
-                                height="16"
-                                fill="currentColor"
-                                class="bi bi-eye"
-                                viewBox="0 0 16 16"
+                            { 
+                              <NavLink
+                                to="/resume"
+                                class="edit"
+                                data-toggle="modal"
                               >
-                                <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
-                                <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
-                              </svg>
-                            </a>
+                                <svg
+                                  xmlns="'http://www.w3.org/2000/svg'"
+                                  width="16"
+                                  height="16"
+                                  fill="currentColor"
+                                  class="bi bi-eye"
+                                  viewBox="0 0 16 16"
+                                >
+                                  <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8zM1.173 8a13.133 13.133 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5c2.12 0 3.879 1.168 5.168 2.457A13.133 13.133 0 0 1 14.828 8c-.058.087-.122.183-.195.288-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5c-2.12 0-3.879-1.168-5.168-2.457A13.134 13.134 0 0 1 1.172 8z" />
+                                  <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5zM4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0z" />
+                                </svg>
+                              </NavLink>
+                            }
                             &nbsp; &nbsp;
                             <a
                               href="#deleteEmployeeModal"
                               class="delete"
-                              onClick={()=>handleclickdelete(add[0]._id)}
+                              onClick={() => handleclickdelete(add[0]._id)}
                               data-toggle="modal"
                             >
                               <svg
@@ -161,7 +163,7 @@ function Index() {
                             <a
                               href="#EmployeeModal"
                               class="edit"
-                               onClick={()=>handleclickaccept(add[0]._id)}
+                              onClick={() => handleclickaccept(add[0]._id)}
                               data-toggle="modal"
                             >
                               <svg
@@ -181,7 +183,7 @@ function Index() {
                             <a
                               href="#EmployeeModal"
                               class="delete"
-                           onClick={()=>handleclickreject(add[0]._id)}
+                              onClick={() => handleclickreject(add[0]._id)}
                               data-toggle="modal"
                             >
                               <svg
@@ -202,7 +204,7 @@ function Index() {
                     ))}
                   </tbody>
                 </table>
-              
+
               </div>
             </div>
           </div>
@@ -228,7 +230,7 @@ function Index() {
                     </p>
                   </div>
                   <div class="modal-footer">
-                  <button   data-dismiss="modal"
+                    <button data-dismiss="modal"
                       aria-hidden="true" type="button" class="btn btn-success">OK</button>
                   </div>
                 </form>

@@ -24,6 +24,14 @@ function handleclick(id){
   nav("/jobdetails")
 
 }
+const checksingleResume=()=>{
+  if(localStorage.getItem("singleResume")==null){
+    nav("/personaldetail")
+  }
+  else{
+    toast("Resume Already exists")
+  }
+}
  
   useEffect(() => {
     axios.get("http://localhost:8000/data").then(
@@ -123,8 +131,8 @@ function handleclick(id){
                     </div>
                   </div>
                   <div className="job-info">
-                    <div className="company-logo">
-                      <img src="images/job/1.png" alt="images" className="img-fluid"/>
+                    <div className="company-logo" style={ {width: "50%",height:"10%"}} >
+                      <img src="images/others/company.png" alt="images"  className="img-fluid"/>
                     </div>
                     <span className="tr-title">
                       <a href="#">{add.title}</a>
@@ -193,8 +201,8 @@ function handleclick(id){
                     </div>
                   </div>
                   <div className="job-info">
-                    <div className="company-logo">
-                      <img src="images/job/1.png" alt="images" className="img-fluid"/>
+                  <div className="company-logo" style={ {width: "50%",height:"10%"}} >
+                      <img src="images/others/company.png" alt="images"  className="img-fluid"/>
                     </div>
                     <span className="tr-title">
                       <a href="#">{add.title}</a>

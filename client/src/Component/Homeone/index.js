@@ -53,6 +53,15 @@ const Index = () => {
       );
       
   }, []);
+  const checksingleResume=()=>{
+    
+    if( localStorage.getItem("count")==0){
+      navigate("/personaldetail")
+    }
+    else{
+      toast("Resume Already exists")
+    }
+  }
   localStorage.setItem("skillset", JSON.stringify(skill))
   function jobdetailsfunction(id) {
     localStorage.setItem("id", id);
@@ -296,9 +305,9 @@ const Index = () => {
               {/* {console.log(userbool)}
               {console.log(!employeebool)} */}
               {userbool && !employeebool ?
-                <NavLink to="/personaldetail" className="btn btn-primary pull-right">
+                <a onClick={()=>{checksingleResume()}} style={{color:"white"}} className="btn btn-primary pull-right">
                   Add Your Resume
-                </NavLink>
+                </a>
                 // <a onClick={resumeExist} className="btn btn-primary pull-right">
                 //   Add Your Resume</a>
                 :
@@ -417,13 +426,9 @@ const Index = () => {
                           </div>
                         </div>
                         <div className="job-info">
-                          <div className="company-logo">
-                            <img
-                              src="images/job/1.png"
-                              alt="images"
-                              className="img-fluid"
-                            />
-                          </div>
+                        <div className="company-logo" style={ {width: "50%",height:"10%"}} >
+                      <img src="images/others/company.png" alt="images"  className="img-fluid"/>
+                    </div>
                           <span className="tr-title">
                             <a href="#">{add.title}</a>
                             <span>

@@ -54,6 +54,7 @@ const Index = () => {
         localStorage.setItem("employeebool",JSON.stringify(true))
         localStorage.setItem("userbool",JSON.stringify(false))
         localStorage.setItem("company",y.loginemployee.companyname)
+        
 
         navigate("/")
       }
@@ -91,7 +92,8 @@ const Index = () => {
         localStorage.setItem("useremail",y.loginuser.email)        
         localStorage.setItem("userbool",JSON.stringify(true))        
         localStorage.setItem("employeebool",JSON.stringify(false))        
-
+        // localStorage.setItem("count",localStorage.getItem("count"))
+        // localStorage.setItem("singleResume",null)
         navigate("/")
       }
       else {

@@ -11,7 +11,15 @@ function Skill() {
     const [skill, setSkill] = useState({
         Java:"false",Python:"false",React:"false",ASPNET:"false",dbms:"false"
     })
+    
     const navigate = useNavigate()
+    const checksingleResume=()=>{
+        // var count=0;
+        localStorage.setItem("singleResume",1);
+        // count++;
+        // localStorage.setItem("count",count);
+
+    }
     const handlechangecheck = (event) => {
         setSkill(values=>({...values ,[event.target.name]: event.target.checked}));
     };
@@ -106,7 +114,8 @@ function Skill() {
                                 <div class="section agreement">
                                     <center>
                                         <div class="buttons">
-                                            <button type='submit' className='btn btn-primary' >Proceed Next</button>
+                                            
+                                            <button type='submit' className='btn btn-primary' onClick={checksingleResume} >Proceed Next</button>
                                         </div>
                                     </center>
                                 </div>

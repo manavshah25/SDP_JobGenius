@@ -56,7 +56,7 @@ function Index() {
         <div class="shift"  key={i}>
           <article onClick={() => handleClick(add._id)}>
             <figure>
-              <img alt="A rather marvellous macaw, opening one of its wings to support the cause." src="https://images.pexels.com/photos/2317904/pexels-photo-2317904.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+              <img alt="A rather marvellous macaw, opening one of its wings to support the cause." src="/images/others/person.png" />
             </figure>
             <h2>{add.title}</h2>
 

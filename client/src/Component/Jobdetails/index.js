@@ -50,7 +50,7 @@ function Index() {
           <div class="container">
             <div class="breadcrumb-info text-center">
               <div class="breadcrumb-logo">
-                <img src="images/others/company-logo.png" alt="Logo" class="img-fluid" />
+                <img src="images/others/person.png" alt="Logo" class="img-fluid" />
               </div>
 
               <div>
@@ -118,12 +118,12 @@ function Index() {
                           <div class="pull-left"><i class="fa fa-calendar" aria-hidden="true"></i></div>
                           <div class="media-body"><span>Published:</span>{current[0].postedDate.slice(0, 15)}</div>
                         </li>
-              
+
                         <li class="media">
                           <div class="pull-left"><i class="fa fa-line-chart" aria-hidden="true"></i></div>
                           <div class="media-body"><span>Experience:</span>{current[0].exprience}</div>
                         </li>
-                       
+
                       </ul>
                     </div>
                     <div class="widget cmpany-info">
@@ -132,8 +132,8 @@ function Index() {
                       <p>A Emerging company
                       </p>
                       <ul class="tr-list">
-                  
-                        
+
+
                       </ul>
                       <div class="widget-social">
                         <ul class="tr-list">
