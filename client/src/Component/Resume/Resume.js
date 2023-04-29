@@ -38,6 +38,7 @@ function Resume() {
     }
     return (
         <>
+        <Navbarone/>
 <div class="tr-breadcrumb bg-image section-before">
     <div class="container">
       {current.personaldetail?.map((add,i) => (
@@ -168,7 +169,7 @@ function Resume() {
                                                
                                                     <span>Started At</span>
                                                     <ul class="tr-list">
-                                                    {add.StartDate}
+                                                    {add.StartDate.slice(0, 10)}
 
                                                     </ul>
 
@@ -176,7 +177,7 @@ function Resume() {
                                                 
                                                     <span>Ended At</span>
                                                     <ul class="tr-list">
-                                                     {add.EndDate}
+                                                     {add.EndDate.slice(0, 10)}
                                                     </ul>
 
                                                 </li>

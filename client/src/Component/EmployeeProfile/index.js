@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState,useReducer } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
+import Navbarone from "../Navbarone"
 function Index() {
   var userId = JSON.parse(localStorage.getItem("user"));
   var userinfo=userId;
@@ -90,7 +91,7 @@ console.log(job)
 
   return (
     <>
-
+<Navbarone/>
 <div class="tr-breadcrumb bg-image section-before">
     <div class="container">
       <div class="breadcrumb-info text-center">
@@ -98,14 +99,14 @@ console.log(job)
           <img src="images/others/author.png" alt="Image" class="img-fluid"/>
         </div>
         <div class="user-title">
-          <h1>Jhon Doe</h1>
+          <h1>{userinfo.name}</h1>
         </div>
         <ul class="job-meta tr-list list-inline">
-          <li><i class="fa fa-map-marker" aria-hidden="true"></i>San Francisco, CA, US</li>
-          <li><i class="fa fa-phone" aria-hidden="true"></i>+0123 456 789</li>
+          <li><i class="fa fa-map-marker" aria-hidden="true"></i>India</li>
+          <li><i class="fa fa-phone" aria-hidden="true"></i>xyz-xy-xyz-xy</li>
           <li><i class="fa fa-envelope" aria-hidden="true"></i><a href="#"><span class="__cf_email__"
-                data-cfemail="dcb6b4b3b2b8b3b99cbbb1bdb5b0f2bfb3b1">[email&#160;protected]</span></a></li>
-          <li><i class="fa fa-briefcase" aria-hidden="true"></i>UI & UX Designer</li>
+                data-cfemail="dcb6b4b3b2b8b3b99cbbb1bdb5b0f2bfb3b1">{userinfo.email}</span></a></li>
+          <li><i class="fa fa-briefcase" aria-hidden="true"></i>{userinfo.workstatus}</li>
         </ul>
         <ul class="breadcrumb-social social-icon-bg  tr-list">
           <li><a href="#"><i class="fa fa-facebook"></i><span>Facebook</span></a></li>
@@ -199,13 +200,7 @@ console.log(job)
                   <div class="user-image">
                     <img src="images/others/author.png" alt="Image" class="img-fluid"/>
                   </div>
-                  <div class="upload-photo">
-                    <label class="btn btn-primary" for="upload-photo">
-                      <input type="file" id="upload-photo"/>
-                      Change Photo
-                    </label>
-                    <span class="max-size">Max 20 MB</span>
-                  </div>
+                  
                 </div>
                 <ul class="tr-list account-details">
                   
@@ -217,28 +212,7 @@ console.log(job)
                   <li>Profession<span>{userinfo.workstatus}</span></li>
                 </ul>
               </div>
-              <div class="section">
-                <div class="title title-after">
-                  <div class="icon"><img src="images/icons/3.png" alt="Icon" class="img-fluid"/></div>
-                  <span>Social Link</span>
-                </div>
-                <ul class="social social-icon-bg tr-list">
-                  <li><i class="fa fa-facebook"></i><span class="media-body"><a
-                        href="#">https://www.facebook.com/jhondoe</a></span></li>
-                  <li><i class="fa fa-twitter"></i><span class="media-body"><a
-                        href="#">https://www.twitter.com/jhondoe</a></span></li>
-                  <li><i class="fa fa-google-plus"></i><span class="media-body"><a
-                        href="#">https://www.googleplus.com/jhondoe</a></span></li>
-                  <li><i class="fa fa-linkedin"></i><span class="media-body"><a
-                        href="#">https://www.linkedin.com/jhondoe</a></span></li>
-                  <li><i class="fa fa-dribbble"></i><span class="media-body"><a
-                        href="#">https://www.dribbble.com/jhondoe</a></span></li>
-                  <li><i class="fa fa-behance"></i><span class="media-body"><a
-                        href="#">https://www.behance.com/jhondoe</a></span></li>
-                  <li><i class="fa fa-globe"></i><span class="media-body"><a
-                        href="#">https://www.globe.com/jhondoe</a></span></li>
-                </ul>
-              </div>
+              
             </div>
             <div role="tabpanel" class="tab-pane section" id="resume">
               <ul class="tr-list resume-info">
@@ -1099,17 +1073,17 @@ console.log(job)
                   <div class="left-content">
                     <div class="clearfix">
                       <div class="company-logo">
-                        <img src="images/job/2.png" alt="images" class="img-fluid"/>
+                        <img src="images/others/company.png"style={{width:"40%"}} alt="images" class="img-fluid"/>
                       </div>
                       <span class="tr-title">
-                        <a href="job-details.html">{add[0].title}</a><span><a href="#">Loop</a></span>
+                        <a href="job-details.html">{add[0].title}</a><span><a href="#">{add[0].companyname}</a></span>
                       </span>
-                      <span><a href="#" class="btn btn-primary">Part Time</a></span>
+                      <span><a href="#" class="btn btn-primary">{add[0].jobtype}</a></span>
                     </div>
                     <ul class="tr-list job-meta">
-                      <li><span><i class="fa fa-map-signs" aria-hidden="true"></i></span>San Francisco, CA, US</li>
-                      <li><span><i class="fa fa-briefcase" aria-hidden="true"></i></span>Mid Level</li>
-                      <li><span><i class="fa fa-money" aria-hidden="true"></i></span>$5,000 - $6,000</li>
+                      <li><span><i class="fa fa-map-signs" aria-hidden="true"></i></span>{add[0].category}</li>
+                      <li><span><i class="fa fa-briefcase" aria-hidden="true"></i></span>{add[0].exprience}</li>
+                      <li><span><i class="fa fa-money" aria-hidden="true"></i></span>{add[0].salary}</li>
                     </ul>
                   </div>
                   <div class="right-content">
@@ -1139,7 +1113,7 @@ console.log(job)
    
     {recommend?  (<div style={{padding: '7%'}}>
     <div class="tr-job-posted similar-jobs">
-              <span class="tr-title">Similar Jobs Post</span>
+              <span class="tr-title">Recommended Jobs Based on Skills</span>
               <div class="row">
               {job.g.map((add,i)=>(
               <div key={i}className="col-md-6 col-lg-3">
@@ -1166,8 +1140,8 @@ console.log(job)
                     </div>
                   </div>
                   <div className="job-info">
-                    <div className="company-logo">
-                      <img src="images/job/1.png" alt="images" className="img-fluid"/>
+                    <div className="company-logo"style={{width:"50%"}}>
+                      <img src="images/others/company.png"  alt="images" className="img-fluid"/>
                     </div>
                     <span className="tr-title">
                       <a href="#">{add.title}</a>

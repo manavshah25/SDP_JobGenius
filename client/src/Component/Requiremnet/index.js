@@ -5,7 +5,7 @@ import "./require.css";
 import imgcom from "./logo2.png";
 import { useNavigate } from "react-router-dom";
 function Index() {
-  const Navigate = useNavigate();
+  const navigate = useNavigate();
   var userId = JSON.parse(localStorage.getItem("user"));
   userId = userId._id;
   console.log(userId);
@@ -38,6 +38,8 @@ function Index() {
         }),
       });
       const y = await res.json();
+      if(y)
+        navigate("/")
       // const u = JSON.stringify(y.loginuser);
        console.log(y);
       // if (!y.error) {
@@ -71,7 +73,7 @@ function Index() {
                 <img src={imgcom} />
               </span>
             </div>
-            <div style={{ margin: "10%" }}>
+            <div style={{ margin: "7%" }}>
               <TextField
                 id="filled-basic"
                 onChange={handlechange}
