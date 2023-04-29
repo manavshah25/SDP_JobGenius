@@ -46,7 +46,7 @@ function App() {
         <Route path="/experience" element={<Experience/>}/>
         <Route path="/skill" element={<Skill/>}/>
         <Route path="/resume" element={<Resume/>}/>
-        <Route path="/requiremnet" element={<Requiremnet/>}/>
+        <Route path="/requirement" element={<Requiremnet/>}/>
         <Route path="/employeeprofile" element={<EmployeeProfile/>}/>
         <Route path="*" element={<PageNotFound/>} />
     </Routes>

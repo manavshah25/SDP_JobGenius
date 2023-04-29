@@ -226,7 +226,44 @@ exports.updatereject = async function (req, res) {
 
 
 }
+
 exports.jobrecommend=async function(req, res, ) {
-  var jobs=req.body.recommend
-  console.log(jobs)
+  var jobs=req.body.responseData
+  var recommendjob=[]
+  // console.log(jobs[1][1])
+  for(h in jobs) {
+    var query = await jobmodel.find({ _id: jobs[h][1] });
+    console.log("query");
+    console.log(query);
+    if(query[0]!=null)
+    recommendjob = recommendjob.concat(query[0]);
+  }
+
+
+  console.log("recommendjob")
+  console.log(recommendjob)
+  res.status(201).json(recommendjob);
+}
+exports.appliedjob=async function(req,res)
+{
+  id=req.body.userId;
+  var appliedjob=[]
+  // console.log(jobs[1][1])
+  var query = await User.find({ _id: id });
+  query=query[0].AppliedJobs
+  for(h in query) {
+    var test = await jobmodel.find({ _id: query[h].jobId });
+    var tempstatus = { status: query[h].status };
+    if(test[0]!=null)
+    {
+      const temp={...test,...tempstatus}
+
+    appliedjob = appliedjob.concat(temp);
+    }}
+
+
+console.log("applied job")
+  console.log(appliedjob)
+  res.status(201).json(appliedjob);
+
 }

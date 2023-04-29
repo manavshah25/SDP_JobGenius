@@ -76,7 +76,7 @@ const Index = () => {
                 <li><NavLink to="/joblist">Job List</NavLink></li>
                 <li className="tr-dropdown"><a href="#">Pages</a>
                   <ul className="tr-dropdown-menu tr-list fadeInUp" role="menu">
-                    <li><NavLink >Employee Profile</NavLink></li>
+                    <li><NavLink to="/employeeprofile">Employee Profile</NavLink></li>
                     <li><a onClick={handleProfile}>Employer Profile</a></li>
                     <li><NavLink to="/contact">Contact</NavLink></li>
                     <li><NavLink to="/signup">SIGNUP</NavLink></li>
