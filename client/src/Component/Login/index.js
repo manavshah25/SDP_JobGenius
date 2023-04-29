@@ -92,7 +92,7 @@ const Index = () => {
         localStorage.setItem("useremail",y.loginuser.email)        
         localStorage.setItem("userbool",JSON.stringify(true))        
         localStorage.setItem("employeebool",JSON.stringify(false))        
-        // localStorage.setItem("count",localStorage.getItem("count"))
+        localStorage.setItem("count",0)
         // localStorage.setItem("singleResume",null)
         navigate("/")
       }
