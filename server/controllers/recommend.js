@@ -49,5 +49,8 @@ if(update.length >0){
 exports.skillset = async (req, res) => {
   userId=req.body.userId;
 const obj= await recommendmodel.find({userId: userId});
+if(obj[0]!=null)
 res.status(201).json(obj[0].jobfunction[0]);
+else
+res.status(202)
 };
