@@ -63,7 +63,7 @@ function Index() {
 
             <div>
               <p>
-                This job <b>{add.title}</b> is given to employee which is required by our company <b>{add.companyname}</b> which offers you <b>{add.salary}</b>.
+                This job <b>{add.title}</b> is given to employee which is required by our company <b>{add.companyname}</b> which offers you <b>${add.salary}</b>.
                 The employee should  have job of type <b>{add.jobtype}</b> and job of category <b>{add.category}</b>
                 {/* <strong>Job Summary:</strong>{add.jobsummary}<br />
                 <strong>Salary:</strong>{add.salary}<br />
