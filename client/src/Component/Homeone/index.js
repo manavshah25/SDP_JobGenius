@@ -426,9 +426,11 @@ const Index = () => {
                           </div>
                         </div>
                         <div className="job-info">
+                        <center>
                         <div className="company-logo" style={ {width: "50%",height:"10%"}} >
                       <img src="images/others/company.png" alt="images"  className="img-fluid"/>
                     </div>
+                    </center>
                           <span className="tr-title">
                             <a href="#">{add.title}</a>
                             <span>

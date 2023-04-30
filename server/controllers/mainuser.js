@@ -1,6 +1,7 @@
 const registermodel = require('../models/register');
 const bcrypt = require("bcryptjs");
 var nodemailer = require('nodemailer');
+
 exports.register = async function (req, res) {
 
 

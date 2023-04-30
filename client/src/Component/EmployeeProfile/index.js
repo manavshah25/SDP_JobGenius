@@ -1072,9 +1072,11 @@ console.log(job)
                 <div class="job-info">
                   <div class="left-content">
                     <div class="clearfix">
+                    <center>
                       <div class="company-logo">
                         <img src="images/others/company.png"style={{width:"40%"}} alt="images" class="img-fluid"/>
                       </div>
+                      </center>
                       <span class="tr-title">
                         <a href="job-details.html">{add[0].title}</a><span><a href="#">{add[0].companyname}</a></span>
                       </span>

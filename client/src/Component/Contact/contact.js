@@ -1,6 +1,53 @@
 import React from "react";
 import Navbarone from "./../Navbarone";
+import { useState } from "react";
+
+import { ToastContainer } from 'react-toastify';
+
+import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
 function Contact() {
+  const [contact,setContact]=useState({fullname:"",email:"",subject:"",message:""})
+  const handleContact = ({ currentTarget: input }) => {
+
+    setContact({ ...contact, [input.name]: input.value });
+   
+
+  }
+  const handleSubmit=async(e)=>{
+    e.preventDefault();
+    console.log("handle")
+
+    try {
+      const { fullname, email, subject,message} = contact;
+      
+      
+        const res = await fetch("http://localhost:8000/contact", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            fullname, email, subject,message
+          }),
+        });
+        console.log(res)
+        var mes = await res.json()
+        if (mes.error) {
+          console.error(mes.error)
+          toast(mes.error)
+        } else {
+
+          console.log(mes.message);
+          toast("Your message is deleivered")
+        }
+      
+      // navigate("/login")
+    }
+    catch (err) {
+      console.log(err);
+    }
+  }
   return (
     <>
       <Navbarone />
@@ -32,13 +79,16 @@ function Contact() {
                     available, but the majority have suffered alteration in some
                     form, by injected humour, or randomised words
                   </p>
-                  <form action="#" class="tr-form">
+                  <form onSubmit={handleSubmit} class="tr-form">
                     <div class="row">
                       <div class="col-sm-6">
                         <input
                           type="text"
                           class="form-control"
                           required="required"
+                          name="fullname"
+                          value={contact.fullname}
+                          onChange={handleContact}
                           placeholder="Full Name"
                         />
                       </div>
@@ -48,6 +98,9 @@ function Contact() {
                           class="form-control"
                           required="required"
                           placeholder="Email Address"
+                          name="email"
+                          value={contact.email}
+                          onChange={handleContact}
                         />
                       </div>
                     </div>
@@ -57,15 +110,20 @@ function Contact() {
                         class="form-control"
                         required="required"
                         placeholder="Subject"
+                        name="subject"
+                        value={contact.subject}
+                        onChange={handleContact}
                       />
                     </div>
                     <div class="form-group">
                       <textarea
-                        name="message"
                         class="form-control"
                         required="required"
                         rows="5"
                         placeholder="Message"
+                        name="message"
+                        value={contact.message}
+                        onChange={handleContact}
                       ></textarea>
                     </div>
                     <div class="form-group">
