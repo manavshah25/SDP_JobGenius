@@ -76,7 +76,7 @@ const Index = () => {
               {/* {employeebool?(checkpostjob)?<NavLink to="/adminpanel">Admin Panel</NavLink>:toast("You need to First Post Job for viewing Admin Panel"):<></>} */}
                 <li>{employeebool?<NavLink onClick={checkpostjob}>Admin Panel</NavLink>:<></>}</li>
                 <li><NavLink to="/joblist">Job List</NavLink></li>
-                <li className="tr-dropdown"><a href="#"><img width="30%"  src="images/others/human.png"></img></a>
+                <li className="tr-dropdown"><a href="#">Pages</a>
                   <ul className="tr-dropdown-menu tr-list fadeInUp" role="menu">
                     <li><a  style={{color:"black",cursor:"pointer"}} onClick={()=>handleEmpProfile()} >Employee Profile</a></li>
                     <li><a style={{color:"black",cursor:"pointer"}} onClick={()=>handleProfile()}>Employer Profile</a></li>
