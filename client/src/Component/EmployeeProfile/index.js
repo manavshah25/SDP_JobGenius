@@ -132,16 +132,12 @@ console.log(job)
                       class="fa fa-user-o" aria-hidden="true"></i></span> My Resume</a></li>
               <li role="presentation"><NavLink to="/requirement" aria-controls="edit-resume" role="tab"
                   data-toggle="tab"><span><i class="fa fa-pencil-square-o" aria-hidden="true"></i></span>Prerequisite abilities</NavLink></li>
-              <li role="presentation"><a href="#bookmark" aria-controls="bookmark" role="tab" data-toggle="tab"><span><i
-                      class="fa fa-bookmark-o" aria-hidden="true"></i></span> Bookmark</a></li>
+              
               <li role="presentation"><a href="#archived" aria-controls="archived" role="tab" data-toggle="tab"><span><i
                       class="fa fa-clone" aria-hidden="true"></i></span> Archived Apply Job</a></li>
-              <li role="presentation"><a href="#close-account" aria-controls="close-account" role="tab"
-                  data-toggle="tab"><span><i class="fa fa-scissors" aria-hidden="true"></i></span> Close Account</a>
-              </li>
+              
             </ul>
-            <a href="#" class="btn btn-primary"><i class="fa fa-cloud-download" aria-hidden="true"></i> <span>Download
-                Resume as doc</span></a>
+           
           </div>
         </div>
         <div class="col-md-8 col-lg-9">
@@ -184,13 +180,7 @@ console.log(job)
                   </div>
                 </div>
               </div>
-              <div class="section resume-last-updated">
-                <span class="icon pull-left"><img src="images/icons/1.png" alt="Icon" class="img-fluid"/></span>
-                <div class="updated-info">
-                  <span class="pull-left">Resume last updated on</span>
-                  <span class="pull-right">24/4/2017</span>
-                </div>
-              </div>
+              
               <div class="section display-information">
                 <div class="title title-after">
                   <div class="icon"><img src="images/icons/2.png" alt="Icon" class="img-fluid"/></div>
