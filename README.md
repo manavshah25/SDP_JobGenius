@@ -1,2 +1,2 @@
-# Local_JobGenius
+# JobGenius
 MERN Stack
