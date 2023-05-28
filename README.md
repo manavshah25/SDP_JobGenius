@@ -1,2 +1,2 @@
 # JobGenius
-MERN Stack
+MERN Stack + Flask
