@@ -13,3 +13,6 @@ This site is created for managing user-friendly communication between Company an
 - Backend : NodeJS, ExpressJS
 - Frameworks : MaterialUI, Flask, BootStrap
 - Database : MongoDB
+
+# Demo Link 
+- https://drive.google.com/file/d/1si30SN0Efq6TZ2KghvhfXeTEoilSqcmh/view?usp=sharing
