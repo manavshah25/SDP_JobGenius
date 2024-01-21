@@ -8,8 +8,7 @@ CORS(app)
 def hello_world():
     if request.method == 'POST':
         result = request.json
-        print("manav")
-        print(result)
+       
         
         requirement = {"REQUIREMENT": {
             "JavaDev": int(result['set']['JavaDev']),
@@ -19,8 +18,7 @@ def hello_world():
             "AndroidDev": int(result['set']['AndroidDev'])}}
         num_of_candidate = 5
         result = recommender.topMatches(requirement, recommender.dataFrame, "REQUIREMENT", num_of_candidate)
-        print("helloji")
-        print(result)
+        
         return jsonify(result)
         # return render_template("index.html", result=result)
     return "no results"
